@@ -1,0 +1,206 @@
+
+/* 
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Sarpanch', sans-serif;
+font-family: 'Urbanist', sans-serif;
+font-family: 'Antic Didone', serif;
+ */
+
+/* Nav Style */
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+    border-radius: 2px;
+    border-bottom: 3px solid #3FA3C8;
+}
+#navLinks{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    list-style: none;
+    padding: 0;
+    align-items: center;
+}
+#navLinks li{
+    flex-grow: 1;
+}
+#navLinks li > a{
+    color: black;
+    text-decoration: none;
+}
+#titleContainer{
+    position: absolute;
+    float: left;
+    z-index: 1;
+    background-color: #fafaf9;
+    border: 2px solid #3FA3C8;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 1%;
+    padding: .5%;
+    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+}
+#buttonContainer{
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#buttonContainer > button{
+    margin: 3%;
+    height: 45%;
+    width: 40%;
+}
+button{
+    background-color: #83bdd7;
+    border: 2px solid #077bae;
+    border-radius: 6px;
+    color: white;
+}
+
+    /* Dropdown Button */
+    .dropbtn{
+        border: none;
+        cursor: pointer;
+    }
+    .dropdown{
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+    .dropdown-content{
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background-color: white;
+        border: 2px solid #83bdd7;
+        border-radius: 5px;
+        padding: .75%;
+    }
+    .dropdown-content a{
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown-content a:hover {
+        background-color: yellow;
+    }
+    .show{
+        display: block;
+    }
+
+/* Hook Style */
+.homepageSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5% 0%;
+}
+.homepageSection img{
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2%;
+    box-shadow: 0 30px 40px rgba(0,0,0,.3);
+}
+.homepageTextContainer{
+    width: 40%;
+}
+#hook{
+    background-color: #fafaf9;
+    padding-top: 12%;
+}
+#demo1{
+    align-items: center;
+}
+#demo2{
+    align-items: center;
+    background-color: #fafaf9;
+}
+#demo3{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+#reel{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #3FA3C8;
+    background-color: #fafaf9;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0% 10%;
+}
+#reelContainer{
+    display: flex;
+    width: 50%;
+    height: 15%;
+    justify-content: space-between;
+}
+#reel button{
+    font-size: 1.2em;
+    width: 45%;
+    height: 40px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5%;
+}
+footer ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    margin: 1% 0%;
+}
+footer ul li{
+    justify-content: space-between;
+    width: 33%;
+    list-style-type: none;
+}
+#socials{
+    background-color: #fafaf9;
+}
+#socials li{
+    width: 15%;
+}
+
+/* Styles */
+#title{
+    font-family: 'Sarpanch', sans-serif;
+    margin: 1% 0%;
+    line-height: 1.5em;
+}
+button{
+    font-family: 'Sarpanch', sans-serif;
+}
+strong{
+    font-weight: bold;
+    font-size: 1.25em;
+}
+h2{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.5em;
+}
+h3{
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1.5em;
+}
+p, span, li{
+    font-family: 'Antic Didone', serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+#demo1List li{
+    list-style-type: disc;
+}
+footer a{
+    text-decoration: none;
+}
