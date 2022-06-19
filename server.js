@@ -7,9 +7,30 @@ const PORT = process.env.PORT || 3000
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
     res.render('homePage.ejs')
+})
+
+app.get('/login', (req, res) => {
+    res.render('login.ejs')
+})
+
+app.post('/signin', (req, res) => {
+    let userName = req.body.username
+    let passWord = req.body.password
+    res.send(`Username: ${userName} Password: ${passWord}`)
+})
+
+app.post('/signup', (req, res) => {
+    let userName = req.body.newusername
+    let passWord = req.body.newpassword
+    res.send(`Username: ${userName} Password: ${passWord}`)
+})
+
+app.get('/pricing', (req, res) => {
+    res.render('pricing.ejs')
 })
 
 app.listen(PORT, (req, res) => {

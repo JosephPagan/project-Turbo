@@ -14,6 +14,7 @@ nav{
     width: 100%;
     border-radius: 2px;
     border-bottom: 3px solid #3FA3C8;
+    animation: 1s ease-out 0s 1 slideInFromTop;
 }
 #navLinks{
     display: flex;
@@ -34,13 +35,20 @@ nav{
     position: absolute;
     float: left;
     z-index: 1;
+    width: 30%;
+    height: auto;
     background-color: #fafaf9;
     border: 2px solid #3FA3C8;
     border-radius: 10px;
     margin-top: 1%;
     margin-left: 1%;
     padding: .5%;
-    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+    box-shadow: 0 30px 40px rgba(0,0,0,.15);
+    text-align: center;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+#titleContainer:hover{
+    box-shadow: 0 5px 10px #3FA3C8;
 }
 #buttonContainer{
     width: 20%;
@@ -48,10 +56,23 @@ nav{
     justify-content: space-around;
     align-items: center;
 }
-#buttonContainer > button{
+.navButton, .bodyButton{
     margin: 3%;
     height: 45%;
     width: 40%;
+    background-color: #83bdd7;
+    border: 2px solid #077bae;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 2.8%;
+}
+.navButton:hover, .bodyButton:hover{
+    box-shadow: 0 5px 10px #3FA3C8;
+}
+.bodyButton{
+    padding: 1%;
 }
 button{
     background-color: #83bdd7;
@@ -59,10 +80,14 @@ button{
     border-radius: 6px;
     color: white;
 }
+button:hover{
+    box-shadow: 0 5px 10px #3FA3C8;
+    cursor: pointer;
+}
 
     /* Dropdown Button */
     .dropbtn{
-        border: none;
+        padding: 1%;
         cursor: pointer;
     }
     .dropdown{
@@ -76,18 +101,34 @@ button{
         z-index: 1;
         background-color: white;
         border: 2px solid #83bdd7;
-        border-radius: 5px;
+        border-radius: 8px;
         padding: .75%;
+        width: 45%;
+        height: 55%;
     }
     .dropdown-content a{
         text-decoration: none;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 33%;
+        width: 50%;
+        color: black;
+        cursor: pointer;
     }
     .dropdown-content a:hover {
-        background-color: yellow;
+        color: #83bdd7;
     }
     .show{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .dropdown-content a > img{
+        width: 100px;
+        height: 100px;
     }
 
 /* Hook Style */
@@ -123,7 +164,7 @@ button{
     align-items: center;
     text-align: center;
 }
-#reel{
+#reel, #login, #signin{
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -133,7 +174,12 @@ button{
     width: 80%;
     margin: 0% 10%;
 }
-#reelContainer{
+#login, #signin{
+    margin-top: 10%;
+    margin-bottom: 5%;
+    height: 14em;
+}
+#reelContainer, #loginContainer{
     display: flex;
     width: 50%;
     height: 15%;
@@ -166,23 +212,50 @@ footer ul li{
 }
 #socials{
     background-color: #fafaf9;
+    border-top: 3px solid #3FA3C8;
 }
 #socials li{
     width: 15%;
+}
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 50%;
+}
+#login > h2, #signin > h2{
+    margin-top: 1%;
+}
+form > input{
+    width: 65%;
+    height: 22%;
+    margin: 2.5%;
+    border-radius: 6px;
+    border: 2px solid grey;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+}
+form button{
+    width: 100%;
+    height: 45%;
+    margin: 3%;
 }
 
 /* Styles */
 #title{
     font-family: 'Sarpanch', sans-serif;
     margin: 1% 0%;
-    line-height: 1.5em;
+    line-height: 1.1em;
 }
-button{
+a, button{
+    font-size: 1em;
     font-family: 'Sarpanch', sans-serif;
+    text-decoration: none;
+    color: black;
 }
 strong{
     font-weight: bold;
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 h2{
     font-family: 'Rajdhani', sans-serif;
@@ -193,8 +266,8 @@ h3{
     font-size: 1.5em;
 }
 p, span, li{
-    font-family: 'Antic Didone', serif;
-    font-size: 1.2em;
+    font-family: 'Poiret One', cursive;
+    font-size: 1.3em;
     font-weight: bold;
     line-height: 1.5em;
 }
@@ -203,4 +276,23 @@ p, span, li{
 }
 footer a{
     text-decoration: none;
+    color: black;
+}
+
+/* Animations */
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
 }
