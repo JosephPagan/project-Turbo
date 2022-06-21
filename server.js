@@ -20,7 +20,8 @@ app.get('/login', (req, res) => {
 app.post('/signin', (req, res) => {
     let userName = req.body.username
     let passWord = req.body.password
-    res.send(`Username: ${userName} Password: ${passWord}`)
+    console.log(`Username: ${userName} Password: ${passWord}`)
+    res.render('dashboard.ejs')
 })
 
 app.post('/signup', (req, res) => {
@@ -35,6 +36,10 @@ app.get('/pricing', (req, res) => {
 
 app.get('/company', (req, res) => {
     res.render('company.ejs')
+})
+
+app.get('/dashboard', (req, res) => {
+    res.render('dashboard.ejs')
 })
 
 app.listen(PORT, (req, res) => {

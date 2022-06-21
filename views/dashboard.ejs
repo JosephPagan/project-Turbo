@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GearHead - Homepage</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Rajdhani:wght@300;400&family=Sarpanch&family=Urbanist:ital,wght@1,100&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="homepageStyle.css">
+        <link rel="stylesheet" href="dashboardStyle.css">
+    </head>    
+    <body>
+        <a href="/dashboard"><section id="titleContainer">
+            <img src="gearHead01.jpeg" id="dashboardLogo" alt="dashboard logo image">
+       </section></a>
+        <nav>
+                <ul id="mainDash">
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Point of Sale</a></li>
+                    <li><a href="#">Appointments</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Employees</a></li>
+                    <li><a href="#">Customers</a></li>
+                    <li><a href="#">Reporting</a></li>
+                </ul>
+            
+            <section id="buttonContainer">
+                <a href="#" id="accountLink" class="navButton">Account</a>
+                <a href="/" id="signout" class="navButton">Sign Out</a>
+            </section>
+        </nav>
+
+        <section id="dashSquares">
+            <section id="activeJobs" class="dashSquare">
+                <h2 class="dashTitle">Active Jobs</h2>
+                <div class="dashDataContainer">
+
+                </div>
+            </section>
+            <section id="upcomingJobs" class="dashSquare">
+                <h2 class="dashTitle">Upcoming Jobs</h2>
+                <div class="dashDataContainer">
+
+                </div>
+            </section>
+            <section id="employees" class="dashSquare">
+                <h2 class="dashTitle">Employees</h2> 
+                <div class="dashDataContainer">
+
+                </div>
+            </section>
+            <section id="quickReports" class="dashSquare">
+                <h2 class="dashTitle">Quick Reports</h2>
+                <div class="dashDataContainer">
+
+                </div>
+            </section>
+        </section>
+ 
+
+        <footer>
+            <ul>
+                <li><a href="/company">Company</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+            <section id="socials">
+                <ul>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>FaceBook</li>
+                </ul>
+            </section>
+        </footer>
+        <script src='/homepageScript.js'></script>
+    </body>
+</html>

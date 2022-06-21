@@ -1,0 +1,56 @@
+/* 
+font-family: 'Rajdhani', sans-serif;
+font-family: 'Sarpanch', sans-serif;
+font-family: 'Urbanist', sans-serif;
+font-family: 'Antic Didone', serif;
+ */
+
+/* Nav Style */
+#dashboardLogo{
+    width: 80px;
+}
+#titleContainer{
+    width: 9%;
+    background-color: white;
+}
+#mainDash{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 68%;
+    padding: 0;
+}
+#dashSquares{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 80%;
+    width: 95%;
+    margin: 8% 2.5% 0% 2.5%;
+}
+.dashSquare{
+    text-align: center;
+    width: 48%;
+    height: 500px;
+    border: 2px solid #3FA3C8;
+    background-color: #fafaf9;
+    border-radius: 10px;
+    margin: 0% .5% 3% .5%;
+}
+.dashDataContainer{
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    background-color: white;
+    height: 75%;
+    width: 95%;
+    margin: 0 2.5%;
+}
+#activeJobs, #employees{
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+#upcomingJobs, #quickReports{
+    animation: 1s ease-out 0s 1 slideInFromRight;
+}
