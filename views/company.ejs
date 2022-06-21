@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GearHead - Company</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Rajdhani:wght@300;400&family=Sarpanch&family=Urbanist:ital,wght@1,100&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="homepageStyle.css">
+    </head>    
+    <body>
+        <a href="/"><section id="titleContainer">
+            <h1 id="title"><strong>GearHead</strong> <br>Shop Management System</h1> 
+       </section></a>
+        <nav>
+            <ul id="navLinks">
+                <li>
+                    <button onclick="dropDownFunction()" class="dropbtn">Application</button>
+                    <div id="appDropdown" class="dropdown-content">
+                        <a href="#" id="estimates">Estimates
+                            <img src="estimatesIcon.jpeg">
+                        </a>
+                        <a href="#" id="communications">Communications
+                            <img src="communicationIcon01.jpeg">
+                        </a>
+                        <a href="#" id="paymentProcessing">Payment Processing
+                            <img src="paymentIcon.jpeg">
+                        </a>
+                        <a href="#" id="workflow">Workflow
+                            <img src="workflowIcon01.jpeg">
+                        </a>
+                        <a href="#" id="teamManagement">Team Management
+                            <img src="teamManagementIcon.jpeg">
+                        </a>
+                        <a href="#" id="reporting">Reporting
+                            <img src="reportingIcon.jpeg">
+                        </a>
+                    </div>
+                </li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/company">Company</a></li>
+            </ul>
+            <section id="buttonContainer">
+                <a href="/login" id="loginLink" class="navButton">Sign In</a>
+                <a href="/login#signin" id="signupLink" class="navButton">Sign Up</a>
+            </section>
+        </nav>
+
+        <section class="homepageSection pricing">
+            <h2>GearHead</h2>
+            <section>
+                <p>GearHead is all about speed, efficiency, and advancement. Incorporating technology in the auto engineering world is our aim. <br>
+                Our experience and love for racing means we know the importance of every second spent on a job. Allow GearHead</p>
+            </section>
+        </section>
+ 
+
+        <footer>
+            <ul>
+                <li><a href="/company">Company</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+            <section id="socials">
+                <ul>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>FaceBook</li>
+                </ul>
+            </section>
+        </footer>
+
+        <script src='/homepageScript.js'></script>
+    </body>
+</html>

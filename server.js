@@ -33,6 +33,10 @@ app.get('/pricing', (req, res) => {
     res.render('pricing.ejs')
 })
 
+app.get('/company', (req, res) => {
+    res.render('company.ejs')
+})
+
 app.listen(PORT, (req, res) => {
     console.log(`Server is running on port ${PORT}.`)
 })

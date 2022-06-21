@@ -75,10 +75,9 @@ nav{
     padding: 1%;
 }
 button{
-    background-color: #83bdd7;
-    border: 2px solid #077bae;
     border-radius: 6px;
-    color: white;
+    border: none;
+    background-color: inherit;
 }
 button:hover{
     box-shadow: 0 5px 10px #3FA3C8;
@@ -105,6 +104,10 @@ button:hover{
         padding: .75%;
         width: 45%;
         height: 55%;
+        -webkit-animation: fadeInFromNone 0.5s ease-out;
+        -moz-animation: fadeInFromNone 0.5s ease-out;
+        -o-animation: fadeInFromNone 0.5s ease-out;
+        animation: fadeInFromNone 0.5s ease-out;
     }
     .dropdown-content a{
         text-decoration: none;
@@ -130,13 +133,20 @@ button:hover{
         width: 100px;
         height: 100px;
     }
-
-/* Hook Style */
+    
 .homepageSection{
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 5% 0%;
+
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1.25s all ease;
+}
+.homepageSection.active{
+    transform: translateY(0);
+    opacity: 1;
 }
 .homepageSection img{
     width: 40%;
@@ -164,7 +174,7 @@ button:hover{
     align-items: center;
     text-align: center;
 }
-#reel, #login, #signin{
+#reel, #login, #signin, .pricing{
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -189,6 +199,65 @@ button:hover{
     font-size: 1.2em;
     width: 45%;
     height: 40px;
+}
+.pricing{
+    margin-top: 10%;
+}
+#titlePlan:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url("homepageImage09.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#plan1:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url("digitalCar07.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#plan2:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url("digitalCar04.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#plan3:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url("digitalCar02.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 footer{
     display: flex;
@@ -241,7 +310,7 @@ form button{
     margin: 3%;
 }
 
-/* Styles */
+/* =============== Styles =============== */
 #title{
     font-family: 'Sarpanch', sans-serif;
     margin: 1% 0%;
@@ -279,7 +348,7 @@ footer a{
     color: black;
 }
 
-/* Animations */
+/* =========== Animations ================= */
 @keyframes slideInFromLeft {
     0% {
       transform: translateX(-100%);
@@ -294,5 +363,78 @@ footer a{
     }
     100% {
       transform: translateY(0);
+    }
+}
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+/* 
+.parent:hover .child{
+    display: block;
+
+    -webkit-animation: fadeInFromNone 0.5s ease-out;
+    -moz-animation: fadeInFromNone 0.5s ease-out;
+    -o-animation: fadeInFromNone 0.5s ease-out;
+    animation: fadeInFromNone 0.5s ease-out;
+} */
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
     }
 }
