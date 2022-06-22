@@ -23,12 +23,17 @@ nav{
     list-style: none;
     padding: 0;
     align-items: center;
+    margin: 0;
 }
 #navLinks li{
     flex-grow: 1;
 }
 #navLinks li > a{
     color: black;
+    text-decoration: none;
+}
+#navLinks li > a:hover{
+    color: #3FA3C8;
     text-decoration: none;
 }
 #titleContainer{
@@ -56,6 +61,9 @@ nav{
     justify-content: space-around;
     align-items: center;
 }
+#buttonContainer a:hover{
+    text-decoration: none;
+}
 .navButton, .bodyButton{
     margin: 3%;
     height: 45%;
@@ -66,7 +74,7 @@ nav{
     color: white;
     text-decoration: none;
     text-align: center;
-    padding-top: 2.8%;
+    padding-top: 0;
 }
 .navButton:hover, .bodyButton:hover{
     box-shadow: 0 5px 10px #3FA3C8;
@@ -88,6 +96,7 @@ button:hover{
     .dropbtn{
         padding: 1%;
         cursor: pointer;
+        width: 70%;
     }
     .dropdown{
         position: relative;
@@ -317,8 +326,12 @@ form button{
     margin: 1% 0%;
     line-height: 1.1em;
 }
-a, button{
-    font-size: 1em;
+#homeLink{
+    text-decoration: none;
+    color: black;
+}
+nav a, nav button, #reelContainer a{
+    font-size: 1.1em;
     font-family: 'Sarpanch', sans-serif;
     text-decoration: none;
     color: black;
@@ -329,7 +342,7 @@ strong{
 }
 h2{
     font-family: 'Rajdhani', sans-serif;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 h3{
     font-family: 'Urbanist', sans-serif;
@@ -337,7 +350,7 @@ h3{
 }
 p, span, li{
     font-family: 'Poiret One', cursive;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: bold;
     line-height: 1.5em;
 }
@@ -372,6 +385,14 @@ footer a{
     }
     100% {
       transform: translateX(0);
+    }
+}
+@keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
     }
 }
 /* 

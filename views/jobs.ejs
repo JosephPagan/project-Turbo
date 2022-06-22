@@ -42,11 +42,71 @@
         </nav>
 
         <section id="dashSquares">
-            <section id="activeJobs" class="dashSquare">
+            <section id="enterJobs" class="dashSquare">
+                <h2 class="dashTitle">Add Job</h2>
+                <label for="date-dropdown">Car Year</label>
+                <select id='date-dropdown' form="addJobForm">
+                </select>
+                <label for="carmake">Car Make</label>
+                <select id="carmake" name="carMakeList" form="addJobForm" onchange="runCarApi(this.value)">
+                    <option value="acura">Acura</option>
+                    <option value="alfa-romeo">Alfa Romeo</option>
+                    <option value="audi">Audi</option>
+                    <option value="bmw">BMW</option>
+                    <option value="bentley">Bentley</option>
+                    <option value="buick">Buick</option>
+                    <option value="cadillac">Cadillac</option>
+                    <option value="chevrolet">Chevrolet</option>
+                    <option value="chrysler">Chrysler</option>
+                    <option value="dodge">Dodge</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="ford">Ford</option>
+                    <option value="gmc">GMC</option>
+                    <option value="genesis">Genesis</option>
+                    <option value="honda">Honda</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="infiniti">Infiniti</option>
+                    <option value="jaguar">Jaguar</option>
+                    <option value="jeep">Jeep</option>
+                    <option value="kia">Kia</option>
+                    <option value="land-rover">Land Rover</option>
+                    <option value="lexus">Lexus</option>
+                    <option value="lincoln">Lincoln</option>
+                    <option value="lotus">Lotus</option>
+                    <option value="lucid">Lucid</option>
+                    <option value="maserati">Maserati</option>
+                    <option value="mazda">Mazda</option>
+                    <option value="mercedes-benz">Mercedes-Benz</option>
+                    <option value="mercury">Mercury</option>
+                    <option value="mini">Mini</option>
+                    <option value="mitsubishi">Mitsubishi</option>
+                    <option value="nissan">Nissan</option>
+                    <option value="polestar">Polestar</option>
+                    <option value="pontiac">Pontiac</option>
+                    <option value="rivian">Rivian</option>
+                    <option value="rolls-royce">Acura</option>
+                    <option value="saab">Saab</option>
+                    <option value="saturn">Saturn</option>
+                    <option value="scion">Scion</option>
+                    <option value="smart">Smart</option>
+                    <option value="subaru">Subaru</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="tesla">Tesla</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="volkswagon">Volkswagon</option>
+                    <option value="volvo">Volvo</option>
+                </select>
+                <form id="addJobForm">
+                    <input type="text" name="customerName" placeholder="Customer Name">
+                    <input type="text" name="customerCar" placeholder="Customer Car">
+                    <button type="submit" name="submitJob">Add</button>
+                </form>
+            </section>
+            <section id="activeJobs-jobs" class="dashSquare">
                 <h2 class="dashTitle">Active Jobs</h2>
                 <ul class="dashDataContainer">
                     <li><a href="#">
-                        <div class="infoDisplay">
+                        <div>
                             <h3>Job #1</h3>
                             <h4>Joshua Paz</h4>
                             <h5>2019 Subaru Impreza WRX</h5>
@@ -66,7 +126,7 @@
                         </div>
                     </a></li>
                     <li><a href="#">
-                        <div class="infoDisplay">
+                        <div>
                             <h3>Job #2</h3>
                             <h4>Jeffrey Brawlik Lewis</h4>
                             <h5>2015 Hyundai Genesis Coupe</h5>
@@ -86,7 +146,7 @@
                         </div>
                     </a></li>
                     <li><a href="#">
-                        <div class="infoDisplay">
+                        <div>
                             <h3>Job #3</h3>
                             <h4>Zachary Cucolo</h4>
                             <h5>2012 Mitsubishi Lancer Evo</h5>
@@ -117,18 +177,6 @@
                             <span>Needs Horsepower</span>
                         </div>
                     </a></li>
-                </ul>
-            </section>
-            <section id="employees" class="dashSquare">
-                <h2 class="dashTitle">Employees</h2> 
-                <ul class="dashDataContainer">
-
-                </ul>
-            </section>
-            <section id="quickReports" class="dashSquare">
-                <h2 class="dashTitle">Quick Reports</h2>
-                <ul class="dashDataContainer">
-
                 </ul>
             </section>
         </section>
