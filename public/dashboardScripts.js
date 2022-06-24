@@ -1,4 +1,4 @@
-
+// DATE DROPDOWN
 let dateDropdown = document.getElementById('date-dropdown'); 
        
 let currentYear = new Date().getFullYear();    
@@ -10,19 +10,25 @@ while (currentYear >= earliestYear) {
   dateDropdown.add(dateOption);      
   currentYear -= 1;    
 }
-
+// CAR API CALL
 function runCarApi(carMake) {
     const apiUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${carMake}/modelyear/2021?format=json`;
-    // /vehicles/GetModelsForMakeYear/make/honda/modelyear/2015?format=csv
     console.log(apiUrl)
 
+    let modelDropdown = document.getElementById('carmodel');
+    let options = document.querySelectorAll('#carmodel option')
+    options.forEach(z => z.remove())
+    
     fetch(apiUrl)
         .then( (data) => data.json())
         .then( (results) => {
-            //console.log(results.Results)
             let arrayOfCars = results.Results
             for(x = 0; x < arrayOfCars.length; x++) {
-                console.log(arrayOfCars[x].Model_Name)
+                let modelOption = document.createElement('option')
+                let currentMake = arrayOfCars[x].Model_Name
+                modelOption.text = currentMake
+                modelOption.value = currentMake
+                modelDropdown.add(modelOption)
             }
     })
 }

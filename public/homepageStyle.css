@@ -45,10 +45,10 @@ nav{
     background-color: #fafaf9;
     border: 2px solid #3FA3C8;
     border-radius: 10px;
-    margin-top: 1%;
-    margin-left: 1%;
-    padding: .5%;
-    box-shadow: 0 30px 40px rgba(0,0,0,.15);
+    margin-top: .75%;
+    margin-left: .75%;
+    padding: .15%;
+    box-shadow: 0 20px 30px rgba(0,0,0,.15);
     text-align: center;
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
@@ -64,7 +64,7 @@ nav{
 #buttonContainer a:hover{
     text-decoration: none;
 }
-.navButton, .bodyButton{
+.navButton, .bodyButton, .dashButton{
     margin: 3%;
     height: 45%;
     width: 40%;
@@ -76,7 +76,7 @@ nav{
     text-align: center;
     padding-top: 0;
 }
-.navButton:hover, .bodyButton:hover{
+.navButton:hover, .bodyButton:hover, .dashButton:hover{
     box-shadow: 0 5px 10px #3FA3C8;
 }
 .bodyButton{
@@ -330,7 +330,7 @@ form button{
     text-decoration: none;
     color: black;
 }
-nav a, nav button, #reelContainer a{
+nav a, nav button, #reelContainer a, .dashButton{
     font-size: 1.1em;
     font-family: 'Sarpanch', sans-serif;
     text-decoration: none;

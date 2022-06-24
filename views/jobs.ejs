@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - Homepage</title>
+        <title>GearHead - Jobs</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,154 +27,145 @@
         <nav>
                 <ul id="mainDash">
                     <li><a href="/dashboard" title="Dashboard"><i class="icon-dashboard"></i></a></li>
-                    <li><a href="#" title="Point of Sale"><i class="icon-money"></i></a></li>
+                    <li><a href="/pointofsale" title="Point of Sale"><i class="icon-money"></i></a></li>
                     <li><a href="/jobs" title="Jobs & Appointments"><i class="icon-tasks"></i></a></li>
-                    <li><a href="#" title="My Shop"><i class="icon-building"></i></a></li>
-                    <li><a href="#" title="Customers"><i class="icon-group"></i></a></li>
-                    <li><a href="#" title="Reports"><i class="icon-bar-chart"></i></a></li>
-                    <li><a href="#" title="Settings"><i class="icon-cogs"></i></a></li>
+                    <li><a href="/myshop" title="My Shop"><i class="icon-building"></i></a></li>
+                    <li><a href="/customers" title="Customers"><i class="icon-group"></i></a></li>
+                    <li><a href="/reports" title="Reports"><i class="icon-bar-chart"></i></a></li>
+                    <li><a href="/appsettings" title="Settings"><i class="icon-cogs"></i></a></li>
                 </ul>
             
             <section id="buttonContainer">
-                <a href="#" id="accountLink" class="navButton">Account</a>
+                <a href="/account" id="accountLink" class="navButton">Account</a>
                 <a href="/login" id="signout" class="navButton">Sign Out</a>
             </section>
         </nav>
-
+        <section class="pageTitleContainer">
+            <h1>Jobs Center</h1>
+        </section>
         <section id="dashSquares">
             <section id="enterJobs" class="dashSquare">
                 <h2 class="dashTitle">Add Job</h2>
-                <label for="date-dropdown">Car Year</label>
-                <select id='date-dropdown' form="addJobForm">
-                </select>
-                <label for="carmake">Car Make</label>
-                <select id="carmake" name="carMakeList" form="addJobForm" onchange="runCarApi(this.value)">
-                    <option value="acura">Acura</option>
-                    <option value="alfa-romeo">Alfa Romeo</option>
-                    <option value="audi">Audi</option>
-                    <option value="bmw">BMW</option>
-                    <option value="bentley">Bentley</option>
-                    <option value="buick">Buick</option>
-                    <option value="cadillac">Cadillac</option>
-                    <option value="chevrolet">Chevrolet</option>
-                    <option value="chrysler">Chrysler</option>
-                    <option value="dodge">Dodge</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="ford">Ford</option>
-                    <option value="gmc">GMC</option>
-                    <option value="genesis">Genesis</option>
-                    <option value="honda">Honda</option>
-                    <option value="hyundai">Hyundai</option>
-                    <option value="infiniti">Infiniti</option>
-                    <option value="jaguar">Jaguar</option>
-                    <option value="jeep">Jeep</option>
-                    <option value="kia">Kia</option>
-                    <option value="land-rover">Land Rover</option>
-                    <option value="lexus">Lexus</option>
-                    <option value="lincoln">Lincoln</option>
-                    <option value="lotus">Lotus</option>
-                    <option value="lucid">Lucid</option>
-                    <option value="maserati">Maserati</option>
-                    <option value="mazda">Mazda</option>
-                    <option value="mercedes-benz">Mercedes-Benz</option>
-                    <option value="mercury">Mercury</option>
-                    <option value="mini">Mini</option>
-                    <option value="mitsubishi">Mitsubishi</option>
-                    <option value="nissan">Nissan</option>
-                    <option value="polestar">Polestar</option>
-                    <option value="pontiac">Pontiac</option>
-                    <option value="rivian">Rivian</option>
-                    <option value="rolls-royce">Acura</option>
-                    <option value="saab">Saab</option>
-                    <option value="saturn">Saturn</option>
-                    <option value="scion">Scion</option>
-                    <option value="smart">Smart</option>
-                    <option value="subaru">Subaru</option>
-                    <option value="suzuki">Suzuki</option>
-                    <option value="tesla">Tesla</option>
-                    <option value="toyota">Toyota</option>
-                    <option value="volkswagon">Volkswagon</option>
-                    <option value="volvo">Volvo</option>
-                </select>
-                <form id="addJobForm">
-                    <input type="text" name="customerName" placeholder="Customer Name">
-                    <input type="text" name="customerCar" placeholder="Customer Car">
+                <section id="dropdownContainer">
+                    <label for="date-dropdown">Year</label>
+                    <select id='date-dropdown' form="addJobForm" name="caryear">
+                        <option value="" disabled selected>year</option>
+                    </select>
+                    <label for="carmake">Make</label>
+                    <select id="carmake" name="carmake" form="addJobForm" onchange="runCarApi(this.value)">
+                        <option value="" disabled selected>make</option>
+                        <option value="acura">Acura</option>
+                        <option value="alfa-romeo">Alfa Romeo</option>
+                        <option value="audi">Audi</option>
+                        <option value="bmw">BMW</option>
+                        <option value="bentley">Bentley</option>
+                        <option value="bugatti">Bugatti</option>
+                        <option value="buick">Buick</option>
+                        <option value="cadillac">Cadillac</option>
+                        <option value="chevrolet">Chevrolet</option>
+                        <option value="chrysler">Chrysler</option>
+                        <option value="dodge">Dodge</option>
+                        <option value="fiat">Fiat</option>
+                        <option value="ford">Ford</option>
+                        <option value="gmc">GMC</option>
+                        <option value="genesis">Genesis</option>
+                        <option value="honda">Honda</option>
+                        <option value="hyundai">Hyundai</option>
+                        <option value="infiniti">Infiniti</option>
+                        <option value="jaguar">Jaguar</option>
+                        <option value="jeep">Jeep</option>
+                        <option value="kia">Kia</option>
+                        <option value="lamborghini">Lamborghini</option>
+                        <option value="land-rover">Land Rover</option>
+                        <option value="lexus">Lexus</option>
+                        <option value="lincoln">Lincoln</option>
+                        <option value="lotus">Lotus</option>
+                        <option value="lucid">Lucid</option>
+                        <option value="maserati">Maserati</option>
+                        <option value="mazda">Mazda</option>
+                        <option value="mclaren">McLaren</option>
+                        <option value="mercedes-benz">Mercedes-Benz</option>
+                        <option value="mercury">Mercury</option>
+                        <option value="mini">Mini</option>
+                        <option value="mitsubishi">Mitsubishi</option>
+                        <option value="nissan">Nissan</option>
+                        <option value="polestar">Polestar</option>
+                        <option value="pontiac">Pontiac</option>
+                        <option value="porsche">Porsche</option>
+                        <option value="rivian">Rivian</option>
+                        <option value="rolls-royce">Rolls Royce</option>
+                        <option value="saab">Saab</option>
+                        <option value="saturn">Saturn</option>
+                        <option value="scion">Scion</option>
+                        <option value="smart">Smart</option>
+                        <option value="subaru">Subaru</option>
+                        <option value="suzuki">Suzuki</option>
+                        <option value="tesla">Tesla</option>
+                        <option value="toyota">Toyota</option>
+                        <option value="volkswagon">Volkswagon</option>
+                        <option value="volvo">Volvo</option>
+                    </select>
+                    <label for="carmodel">Model</label>
+                    <select id="carmodel" form="addJobForm" name="carmodel">
+                    </select>
+                </section>
+                <form id="addJobForm" action="/addjob" method="POST">
+                    <input id="customerName" type="text" name="customerName" placeholder="Customer Name">
+                    <textarea type="text" name="jobDescription" placeholder="Job Description" id="jobDescription" rows="5" cols="80"></textarea>
                     <button type="submit" name="submitJob">Add</button>
                 </form>
+                <section>
+                    <h2 id="formStatus"></h2>
+                </section>
             </section>
             <section id="activeJobs-jobs" class="dashSquare">
                 <h2 class="dashTitle">Active Jobs</h2>
                 <ul class="dashDataContainer">
-                    <li><a href="#">
-                        <div>
-                            <h3>Job #1</h3>
-                            <h4>Joshua Paz</h4>
-                            <h5>2019 Subaru Impreza WRX</h5>
-                            <span>More Carbon Fiber</span>
-                        </div>
-                        <div class="jobStat">
-                            <label for="jobstatus">Priority:</label>
-                            <select name="cars" id="cars">
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                            <div class="statusContainer">
-                                <h4>Completed Status</h4>
-                                <span>75%</span>
+                    <!-- display the jobs already within database -->
+                    <% for(var u = 0; u < jobCollectionArray.length; u++) {%>
+                        <li><a href="#">
+                            <div>
+                                <h3>Job # <%= jobCollectionArray[u].number %></h3>
+                                <h4><%= jobCollectionArray[u].name %></h4>
+                                <h5><%= jobCollectionArray[u].year + ' ' + jobCollectionArray[u].make.toUpperCase() + ' ' + jobCollectionArray[u].model %></h5>
+                                <span><%= jobCollectionArray[u].job.toUpperCase() %></span>
                             </div>
-                        </div>
-                    </a></li>
-                    <li><a href="#">
-                        <div>
-                            <h3>Job #2</h3>
-                            <h4>Jeffrey Brawlik Lewis</h4>
-                            <h5>2015 Hyundai Genesis Coupe</h5>
-                            <span>More Horsepower Babyyy</span>
-                        </div>
-                        <div class="jobStat">
-                            <label for="jobstatus">Priority:</label>
-                            <select name="cars" id="cars">
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                            <div class="statusContainer">
-                                <h4>Completed Status</h4>
-                                <span>25%</span>
+                            <div class="jobStat">
+                                <label for="jobstatus">Priority:</label>
+                                <select name="cars" id="cars">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                                <div class="statusContainer">
+                                    <h4>Completed Status</h4>
+                                    <span><%= jobCollectionArray[u].status %>%</span>
+                                </div>
                             </div>
-                        </div>
-                    </a></li>
-                    <li><a href="#">
-                        <div>
-                            <h3>Job #3</h3>
-                            <h4>Zachary Cucolo</h4>
-                            <h5>2012 Mitsubishi Lancer Evo</h5>
-                            <span>Turbo Kit Go PHSSTTTUUUTUTUTUTU</span>
-                        </div>
-                        <div class="jobStat">
-                            <label for="jobstatus">Priority:</label>
-                            <select name="cars" id="cars">
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                            <div class="statusContainer">
-                                <h4>Completed Status</h4>
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </a></li>
+                        </a></li>
+                    <% } %>
                 </ul>
             </section>
             <section id="upcomingJobs" class="dashSquare">
-                <h2 class="dashTitle">Upcoming Jobs</h2>
+                <h2 class="dashTitle">Appointment Requests</h2>
                 <ul class="dashDataContainer">
                     <li><a href="#">
                         <div>
                             <h4>Kenny Ortigas</h4>
                             <h5>2018 Subaru BRZ</h5>
                             <span>Needs Horsepower</span>
+                        </div>
+                    </a></li>
+                </ul>
+            </section>
+            <section id="completedJobs" class="dashSquare">
+                <h2 class="dashTitle">Recently Completed Jobs</h2>
+                <ul class="dashDataContainer">
+                    <li><a href="#">
+                        <div>
+                            <h4>Jessica DingDong</h4>
+                            <h5>2008 Ford Escape</h5>
+                            <span>New Side Mirror</span>
                         </div>
                     </a></li>
                 </ul>

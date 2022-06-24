@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - Dashboard</title>
+        <title>GearHead - Customers</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,67 +41,56 @@
             </section>
         </nav>
         <section class="pageTitleContainer">
-            <h1>Dashboard</h1>
+            <h1>Customer Center</h1>
         </section>
         <section id="dashSquares">
-            <section id="activeJobs" class="dashSquare">
-                <h2 class="dashTitle">Active Jobs</h2>
+            <section id="recentCustomers" class="dashSquare">
+                <h2 class="dashTitle">Recent Customers</h2>
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
-                    <% for(var u = 0; u < jobCollectionArray.length; u++) {%>
+                    <% for(var u = 0; u < customerDataArray.length; u++) {%>
                         <li><a href="#">
                             <div>
-                                <h3>Job # <%= jobCollectionArray[u].number %></h3>
-                                <h4><%= jobCollectionArray[u].name %></h4>
-                                <h5><%= jobCollectionArray[u].year + ' ' + jobCollectionArray[u].make.toUpperCase() + ' ' + jobCollectionArray[u].model %></h5>
-                                <span><%= jobCollectionArray[u].job.toUpperCase() %></span>
+                                <h3>Customer ID <%= customerDataArray[u].number %></h3>
+                                <h4><%= customerDataArray[u].customer %></h4>
+                                <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
                             </div>
                             <div class="jobStat">
-                                <label for="jobstatus">Priority:</label>
-                                <select name="cars" id="cars">
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </select>
-                                <div class="statusContainer">
-                                    <h4>Completed Status</h4>
-                                    <span><%= jobCollectionArray[u].status %>%</span>
-                                </div>
+
                             </div>
                         </a></li>
                     <% } %>
                 </ul>
-                <section id="dashButtonContainer">
-                    <a href="/jobs" class="dashButton">Add Job</a>
+            </section>
+            <section id="enterJobs" class="dashSquare">
+                <h2 class="dashTitle">Add Job</h2>
+                <form id="addJobForm" action="/addjob" method="POST">
+                    <input id="customerName" type="text" name="customerName" placeholder="Customer Name">
+                    <button type="submit" name="submitJob">Search</button>
+                </form>
+                <section>
+                    <h2 id="formStatus"></h2>
                 </section>
             </section>
-            <section id="upcomingJobs" class="dashSquare">
-                <h2 class="dashTitle">Upcoming Jobs</h2>
+            <section id="activeCustomers" class="dashSquare">
+                <h2 class="dashTitle">Active Customers</h2>
                 <ul class="dashDataContainer">
-                    <li><a href="#">
-                        <div>
-                            <h4>Kenny Ortigas</h4>
-                            <h5>2018 Subaru BRZ</h5>
-                            <span>Needs Horsepower</span>
-                        </div>
-                    </a></li>
-                </ul>
-            </section>
-            <section id="employees" class="dashSquare">
-                <h2 class="dashTitle">Employees</h2> 
-                <ul class="dashDataContainer">
+                    <!-- display the jobs already within database -->
+                    <% for(var u = 0; u < customerDataArray.l; u++) {%>
+                        <li><a href="#">
+                            <div>
+                                <h3>Customer ID <%= customerDataArray[u].number %></h3>
+                                <h4><%= customerDataArray[u].customer %></h4>
+                                <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
+                            </div>
+                            <div class="jobStat">
 
+                            </div>
+                        </a></li>
+                    <% } %>
                 </ul>
-                <section id="dashButtonContainer">
-                    <a href="/myshop" class="dashButton">Add Employee</a>
-                </section>
             </section>
-            <section id="quickReports" class="dashSquare">
-                <h2 class="dashTitle">Quick Reports</h2>
-                <ul class="dashDataContainer">
 
-                </ul>
-            </section>
         </section>
  
 

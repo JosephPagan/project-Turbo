@@ -33,24 +33,35 @@ font-family: 'Antic Didone', serif;
     text-decoration: none;
     color: #3FA3C8;
 }
+.pageTitleContainer{
+    height: 5%;
+    text-align: right;
+    margin-right: 3%;
+    animation: 1.5s ease-out 0s 1 slideInFromRight;
+}
+.pageTitleContainer h1{
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+}
 #dashSquares{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     height: 80%;
-    width: 95%;
-    margin: 8% 2.5% 0% 2.5%;
+    width: 97%;
+    margin: 1.75% 1.5% 0% 1.5%;
 }
 .dashSquare{
     flex-grow: 1;
     text-align: center;
     width: 48%;
-    height: 500px;
+    height: 550px;
     border: 2px solid #3FA3C8;
     background-color: #fafaf9;
     border-radius: 10px;
-    margin: 0% .5% 3% .5%;
+    margin: 0% .5% 2% .5%;
 }
 .dashSquare li{
     list-style: none;
@@ -91,10 +102,22 @@ font-family: 'Antic Didone', serif;
     padding: 0;
     overflow: scroll;
 }
-#activeJobs, #upcomingJobs{
+#dashButtonContainer{
+    display: flex;
+    width: 15%;
+    margin: .5% 1.5%;
+    text-align: center;
+    justify-content: center;
+}
+#dashButtonContainer .dashButton{
+    display: block;
+    margin: 0;
+    width: 100%
+}
+#activeJobs, #upcomingJobs, #enterJobs{
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
-#employees, #quickReports{
+#employees, #quickReports, #activeJobs-jobs, #completedJobs{
     animation: 1s ease-out 0s 1 slideInFromRight;
 }
 .dashTitle{
@@ -115,16 +138,52 @@ font-family: 'Antic Didone', serif;
 #enterJobs{
     width: 25%;
 }
+#dropdownContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2%;
+}
+#dropdownContainer label{
+    width: 15%;
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 2%;
+    font-family: 'Sarpanch', sans-serif;
+    font-size: 1em;
+}
+#dropdownContainer select{
+    width: 30%;
+    flex-grow: 1;
+    height: 2em;
+}
+#carmodel{
+    margin: 3% 0%;
+}
 #addJobForm{
     justify-content: start;
 }
 #carmake{
-    margin: 5% 0%;
+    margin: 2% 0%;
 }
 #addJobForm input{
+    font-family: 'Sarpanch', sans-serif;
+    font-size: 1.2em;
     height: 15%;
+    margin: 2%;
+}
+#addJobForm textarea{
+    font-family: 'Sarpanch', sans-serif;
+    font-size: 1.2em;
+    margin: 2%;
+    border-radius: 6px;
+    border: 2px solid grey;
 }
 #addJobForm button{
-    height: 25%;
-    width: 80%;
+    height: 15%;
+    width: 50%;
+    margin: 1% 25% 1% 25%;
+    font-size: 1.1em;
+    font-family: 'Sarpanch', sans-serif;
 }
