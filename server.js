@@ -78,7 +78,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 year: req.body.caryear, 
                 make: req.body.carmake, 
                 model: req.body.carmodel, 
-                job: req.body.jobDescription, 
+                job: req.body.jobDescription,
+                employee_assigned: req.body.employeeassign,
                 priority: 'low', 
                 status: 0,
                 date: new Date()
@@ -100,6 +101,24 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.get('/customers', (req, res) => {
+            // var customerDataObject = {};
+            // var jobCollectionObject = {};
+            // customerData.find({}, function (err, customerDataResult) {
+            //     if(err){
+            //         console.log(err)
+            //     } else {
+            //         customerDataObject = customerDataResult.toArray();
+            //     }
+            // });
+            // jobCollection.find({}, function (err, jobCollectionResult) {
+            //     if(err){
+            //         console.log(err)
+            //     } else {
+            //         jobCollectionObject = jobCollectionResult.toArray();
+            //         res.render('customers.ejs', {customerDataArray: customerDataObject, jobCollectionArray: jobCollectionObject})
+            //     }
+            // });
+
             customerData.find().toArray()
             .then(results => {
                 //console.log(`CustomersPage: ${results}`)
@@ -112,7 +131,27 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             employeeData.find().toArray()
             .then(results => {
                 //console.log(`CustomersPage: ${results}`)
-                res.render('myshop.ejs', {employeesArray: results})
+                res.render('myshop.ejs', {employeeDataArray: results})
+            })
+            .catch(error => console.log(error))
+        })
+
+        app.post('/addemployee', (req, res) => {
+            employeeData.insertOne({
+                name: req.body.employeeName, 
+                email: req.body.employeeEmail, 
+                phone: req.body.employeePhone, 
+                position: req.body.employeeposition, 
+                employee_type: req.body.employeeType,
+                date: new Date(),
+                jobs: {
+                    activeJobs: 1,
+                    completedJobs: 3,
+                }
+            })
+            .then(result => {
+                console.log(result)
+                res.redirect('myshop')
             })
             .catch(error => console.log(error))
         })

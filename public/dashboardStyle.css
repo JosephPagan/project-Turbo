@@ -97,7 +97,7 @@ font-family: 'Antic Didone', serif;
     border-radius: 8px;
     background-color: white;
     height: 80%;
-    width: 97%;
+    width: 96.5%;
     margin: 0% 1.5%;
     padding: 0;
     overflow: scroll;
@@ -114,18 +114,18 @@ font-family: 'Antic Didone', serif;
     margin: 0;
     width: 100%
 }
-#activeJobs, #upcomingJobs, #enterJobs{
+#activeJobs, #upcomingJobs, #enterJobs, #recentCustomers, #employeePerformance, #shopDetails{
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
-#employees, #quickReports, #activeJobs-jobs, #completedJobs{
+#employees, #quickReports, #activeJobs-jobs, #completedJobs, #searchCustomer, #activeCustomers, #addEmployee, #shopPerformance{
     animation: 1s ease-out 0s 1 slideInFromRight;
 }
 .dashTitle{
     margin: .75% 0;
 }
-#activeJobs{
+/* #activeJobs{
     width: 75%;
-}
+} */
 #activeJobs-jobs{
     width: 50%;
 }
@@ -186,4 +186,56 @@ font-family: 'Antic Didone', serif;
     margin: 1% 25% 1% 25%;
     font-size: 1.1em;
     font-family: 'Sarpanch', sans-serif;
+}
+#searchCustomerForm{
+    justify-content: start;
+    height: 20%;
+}
+#searchCustomerForm input{
+    margin: 2%;
+}
+#searchCustomerForm button{
+    width: 25%;
+    height: 30%;
+    margin: 2%;
+}
+#searchResults{
+    height: 60%;
+}
+#addEmployeeForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+    padding: 1% 1% 1% 5%;
+}
+#employeeName, #employeeEmail, #employeePhone{
+    height: 8%;
+    margin: 1%;
+}
+#employeePosition{
+    width: 20%;
+    height: 8%;
+    margin: 1%;
+}
+#addEmployeeForm label{
+    width: 20%;
+    text-align: end;
+}
+#employeeRadioContainer{
+    display: flex;
+    width: 50%;
+    margin: 1%;
+}
+.employeeRadios{
+    border: 0px;
+    width: 10%;
+    height: 1.5em;
+    margin: 0;
+}
+#addEmployeeButton{
+    width: 40%;
+    height: 15%;
+    margin: 1%;
 }

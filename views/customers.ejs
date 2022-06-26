@@ -51,23 +51,32 @@
                     <% for(var u = 0; u < customerDataArray.length; u++) {%>
                         <li><a href="#">
                             <div>
-                                <h3>Customer ID <%= customerDataArray[u].number %></h3>
+                                <h3>Customer ID: <%= customerDataArray[u]._id %></h3>
                                 <h4><%= customerDataArray[u].customer %></h4>
                                 <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
-                            </div>
-                            <div class="jobStat">
-
                             </div>
                         </a></li>
                     <% } %>
                 </ul>
             </section>
-            <section id="enterJobs" class="dashSquare">
-                <h2 class="dashTitle">Add Job</h2>
-                <form id="addJobForm" action="/addjob" method="POST">
+            <section id="searchCustomer" class="dashSquare">
+                <h2 class="dashTitle">Search Customers</h2>
+                <form id="searchCustomerForm" action="/searchcustomer" method="POST">
                     <input id="customerName" type="text" name="customerName" placeholder="Customer Name">
                     <button type="submit" name="submitJob">Search</button>
                 </form>
+                <ul id="searchResults" class="dashDataContainer">
+                    <!-- display the jobs already within database -->
+                    <% for(var u = 0; u < customerDataArray.length; u++) {%>
+                        <li><a href="#">
+                            <div>
+                                <h3>Customer ID: <%= customerDataArray[u]._id %></h3>
+                                <h4><%= customerDataArray[u].customer %></h4>
+                                <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
+                            </div>
+                        </a></li>
+                    <% } %>
+                </ul>
                 <section>
                     <h2 id="formStatus"></h2>
                 </section>
@@ -76,18 +85,6 @@
                 <h2 class="dashTitle">Active Customers</h2>
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
-                    <% for(var u = 0; u < customerDataArray.l; u++) {%>
-                        <li><a href="#">
-                            <div>
-                                <h3>Customer ID <%= customerDataArray[u].number %></h3>
-                                <h4><%= customerDataArray[u].customer %></h4>
-                                <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
-                            </div>
-                            <div class="jobStat">
-
-                            </div>
-                        </a></li>
-                    <% } %>
                 </ul>
             </section>
 

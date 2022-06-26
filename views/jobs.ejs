@@ -109,6 +109,10 @@
                     <select id="carmodel" form="addJobForm" name="carmodel">
                     </select>
                 </section>
+                <label for="employeeassign">Employee for Job</label>
+                <select id="employeeAssign" form="addJobForm" name="employeeassign">
+                    <option value="" disabled selected>Assign to</option>
+                </select>
                 <form id="addJobForm" action="/addjob" method="POST">
                     <input id="customerName" type="text" name="customerName" placeholder="Customer Name">
                     <textarea type="text" name="jobDescription" placeholder="Job Description" id="jobDescription" rows="5" cols="80"></textarea>
