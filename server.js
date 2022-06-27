@@ -14,6 +14,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         const jobCollection = db.collection('customerJobs')
         const customerData = db.collection('customers')
         const employeeData = db.collection('employees')
+        const shopInfo = db.collection('shop-info')
 
         app.use(cors())
         app.set('view engine', 'ejs')
@@ -35,6 +36,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             //console.log(`Username: ${userName} Password: ${passWord}`)
             jobCollection.find().toArray()
             .then(results => {
+                console.log(`New Login Detected! User: ${userName} PW: ${passWord}`)
                 res.render('dashboard.ejs', {jobCollectionArray: results},)
             })
             .catch(error => console.log(error))
@@ -132,6 +134,34 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             .then(results => {
                 //console.log(`CustomersPage: ${results}`)
                 res.render('myshop.ejs', {employeeDataArray: results})
+            })
+            .catch(error => console.log(error))
+        })
+
+        app.get('/addshop', (req, res) => {
+            res.render('addshop.ejs')
+        })
+
+        app.post('/addshop', (req, res) => {
+            shopInfo.insertOne({
+                shopName: req.body.shopName,
+                shopEmail: req.body.shopEmail,
+                shopPhone: req.body.shopPhone,
+                shopAddress: req.body.shopAddress,
+                shopCity: req.body.shopCity,
+                shopState: req.body.shopState,
+                shopZip: req.body.shopZip,
+                shopWebsite: req.body.shopWebsite,
+                shopOpen: req.body.openhour,
+                shopClose: req.body.closehour,
+                shopType: req.body.shoptype,
+                laborRate: Number(req.body.laborRate),
+                average_markup: Number(req.body.aveMarkup)
+            })
+            .then(result => {
+                //console.log(req)
+                console.log(result)
+                res.redirect('myshop')
             })
             .catch(error => console.log(error))
         })

@@ -54,10 +54,11 @@
                                 <h3><%= employeeDataArray[u].name %></h3>
                                 <h4><%= employeeDataArray[u].email %></h4>
                                 <h5><%= employeeDataArray[u].phone %></h5>
-                                <h5><%= employeeDataArray[u].position.toUpperCase() + ' - ' + employeeDataArray[u].employee_type.toUpperCase() %></h5>
                             </div>
                             <div>
-                                <h4></h4>
+                                <h5><%= employeeDataArray[u].position.toUpperCase() + ' - ' + employeeDataArray[u].employee_type.toUpperCase() %></h5>
+                                <h5>Active Jobs: </h5>
+                                <h5>Jobs Completed: </h5>
                             </div>
                         </a></li>
                     <% } %>
@@ -89,7 +90,14 @@
             </section>
             <section id="shopDetails" class="dashSquare">
                 <h2 class="dashTitle">Shop Details</h2>
+                <section id="shopDetailsContainer">
+                    <h3 id="shopName">Shop Name</h3>
+                    <h4 id="shopAddress">Shop Address</h4>
+                    <h4 id="shopEmail">ShopEmail.com</h4>
+                    <h4 id="shopPhone">Shop Phone Number</h4>
+                </section>
 
+                <a href="/addshop" id="addShopButton" class="dashButton">Add/Change Shop</a>
             </section>
             <section id="shopPerformance" class="dashSquare">
                 <h2 class="dashTitle">Shop Performance</h2>

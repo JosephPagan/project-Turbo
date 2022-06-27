@@ -202,6 +202,8 @@ font-family: 'Antic Didone', serif;
 #searchResults{
     height: 60%;
 }
+
+/* My Shop page style */
 #addEmployeeForm{
     display: flex;
     flex-direction: column;
@@ -238,4 +240,85 @@ font-family: 'Antic Didone', serif;
     width: 40%;
     height: 15%;
     margin: 1%;
+}
+#shopDetailsContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 60%;
+    margin: 1% 1% 1% 3%;
+}
+#shopDetails h3{
+    text-align: left;
+    margin-left: 1%;
+    font-size: 1.3em;
+}
+#shopDetails h4{
+    text-align: left;
+    margin-left: 1%;
+    font-size: 1.2em;
+}
+
+/* Add Shop Page Page Style */
+#addShopContainer{
+    height: 900px;
+    width: 75%;
+    flex-grow: 0;
+}
+#addShopButton{
+    display: inline-block;
+    width: 30%;
+    height: 8%;
+    padding-top: 2.5%;
+}
+#addShopForm{
+    justify-content: start;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 92%;
+    margin: 2%;
+}
+#addShopForm input{
+    margin: 1%;
+    height: 1.6em;
+    width: 50%;
+    font-size: 1.4em;
+    padding-left: .5%;
+}
+#addShopForm select{
+    margin-left: 1%;
+    width: 20%;
+    height: 5%;
+}
+#shopType{
+    margin: 1%;
+    margin-left: 40% !important;
+}
+#shopHours{
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#shopHours h3{
+    width: 100%;
+    height: 15%
+}
+#shopHours select{
+    height: 40%;
+}
+#addShopForm button{
+    width: 30%;
+    height: 10%;
+    margin: 0% 1% 0% 0%;
+}
+#invoiceButton{
+    width: 10%;
+    margin: 0% 0% 0% 90%;
+    display: inline-block;
+    text-align: center;
+}
+#shopMarkup{
+    width: 6% !important;
 }

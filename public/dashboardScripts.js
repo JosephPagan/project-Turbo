@@ -1,5 +1,6 @@
 // DATE DROPDOWN
 let dateDropdown = document.getElementById('date-dropdown'); 
+
        
 let currentYear = new Date().getFullYear();    
 let earliestYear = 1950;     
