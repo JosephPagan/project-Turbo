@@ -49,7 +49,7 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < employeeDataArray.length; u++) {%>
-                        <li><a href="#">
+                        <li><a href="/employee-<%= employeeDataArray[u].name %>">
                             <div>
                                 <h3><%= employeeDataArray[u].name %></h3>
                                 <h4><%= employeeDataArray[u].email %></h4>

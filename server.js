@@ -18,7 +18,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
         app.use(cors())
         app.set('view engine', 'ejs')
-        app.use(express.static('public'))
+        app.use(express.static(__dirname + '/public'))
         app.use(bodyParser.urlencoded({ extended: false }))
         app.use(bodyParser.json())
 
@@ -33,8 +33,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         app.post('/signin', (req, res) => {
             let userName = req.body.username
             let passWord = req.body.password
-            //console.log(`Username: ${userName} Password: ${passWord}`)
-            jobCollection.find().toArray()
             .then(results => {
                 console.log(`New Login Detected! User: ${userName} PW: ${passWord}`)
                 res.render('dashboard.ejs', {jobCollectionArray: results},)
@@ -54,6 +52,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
         app.get('/company', (req, res) => {
             res.render('company.ejs')
+        })
+
+        app.get('/preview', (req, res) => {
+            res.sendFile(__dirname + '/views/preview.html')
         })
 
         app.get('/dashboard', (req, res) => {
@@ -184,6 +186,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 res.redirect('myshop')
             })
             .catch(error => console.log(error))
+        })
+
+        app.get('/employee', (req, res) => {
+            res.render('employee.ejs')
         })
 
         app.get('/pointofsale', (req, res) => {

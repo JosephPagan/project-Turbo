@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - Jobs</title>
+        <title>GearHead - Payments</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,11 +44,11 @@
             <h1>Payment Center</h1>
         </section>
         <section id="dashSquares">
-            <section id="enterJobs" class="dashSquare">
+            <section id="enterPaymentData" class="dashSquare">
                 <h2 class="dashTitle">Enter Payment Information</h2>
 
             </section>
-            <section id="activeJobs-jobs" class="dashSquare">
+            <section id="activeJobs-payments" class="dashSquare">
                 <h2 class="dashTitle">Invoice from Active Jobs</h2>
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
@@ -74,8 +74,19 @@
                     <% } %>
                 </ul>
             </section>
-            <!-- <section id="upcomingJobs" class="dashSquare">
-                <h2 class="dashTitle">Appointment Requests</h2>
+            <section id="searchCustomer-payments" class="dashSquare">
+                <h2 class="dashTitle">Search Customers</h2>
+                <form id="searchCustomerForm" action="/searchcustomer" method="POST">
+                    <input id="customerName" type="text" name="customerName" placeholder="Customer Name">
+                    <button type="submit" name="submitJob">Search</button>
+                </form>
+                <ul id="searchResults" class="dashDataContainer">
+                    <!-- display the jobs already within database -->
+                    
+                </ul>
+            </section>
+            <section id="quoteAppointments" class="dashSquare">
+                <h2 class="dashTitle">Quote from Appointment Requests</h2>
                 <ul class="dashDataContainer">
                     <li><a href="#">
                         <div>
@@ -83,9 +94,15 @@
                             <h5>2018 Subaru BRZ</h5>
                             <span>Needs Horsepower</span>
                         </div>
+                        <a href="#" class="dashButton" id="quoteButton">Quote</a>
                     </a></li>
                 </ul>
-            </section> -->
+            </section>
+            <section id="paymentData" class="dashSquare">
+                <h2 class="dashTitle">Payment Data</h2>
+                
+            </section>
+
             <!-- <section id="completedJobs" class="dashSquare">
                 <h2 class="dashTitle">Recently Completed Jobs</h2>
                 <ul class="dashDataContainer">
