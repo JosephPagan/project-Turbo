@@ -126,7 +126,8 @@ font-family: 'Antic Didone', serif;
 #employeePerformance, 
 #shopDetails,
 #searchCustomer-payments,
-#employeesSquare{
+#employeesSquare,
+#updateJobForm{
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 #employees, 
@@ -137,7 +138,8 @@ font-family: 'Antic Didone', serif;
 #activeCustomers, 
 #addEmployee, 
 #shopPerformance,
-#activeJobs-payments{
+#activeJobs-payments,
+#jobRightSideContainer{
     animation: 1s ease-out 0s 1 slideInFromRight;
 }
 .dashTitle{
@@ -441,7 +443,7 @@ font-family: 'Antic Didone', serif;
     height: 1200px;
     margin-top: 3%;
 }
-#updateCustomerForm{
+#updateJobForm{
     flex-direction: column;
     justify-content: start;
     flex-wrap: nowrap;
@@ -452,17 +454,17 @@ font-family: 'Antic Didone', serif;
     border: 2px solid #3FA3C8;
     border-radius: 10px;
 }
-#updateCustomerForm label{
+#updateJobForm label{
     width: 15%;
     margin-top: 2%;
 }
-#updateCustomerForm input{
+#updateJobForm input{
     width: 45%;
     height: 3%;
     margin: .5%;
     margin-left: 2%;
 }
-#updateCustomerForm textarea{
+#updateJobForm textarea{
     width: 45%;
     height: 10%;
     margin: .5%;
@@ -566,10 +568,50 @@ font-family: 'Antic Didone', serif;
 }
 #carImage{
     width: 25%;
+    margin-left: 3%;
     position: fixed;
     border-radius: 8px;
 }
 strong{
     position: fixed;
     margin-left: 1%;
+}
+#jobRightSideContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 40%;
+    text-align: center;
+}
+#carImageContainer{
+    height: 50%;
+}
+#quickButtonsContainer{
+    position: fixed;
+    width: 40%;
+    height: 25%;
+    margin-top: 15%;
+    display: flex;
+}
+#messageButtonJobPage{
+    width: 20%;
+    height: 10%;
+    padding-top: .3%;
+}
+/* REPORTS PAGE */
+.reportContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0% 30%;
+    margin-top: 5%;
+    height: 70%;
+}
+#jobReports .dashButton{
+    height: 10%;
+    width: 100%;
+    display: inline-block;
+    margin: 5% 0%;
+    padding-top: 5%;
+    flex-grow: 0;
 }
