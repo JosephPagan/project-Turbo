@@ -607,11 +607,23 @@ strong{
     margin-top: 5%;
     height: 70%;
 }
-#jobReports .dashButton{
+.reportContainer .dashButton{
     height: 10%;
     width: 100%;
     display: inline-block;
     margin: 5% 0%;
     padding-top: 5%;
+    flex-grow: 0;
+}
+#financeReports .reportContainer{
+    margin-top: 1%;
+    height: 85%;
+}
+#financeReports .dashButton{
+    height: 10%;
+    width: 100%;
+    display: inline-block;
+    margin: 1.5% 0%;
+    padding-top: 4%;
     flex-grow: 0;
 }
