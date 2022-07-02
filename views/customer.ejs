@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GearHead - <%= customerInfo[0].customer %>Customer Page</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Rajdhani:wght@300;400&family=Sarpanch&family=Urbanist:ital,wght@1,100&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/homepageStyle.css">
+        <link rel="stylesheet" href="css/dashboardStyle.css">
+    </head>    
+    <body>
+        <nav>
+            <a href="/dashboard" id="homeLink"><section id="titleContainer">
+                <img src="gearHead01.jpeg" id="dashboardLogo" alt="dashboard logo image">
+           </section></a>
+           <section id="navDashContainer">
+                <ul id="mainDash">
+                    <li><a href="/dashboard" title="Dashboard"><i class="icon-dashboard"></i></a></li>
+                    <li><a href="/pointofsale" title="Point of Sale"><i class="icon-money"></i></a></li>
+                    <li><a href="/jobs" title="Jobs & Appointments"><i class="icon-tasks"></i></a></li>
+                    <li><a href="/myshop" title="My Shop"><i class="icon-building"></i></a></li>
+                    <li><a href="/customers" title="Customers"><i class="icon-group"></i></a></li>
+                    <li><a href="/reports" title="Reports"><i class="icon-bar-chart"></i></a></li>
+                    <li><a href="/appsettings" title="Settings"><i class="icon-cogs"></i></a></li>
+                </ul>
+            
+                <section id="buttonContainer">
+                    <a href="/account" id="accountLink" class="navButton">Account</a>
+                    <a href="/login" id="signout" class="navButton">Sign Out</a>
+                </section>
+            </section>
+        </nav>
+        <section id="customerNameContainer" class="pageTitleContainer">
+            <h1><%= customerInfo[0].customer %></h1>
+        </section>
+        <section id="customerSpecificDashSquares">
+            <form id="updateCustomerForm">
+                <input type="text" id="customerNameUpdate" class="customerUpdate" name="customernameupdate" placeholder="<%= customerInfo[0].customer %>">
+                <input type="number" id="customerPhoneNumber" class="customerUpdate" name="customerPhoneNumber">
+                <input type="email" id="customerEmail" class="customerUpdate" name="customeremail">
+                <section id="customerCarUpdate">
+                    <label for="date-dropdown">Year</label>
+                    <select id='date-dropdown' form="addJobForm" name="caryear" onclick="generateYears()" onchange="getMakes()">
+                        <option value="<%= customerInfo[0].cars.year %>" disabled selected><%= customerInfo[0].cars.year %></option>
+                    </select>
+                    <label for="carmake">Make</label>
+                    <select id="carmake" name="carmake" form="addJobForm" onchange="getModels(this.value)" required>
+                        <option value="<%= customerInfo[0].cars.make %>" disabled selected><%= customerInfo[0].cars.make %></option>
+                    </select>
+                    <label for="carmodel">Model</label>
+                    <select id="carmodel" form="addJobForm" name="carmodel" onchange="getEngines(this.value)" required>
+                        <option value="<%= customerInfo[0].cars.model %>" disabled selected><%= customerInfo[0].cars.model %></option>
+                    </select>
+                    <label for="carengine">Engine</label>
+                    <select id="carengine" form="addJobForm" name="carengine" onchange="getRepairs(); getCarImage()" required>
+                        <option value="<%= customerInfo[0].cars.engine %>" disabled selected><%= customerInfo[0].cars.engine %></option>
+                    </select>
+                        
+                </section>
+                <select id="preferredEmployee">
+                    <option value="" disabled selected>preferredEmployee</option>
+                </select>
+                <button type="submit" id="updateCustomer" class="dashButton" name="updatecustomer">Update Customer</button>
+            </form>
+            
+            <!-- <img src="<%= customerInfo[0].image %>" alt="car image" id="carImage"> -->
+            <section id="quickButtonsContainerCust">
+                <a href="/messenger" id="messageButtonJobPage" class="dashButton">Message</a>
+            </section>
+        </section>
+
+        <footer>
+            <ul>
+                <li><a href="/company">Company</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Resources</a></li>
+            </ul>
+            <section id="socials">
+                <ul>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>FaceBook</li>
+                </ul>
+            </section>
+        </footer>
+        <script src='/js/dashboardScripts.js'></script>
+    </body>
+</html>

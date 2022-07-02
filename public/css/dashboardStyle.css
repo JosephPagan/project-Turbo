@@ -127,7 +127,8 @@ font-family: 'Antic Didone', serif;
 #shopDetails,
 #searchCustomer-payments,
 #employeesSquare,
-#updateJobForm{
+#updateJobForm,
+#jobReports{
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 #employees, 
@@ -139,7 +140,8 @@ font-family: 'Antic Didone', serif;
 #addEmployee, 
 #shopPerformance,
 #activeJobs-payments,
-#jobRightSideContainer{
+#jobRightSideContainer,
+#employeeReports{
     animation: 1s ease-out 0s 1 slideInFromRight;
 }
 .dashTitle{
@@ -424,7 +426,7 @@ font-family: 'Antic Didone', serif;
 #shopMarkup{
     width: 6% !important;
 }
-#paymentData, #quoteAppointments, #addShopContainer{
+#paymentData, #quoteAppointments, #addShopContainer, #financeReports{
     animation: 1s ease-out 0s 1 slideInFromBottom;
 }
 #enterPaymentData{
@@ -443,7 +445,13 @@ font-family: 'Antic Didone', serif;
     height: 1200px;
     margin-top: 3%;
 }
-#updateJobForm{
+#customerSpecificDashSquares{
+    display: flex;
+    justify-content: end;
+    height: 1200px;
+    margin-top: 3%;
+}
+#updateJobForm, #updateCustomerForm{
     flex-direction: column;
     justify-content: start;
     flex-wrap: nowrap;
@@ -453,6 +461,9 @@ font-family: 'Antic Didone', serif;
     margin-left: 2%;
     border: 2px solid #3FA3C8;
     border-radius: 10px;
+}
+#updateCustomerForm{
+    justify-self: end;
 }
 #updateJobForm label{
     width: 15%;
@@ -478,6 +489,9 @@ font-family: 'Antic Didone', serif;
 }
 #nameContainer{
     width: 75%;
+}
+#customerNameContainer{
+    width: 90%;
 }
 #jobSpecificCustomerInfo{
     display: flex;
@@ -626,4 +640,7 @@ strong{
     margin: 1.5% 0%;
     padding-top: 4%;
     flex-grow: 0;
+}
+.customerUpdate{
+    height: 5%;
 }

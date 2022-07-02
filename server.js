@@ -154,7 +154,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             //console.log(req.query._id)
             customerData.find({"_id":ObjectId(req.query._id)}).toArray()
             .then(results => {
-                //console.log(results)
+                // console.log(results)
                 res.render('customer.ejs', {customerInfo: results})
             })
             .catch(error=> console.log(error))
