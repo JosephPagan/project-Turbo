@@ -64,6 +64,8 @@ font-family: 'Antic Didone', serif;
     margin: 0% .5% 2% .5%;
 }
 .dashSquare li{
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     border: 2px solid #3FA3C8;
     border-radius: 8px;
@@ -90,7 +92,7 @@ font-family: 'Antic Didone', serif;
     text-align: center;
 }
 .dashSquare h4, .dashSquare h5{
-    margin: 0;
+    margin: 0%;
 }
 .dashDataContainer{
     border: 2px solid lightgrey;
@@ -120,7 +122,8 @@ font-family: 'Antic Didone', serif;
 #recentCustomers, 
 #employeePerformance, 
 #shopDetails,
-#searchCustomer-payments{
+#searchCustomer-payments,
+#employeesSquare{
     animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 #employees, 
@@ -137,6 +140,12 @@ font-family: 'Antic Didone', serif;
 .dashTitle{
     margin: .75% 0;
 }
+#appointmentDataContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2%;
+}
 /* #activeJobs{
     width: 75%;
 } */
@@ -148,6 +157,19 @@ font-family: 'Antic Didone', serif;
 }
 .jobStat{
     width: 20%;
+}
+#jobCustomerInfo{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#jobCustomerInfo h4{
+    width: 50%;
+}
+#jobCustomerInfo span{
+    width: 50%;
 }
 #enterJobs{
     width: 25%;
@@ -221,6 +243,7 @@ font-family: 'Antic Didone', serif;
 #addEmployeeForm{
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: center;
     height: 80%;
     width: 100%;
@@ -241,7 +264,7 @@ font-family: 'Antic Didone', serif;
 }
 #employeeRadioContainer{
     display: flex;
-    width: 50%;
+    width: 65%;
     margin: 1%;
 }
 .employeeRadios{
@@ -253,7 +276,10 @@ font-family: 'Antic Didone', serif;
 #addEmployeeButton{
     width: 40%;
     height: 15%;
-    margin: 1%;
+    margin: 8% 1% 1% 1%;
+}
+#addEmployee{
+    width: 30%;
 }
 #shopDetailsContainer{
     display: flex;
@@ -283,7 +309,7 @@ font-family: 'Antic Didone', serif;
     display: inline-block;
     width: 30%;
     height: 8%;
-    padding-top: 2.5%;
+    padding-top: 3%;
 }
 #addShopForm{
     justify-content: start;
@@ -327,19 +353,121 @@ font-family: 'Antic Didone', serif;
     height: 10%;
     margin: 0% 1% 0% 0%;
 }
-#invoiceButton, #quoteButton{
-    width: 10%;
-    margin: 0% 0% 0% 90%;
+#invoiceButton, #quoteButton, #editJobButton, #messageButton{
+    width: 13%;
+    margin: 1%;
     display: inline-block;
     text-align: center;
     font-size: 1em;
 }
+#messageButton{
+    margin-left: 68%;
+}
 #shopMarkup{
     width: 6% !important;
 }
-#paymentData, #quoteAppointments{
+#paymentData, #quoteAppointments, #addShopContainer{
     animation: 1s ease-out 0s 1 slideInFromBottom;
 }
 #enterPaymentData{
     animation: 1s ease-out 0s 1 slideInFromTop;
+}
+#rateOfPayContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#wageMin{
+    width: 75%;
+}
+#jobSpecificDashSquares{
+    height: 700px;
+    margin-top: 3%;
+}
+#updateCustomerForm{
+    flex-direction: column;
+    justify-content: start;
+    flex-wrap: nowrap;
+    padding: 2% 3%;
+    width: 60%;
+    height: 100%;
+    margin-left: 2%;
+    border: 2px solid #3FA3C8;
+    border-radius: 10px;
+}
+#updateCustomerForm label{
+    width: 15%;
+    margin-top: 2%;
+}
+#updateCustomerForm input{
+    width: 45%;
+    height: 5%;
+    margin: .5%;
+    margin-left: 2%;
+}
+.jobTypeSelect{
+    width: 30%;
+    height: 5%;
+    margin: .5%;
+    margin-left: 2%;
+}
+#jobSpecificContainer{
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#jobSpecificCustomerInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    font-size: 1.5em;
+    align-items: center;
+}
+#jobSpecificCustomerInfo h4, #jobSpecificCustomerInfo h5{
+    margin: 0;
+}
+#jobSpecificCarContainer{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding-top: .5%;
+    margin-left: 3%;
+}
+#jobSpecificCarContainer select{
+    margin: 0;
+    margin-left: 7%;
+    margin-top: 2%;
+}
+#partsListLabel{
+    display: inline-block;
+    margin-top: 5%;
+}
+#partsList{
+    padding: 0%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 50%;
+}
+#partsList li{
+    list-style-type: none;
+    width: 50%;
+    height: 20%;
+}
+#partsList label{
+    display: inline-block;
+    width: 5%;
+}
+#partsList input{
+    margin: 0;
+    width: 65%;
+    height: 50%;
+}
+#partsList select{
+    margin: 0;
+    width: 20%;
+    height: 50%;
 }

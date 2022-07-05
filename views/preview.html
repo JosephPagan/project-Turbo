@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - Application Payments</title>
+        <title>GearHead - Application Previews</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +16,8 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="homepageStyle.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/homepageStyle.css">
     </head>    
     <body>
         <a href="/" id="homeLink"><section id="titleContainer">
@@ -28,22 +28,22 @@
                 <li>
                     <button onclick="dropDownFunction()" class="dropbtn">Application</button>
                     <div id="appDropdown" class="dropdown-content">
-                        <a href="#estimates" id="estimates">Estimates
+                        <a href="#estimatesContainer" id="estimates">Estimates
                             <img src="estimatesIcon.jpeg">
                         </a>
-                        <a href="#communications" id="communications">Communications
+                        <a href="#communicationsContainer" id="communications">Communications
                             <img src="communicationIcon01.jpeg">
                         </a>
-                        <a href="#payments" id="paymentProcessing">Payment Processing
+                        <a href="#paymentsContainer" id="paymentProcessing">Payment Processing
                             <img src="paymentIcon.jpeg">
                         </a>
-                        <a href="#workflow" id="workflow">Workflow
+                        <a href="#workflowContainer" id="workflow">Workflow
                             <img src="workflowIcon01.jpeg">
                         </a>
-                        <a href="#employees" id="teamManagement">Team Management
+                        <a href="#employeesContainer" id="teamManagement">Team Management
                             <img src="teamManagementIcon.jpeg">
                         </a>
-                        <a href="#reports" id="reporting">Reporting
+                        <a href="#reportsContainer" id="reporting">Reporting
                             <img src="reportingIcon.jpeg">
                         </a>
                     </div>
@@ -57,29 +57,60 @@
             </section>
 
         </nav>
-        <section id="hook" class="homepageSection">
-            
-        </section>
-        <section id="demo1" class="homepageSection">
-            <section class="homepageTextContainer">
-               
+        <section id="estimatesContainer" class="homepageSection">
+            <section id="previewEstimatesTitle" class="homepageTextContainer">
+                <h3>Easy Estimates</h3>
+               <h2>Go from older and slower methods to a speedy, organized input.</h2>
             </section>
-            <img src="" alt="demo image 1">
+            <section id="animationContainer">
+                <img id="previewShrink1" src="estimatesImage01.jpeg" alt="demo image 1-1">
+                <section id="arrowAnimation">
+                    <img id="arrowImage"src="blueCarImage.png" alt="arrow image">
+                </section>
+                <img id="previewShrink2" src="digitalCar14.jpeg" alt="demo image 1-2">
+            </section>
         </section>
-        <section id="demo2" class="homepageSection">
-            <img src="" alt="demo image 2">
+        <section id="communicationsContainer" class="homepageSection">
             <section class="homepageTextContainer">
+                <h3>Customer Communications</h3>
+               <h2>Use GearHead to communicate with each customer in real-time with automated job updates and transaction processes.
+                <br>
+                <br>
+                Allow your customers to track each job's progression while also gaining knowledge about the job at hand.</h2>
+            </section>
+            <img src="communicationImage03.jpeg" alt="demo image 1">
+        </section>
+        <section id="paymentsContainer" class="homepageSection">
+            <img src="paymentImage02.jpeg" alt="demo image 2">
+            <section class="homepageTextContainer">
+                <h3>Payment Processing</h3>
+                <h2>Make the payment process smoother and quicker than ever with our in-app payment processing and receivables management.</h2>
+            </section>
+        </section>
+        <section id="workflowContainer" class="homepageSection">
+            <section class="homepageTextContainer">
+                <h3>Increased Workflow</h3>
 
             </section>
+            <img src="workflowImage02.jpeg" alt="demo image 3">
         </section>
-        <section id="demo3" class="homepageSection">
-            <section class="homepageTextContainer">
-                
+        <section id="employeesContainer" class="homepageSection">
+            <img src="employeesImage03.jpeg" alt="demo image 3">
+            <section id="teamManagement" class="homepageTextContainer">
+                <h3>Intuitive Team Management</h3>
+                <h2>Assign, monitor, and reward your employees all from one place.</h2>
             </section>
-            <img src="" alt="demo image 3">
+            <img src="employeesImage02.jpeg" alt="demo image 3">
+        </section>
+        <section id="reportsContainer" class="homepageSection">
+            <img src="reportsImage02.jpeg" alt="demo image 3">
+            <section class="homepageTextContainer">
+                <h3>Real-Time Reports</h3>
+                <h2>Visualize, analyze, and act on your shops data to improve customer satisfaction, employee satisfaction, and your work life.</h2>
+            </section>
         </section>
         <section id="previewReel" class="homepageSection">
-            <h2>KEEP THE PAYMENT PROCESS FLOWING AND BEGIN YOUR JOURNEY WITH GEARHEAD</h2>
+            <h2>INTEGRATE & IMPROVE YOUR SHOP WITH GEARHEAD - BEGIN YOUR JOURNEY</h2>
             <section id="reelContainer">
                 <a href="/login" id="loginLink" class="bodyButton">Sign In</a>
                 <a href="/login#signin" id="signupLink" class="bodyButton">Sign Up</a>
@@ -99,6 +130,6 @@
                 </ul>
             </section>
         </footer>
-        <script src='/homepageScript.js'></script>
+        <script src='/js/homepageScript.js'></script>
     </body>
 </html>

@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="homepageStyle.css">
-        <link rel="stylesheet" href="dashboardStyle.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/homepageStyle.css">
+        <link rel="stylesheet" href="css/dashboardStyle.css">
     </head>    
     <body>
         <a href="/dashboard" id="homeLink"><section id="titleContainer">
@@ -48,73 +48,38 @@
                 <h2 class="dashTitle">Add Job</h2>
                 <section id="dropdownContainer">
                     <label for="date-dropdown">Year</label>
-                    <select id='date-dropdown' form="addJobForm" name="caryear">
+                    <select id='date-dropdown' form="addJobForm" name="caryear" onclick="generateYears()" onchange="getMakes()" required>
                         <option value="" disabled selected>year</option>
                     </select>
                     <label for="carmake">Make</label>
-                    <select id="carmake" name="carmake" form="addJobForm" onchange="runCarApi(this.value)">
+                    <select id="carmake" name="carmake" form="addJobForm" onchange="getModels(this.value)" required>
                         <option value="" disabled selected>make</option>
-                        <option value="acura">Acura</option>
-                        <option value="alfa-romeo">Alfa Romeo</option>
-                        <option value="audi">Audi</option>
-                        <option value="bmw">BMW</option>
-                        <option value="bentley">Bentley</option>
-                        <option value="bugatti">Bugatti</option>
-                        <option value="buick">Buick</option>
-                        <option value="cadillac">Cadillac</option>
-                        <option value="chevrolet">Chevrolet</option>
-                        <option value="chrysler">Chrysler</option>
-                        <option value="dodge">Dodge</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="ford">Ford</option>
-                        <option value="gmc">GMC</option>
-                        <option value="genesis">Genesis</option>
-                        <option value="honda">Honda</option>
-                        <option value="hyundai">Hyundai</option>
-                        <option value="infiniti">Infiniti</option>
-                        <option value="jaguar">Jaguar</option>
-                        <option value="jeep">Jeep</option>
-                        <option value="kia">Kia</option>
-                        <option value="lamborghini">Lamborghini</option>
-                        <option value="land-rover">Land Rover</option>
-                        <option value="lexus">Lexus</option>
-                        <option value="lincoln">Lincoln</option>
-                        <option value="lotus">Lotus</option>
-                        <option value="lucid">Lucid</option>
-                        <option value="maserati">Maserati</option>
-                        <option value="mazda">Mazda</option>
-                        <option value="mclaren">McLaren</option>
-                        <option value="mercedes-benz">Mercedes-Benz</option>
-                        <option value="mercury">Mercury</option>
-                        <option value="mini">Mini</option>
-                        <option value="mitsubishi">Mitsubishi</option>
-                        <option value="nissan">Nissan</option>
-                        <option value="polestar">Polestar</option>
-                        <option value="pontiac">Pontiac</option>
-                        <option value="porsche">Porsche</option>
-                        <option value="rivian">Rivian</option>
-                        <option value="rolls-royce">Rolls Royce</option>
-                        <option value="saab">Saab</option>
-                        <option value="saturn">Saturn</option>
-                        <option value="scion">Scion</option>
-                        <option value="smart">Smart</option>
-                        <option value="subaru">Subaru</option>
-                        <option value="suzuki">Suzuki</option>
-                        <option value="tesla">Tesla</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="volkswagon">Volkswagon</option>
-                        <option value="volvo">Volvo</option>
                     </select>
                     <label for="carmodel">Model</label>
-                    <select id="carmodel" form="addJobForm" name="carmodel">
+                    <select id="carmodel" form="addJobForm" name="carmodel" onchange="getEngines(this.value)" required>
                     </select>
+                    <label for="carengine">Engine</label>
+                    <select id="carengine" form="addJobForm" name="carengine" required>
+                    </select>
+
+                    
                 </section>
+                <label for="jobType">Job Type: </label>
+                <select id="jobType" class="jobTypeSelect">
+                    <option value="inspection">Inspection</option>
+                    <option value="oil-change">Oil Change</option>
+                    <option value="tune-up">Tune Up</option>
+                    <option value="brakes">Brakes</option>
+                    <option value="suspension">Suspension</option>
+                    <option value="interior-repair">Interior Repair</option>
+                    <option value="body-repair">Body Repair</option>
+                </select>
                 <label for="employeeassign">Employee for Job</label>
                 <select id="employeeAssign" form="addJobForm" name="employeeassign">
                     <option value="" disabled selected>Assign to</option>
                 </select>
                 <form id="addJobForm" action="/addjob" method="POST">
-                    <input id="customerName" type="text" name="customerName" placeholder="Customer Name">
+                    <input id="customerName" type="text" name="customerName" placeholder="Customer Name" required>
                     <textarea type="text" name="jobDescription" placeholder="Job Description" id="jobDescription" rows="5" cols="80"></textarea>
                     <button type="submit" name="submitJob">Add</button>
                 </form>
@@ -127,39 +92,40 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < jobCollectionArray.length; u++) {%>
-                        <li><a href="#">
-                            <div>
-                                <h3>Job # <%= jobCollectionArray[u].number %></h3>
+                        <li><a href="/job?_id=<%= jobCollectionArray[u]._id %>">
+                            <div id="jobCustomerInfo">
                                 <h4><%= jobCollectionArray[u].name %></h4>
-                                <h5><%= jobCollectionArray[u].year + ' ' + jobCollectionArray[u].make.toUpperCase() + ' ' + jobCollectionArray[u].model %></h5>
                                 <span><%= jobCollectionArray[u].job.toUpperCase() %></span>
+                                <h5><%= jobCollectionArray[u].year + ' ' + jobCollectionArray[u].make.toUpperCase() + ' ' + jobCollectionArray[u].model %></h5>
+                                <h5><%= jobCollectionArray[u].engine %></h5>
                             </div>
                             <div class="jobStat">
                                 <label for="jobstatus">Priority:</label>
-                                <select name="cars" id="cars">
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </select>
+                                <span><%= jobCollectionArray[u].priority %></span>
                                 <div class="statusContainer">
                                     <h4>Completed Status</h4>
                                     <span><%= jobCollectionArray[u].status %>%</span>
                                 </div>
                             </div>
-                        </a></li>
+                        </a>
+                    </li>
                     <% } %>
                 </ul>
             </section>
             <section id="upcomingJobs" class="dashSquare">
                 <h2 class="dashTitle">Appointment Requests</h2>
                 <ul class="dashDataContainer">
-                    <li><a href="#">
-                        <div>
-                            <h4>Kenny Ortigas</h4>
-                            <h5>2018 Subaru BRZ</h5>
-                            <span>Needs Horsepower</span>
-                        </div>
-                    </a></li>
+                    <li>
+                        <a href="#">
+                            <div id="appointmentDataContainer">
+                                <h4>Kenny Ortigas</h4>
+                                <h5>2018 Subaru BRZ</h5>
+                                <span>Needs Horsepower</span>
+                            </div>
+                        </a>
+                        <a href="#message" class="dashButton" id="messageButton">Message</a>
+                        <a href="#quote" class="dashButton" id="quoteButton">Quote</a>
+                    </li>
                 </ul>
             </section>
             <section id="completedJobs" class="dashSquare">
@@ -191,6 +157,6 @@
                 </ul>
             </section>
         </footer>
-        <script src='/dashboardScripts.js'></script>
+        <script src='/js/dashboardScripts.js'></script>
     </body>
 </html>

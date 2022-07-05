@@ -1,4 +1,3 @@
-
 /* 
 font-family: 'Rajdhani', sans-serif;
 font-family: 'Sarpanch', sans-serif;
@@ -157,6 +156,20 @@ button:hover{
     transform: translateY(0);
     opacity: 1;
 }
+#estimatesContainer{
+    flex-direction: column;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+#animationContainer{
+    width: 85%;
+    margin: 0% 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 .homepageSection img{
     width: 40%;
     height: auto;
@@ -164,6 +177,86 @@ button:hover{
     margin: 2%;
     box-shadow: 0 30px 40px rgba(0,0,0,.3);
 }
+#arrowAnimation{
+    height: 80%;
+    width: 80%;
+}
+#previewEstimatesTitle{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+#previewEstimatesTItle h2{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+#previewShrink1, #previewShrink2{
+    width: 30%;
+    height: 80%;
+}
+#employeesContainer{
+    align-items: center;
+}
+#teamManagement{
+    text-align: center;
+}
+#arrowImage{
+    position: relative;
+    box-shadow: none;
+    border: none;
+    width: 35%;
+    height: auto;
+    /* flex-grow: 1; */
+}
+/* ANIMATION RULES */
+
+  
+  /*MAKE ONE DURATION THEN HAVE USER CONTROL ON HORIZONTAL PATH*/
+  #arrowImage {
+    width: 35%;
+    height: auto;
+    color: white;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-name: arrows_animation;
+    /* transform: translateX(-100%); */
+  }
+  
+  @keyframes arrows_animation {
+
+    0% {
+      animation-timing-function: ease-in;
+      transform: translateX(0%);
+    }
+    25%{
+        tranform: translateX(25%);
+    }
+    /* 50%{
+        transform: translateX(50%);
+    } */
+    75%{
+        tranform: translateX(75%);
+    }
+    /* 98% {
+      animation-timing-function: ease-out;
+      transform: translateX(98%);
+    } */
+    90% {
+        animation-timing-function: ease-out;
+        transform: translateX(180%);
+    }
+    100%{
+        transform: translateX(180%);
+    }
+  }
+
+/* CONTINUE HOMEPAGE STYLE */
+
 .homepageTextContainer{
     width: 40%;
 }

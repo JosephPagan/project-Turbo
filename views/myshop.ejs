@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="homepageStyle.css">
-        <link rel="stylesheet" href="dashboardStyle.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/homepageStyle.css">
+        <link rel="stylesheet" href="css/dashboardStyle.css">
     </head>    
     <body>
         <a href="/dashboard" id="homeLink"><section id="titleContainer">
@@ -44,12 +44,12 @@
             <h1>My Shop</h1>
         </section>
         <section id="dashSquares">
-            <section id="recentCustomers" class="dashSquare">
+            <section id="employeesSquare" class="dashSquare">
                 <h2 class="dashTitle">Employees</h2>
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < employeeDataArray.length; u++) {%>
-                        <li><a href="/employee-<%= employeeDataArray[u].name %>">
+                        <li><a href="/employee?_id=<%= employeeDataArray[u]._id %>">
                             <div>
                                 <h3><%= employeeDataArray[u].name %></h3>
                                 <h4><%= employeeDataArray[u].email %></h4>
@@ -57,8 +57,8 @@
                             </div>
                             <div>
                                 <h5><%= employeeDataArray[u].position.toUpperCase() + ' - ' + employeeDataArray[u].employee_type.toUpperCase() %></h5>
-                                <h5>Active Jobs: </h5>
-                                <h5>Jobs Completed: </h5>
+                                <h5>Active Jobs: <%= employeeDataArray[u].jobs.activeJobs %></h5>
+                                <h5>Jobs Completed: <%= employeeDataArray[u].jobs.completedJobs %></h5>
                             </div>
                         </a></li>
                     <% } %>
@@ -68,10 +68,10 @@
             <section id="addEmployee" class="dashSquare">
                 <h2 class="dashTitle">Add Employee</h2>
                 <form id="addEmployeeForm" action="/addemployee" method="POST">
-                    <input id="employeeName" type="text" name="employeeName" placeholder="Name">
-                    <input id="employeeEmail" type="email" name="employeeEmail" placeholder="Email">
-                    <input id="employeePhone" type="tel" name="employeePhone" placeholder="Phone Number">
-                    <select id="employeePosition" name="employeeposition">
+                    <input id="employeeName" type="text" name="employeeName" placeholder="Name" required>
+                    <input id="employeeEmail" type="email" name="employeeEmail" placeholder="Email" required>
+                    <input id="employeePhone" type="tel" name="employeePhone" placeholder="Phone Number" required>
+                    <select id="employeePosition" name="employeeposition" required>
                         <option value="tech">Technician</option>
                         <option value="lead-tech">Lead Technician</option>
                         <option value="manager">Manager</option>
@@ -81,6 +81,24 @@
                         <input id="fullTime" type="radio" name="employeeType" value="full-time" class="employeeRadios" form="addEmployeeForm">
                         <label for="partTime">Part-Time</label>
                         <input id="partTime" type="radio" name="employeeType" value="part-time" class="employeeRadios" form="addEmployeeForm">
+                    </section>
+                    <section id="rateOfPayContainer">
+                        <div class="wageSlider">
+                            <h3 id='wageHead'>Hourly Wage:</h3>
+    <!--                         <p>Move slider to set your budget range.</p>  -->
+                            <div class="min-max">
+                             <div class="min">
+                                 <label></label><span id="wage-min-value" name='wageSet'>$25.00</span>
+                             </div>
+    <!--                          <div class="max">
+                                 <label>Max</label><span id="max-value"></span>
+                             </div>      -->
+                            </div>  
+                            <div class="min-max-range">
+                              <input type="range" min="0" max="80" value="25" step='any' class="range" id="wageMin" name='hourlyWage' form="addEmployeeForm" required>     
+                            </div>  
+                            <div style="clear: both;"></div>    
+                        </div>
                     </section>
                     <button type="submit" name="submitEmployee" id="addEmployeeButton">Add</button>
                 </form>
@@ -126,6 +144,6 @@
                 </ul>
             </section>
         </footer>
-        <script src='/dashboardScripts.js'></script>
+        <script src='/js/dashboardScripts.js'></script>
     </body>
 </html>

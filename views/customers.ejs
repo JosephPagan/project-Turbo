@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="homepageStyle.css">
-        <link rel="stylesheet" href="dashboardStyle.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/homepageStyle.css">
+        <link rel="stylesheet" href="css/dashboardStyle.css">
     </head>    
     <body>
         <a href="/dashboard" id="homeLink"><section id="titleContainer">
@@ -49,7 +49,7 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < customerDataArray.length; u++) {%>
-                        <li><a href="#">
+                        <li><a href="/customer?_id=<%= customerDataArray[u]._id %>">
                             <div>
                                 <h3>Customer ID: <%= customerDataArray[u]._id %></h3>
                                 <h4><%= customerDataArray[u].customer %></h4>
@@ -105,6 +105,6 @@
                 </ul>
             </section>
         </footer>
-        <script src='/dashboardScripts.js'></script>
+        <script src='/js/dashboardScripts.js'></script>
     </body>
 </html>

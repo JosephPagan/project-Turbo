@@ -5,6 +5,7 @@ const MongoClient= require('mongodb').MongoClient
 const cors = require('cors')
 const { Callbacks } = require('jquery')
 const PORT = process.env.PORT || 3000
+var ObjectId = require('mongodb').ObjectID;
 const connectionString = 'mongodb+srv://silkysmooth:Shadow69@cluster0.hrbhhki.mongodb.net/?retryWrites=true&w=majority'
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
@@ -21,6 +22,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         app.use(express.static(__dirname + '/public'))
         app.use(bodyParser.urlencoded({ extended: false }))
         app.use(bodyParser.json())
+        
 
         app.get('/', (req, res) => {
             res.render('homePage.ejs')
@@ -33,9 +35,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         app.post('/signin', (req, res) => {
             let userName = req.body.username
             let passWord = req.body.password
+            jobCollection.find().toArray()
             .then(results => {
                 console.log(`New Login Detected! User: ${userName} PW: ${passWord}`)
-                res.render('dashboard.ejs', {jobCollectionArray: results},)
+                res.render('dashboard.ejs', {jobCollectionArray: results})
             })
             .catch(error => console.log(error))
         })
@@ -76,17 +79,29 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             .catch(error => console.log(error))
         })
 
+        app.get('/job', (req, res) => {
+            jobCollection.find({"_id":ObjectId(req.query._id)}).toArray()
+            .then(results => {
+                //console.log(`JobsPage: ${results}`)
+                res.render('job.ejs', {jobArray: results})
+            })
+            .catch(error => console.log(error))
+        })
+
         app.post('/addjob', (req, res) => {
-            jobCollection.insertOne({number: 1, 
+            jobCollection.insertOne({
                 name: req.body.customerName, 
                 year: req.body.caryear, 
                 make: req.body.carmake, 
-                model: req.body.carmodel, 
+                model: req.body.carmodel,
+                engine: req.body.carengine,
                 job: req.body.jobDescription,
                 employee_assigned: req.body.employeeassign,
                 priority: 'low', 
                 status: 0,
-                date: new Date()
+                date: new Date(),
+                parts_list: {},
+                job_total: 0
             })
             customerData.insertOne({
                 customer: req.body.customerName,
@@ -98,7 +113,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 dateCreated: new Date()
             })
             .then(result => {
-                console.log(result)
+                //console.log(result)
                 res.redirect('jobs')
             })
             .catch(error => console.log(error))
@@ -131,6 +146,16 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             .catch(error => console.log(error))
         })
 
+        app.get('/customer', (req, res) => {
+            //console.log(req.query._id)
+            customerData.find({"_id":ObjectId(req.query._id)}).toArray()
+            .then(results => {
+                //console.log(results)
+                res.render('customer.ejs', {customerInfo: results})
+            })
+            .catch(error=> console.log(error))
+        })
+
         app.get('/myshop', (req, res) => {
             employeeData.find().toArray()
             .then(results => {
@@ -141,7 +166,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.get('/addshop', (req, res) => {
-            res.render('addshop.ejs')
+            shopInfo.find().toArray()
+            .then(results => {
+                res.render('addshop.ejs', {shopDataArray: results})
+            })
+            .catch(error => console.log(error))
         })
 
         app.post('/addshop', (req, res) => {
@@ -161,7 +190,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 average_markup: Number(req.body.aveMarkup)
             })
             .then(result => {
-                //console.log(req)
                 console.log(result)
                 res.redirect('myshop')
             })
@@ -175,10 +203,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 phone: req.body.employeePhone, 
                 position: req.body.employeeposition, 
                 employee_type: req.body.employeeType,
+                rate_of_pay: Math.round(Number(req.body.hourlyWage) * 100) / 100,
                 date: new Date(),
                 jobs: {
-                    activeJobs: 1,
-                    completedJobs: 3,
+                    activeJobs: 2,
+                    completedJobs: 5,
                 }
             })
             .then(result => {
@@ -189,7 +218,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.get('/employee', (req, res) => {
-            res.render('employee.ejs')
+            employeeData.find({"_id":ObjectId(req.query._id)}).toArray()
+            .then(results => {
+                //console.log(results)
+                res.render('employee.ejs', {employeeData: results})
+            })
+            .catch(error => console.log(error))
         })
 
         app.get('/pointofsale', (req, res) => {

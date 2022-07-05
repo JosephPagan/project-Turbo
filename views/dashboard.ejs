@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="homepageStyle.css">
-        <link rel="stylesheet" href="dashboardStyle.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/homepageStyle.css">
+        <link rel="stylesheet" href="css/dashboardStyle.css">
     </head>    
     <body>
         <a href="/dashboard" id="homeLink"><section id="titleContainer">
@@ -49,20 +49,15 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < jobCollectionArray.length; u++) {%>
-                        <li><a href="#">
-                            <div>
-                                <h3>Job # <%= jobCollectionArray[u].number %></h3>
+                        <li><a href="/job?_id=<%= jobCollectionArray[u]._id %>">
+                            <div id="jobCustomerInfo">
                                 <h4><%= jobCollectionArray[u].name %></h4>
-                                <h5><%= jobCollectionArray[u].year + ' ' + jobCollectionArray[u].make.toUpperCase() + ' ' + jobCollectionArray[u].model %></h5>
                                 <span><%= jobCollectionArray[u].job.toUpperCase() %></span>
+                                <h5><%= jobCollectionArray[u].year + ' ' + jobCollectionArray[u].make.toUpperCase() + ' ' + jobCollectionArray[u].model %></h5>
                             </div>
                             <div class="jobStat">
                                 <label for="jobstatus">Priority:</label>
-                                <select name="cars" id="cars">
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </select>
+                                <span><%= jobCollectionArray[u].priority %></span>
                                 <div class="statusContainer">
                                     <h4>Completed Status</h4>
                                     <span><%= jobCollectionArray[u].status %>%</span>
@@ -78,13 +73,17 @@
             <section id="upcomingJobs" class="dashSquare">
                 <h2 class="dashTitle">Appointment Requests</h2>
                 <ul class="dashDataContainer">
-                    <li><a href="#">
-                        <div>
-                            <h4>Kenny Ortigas</h4>
-                            <h5>2018 Subaru BRZ</h5>
-                            <span>Needs Horsepower</span>
-                        </div>
-                    </a></li>
+                    <li>
+                        <a href="#">
+                            <div id="appointmentDataContainer">
+                                <h4>Kenny Ortigas</h4>
+                                <h5>2018 Subaru BRZ</h5>
+                                <span>Needs Horsepower</span>
+                            </div>
+                        </a>
+                        <a href="#message" class="dashButton" id="messageButton">Message</a>
+                        <a href="#quote" class="dashButton" id="quoteButton">Quote</a>
+                    </li>
                 </ul>
             </section>
             <section id="employees" class="dashSquare">
@@ -93,7 +92,7 @@
 
                 </ul>
                 <section id="dashButtonContainer">
-                    <a href="/myshop" class="dashButton">Add Employee</a>
+                    <a href="/myshop" class="dashButton">Manage Employees</a>
                 </section>
             </section>
             <section id="quickReports" class="dashSquare">
@@ -119,6 +118,6 @@
                 </ul>
             </section>
         </footer>
-        <script src='/dashboardScripts.js'></script>
+        <script src='/js/dashboardScripts.js'></script>
     </body>
 </html>
