@@ -20,42 +20,43 @@
         <link rel="stylesheet" href="css/homepageStyle.css">
     </head>    
     <body>
-        <a href="/" id="homeLink"><section id="titleContainer">
-            <h1 id="title"><strong>GearHead</strong> <br>Shop Management System</h1> 
-       </section></a>
         <nav>
-            <ul id="navLinks">
-                <li>
-                    <button onclick="dropDownFunction()" class="dropbtn">Application</button>
-                    <div id="appDropdown" class="dropdown-content">
-                        <a href="#estimatesContainer" id="estimates">Estimates
-                            <img src="estimatesIcon.jpeg">
-                        </a>
-                        <a href="#communicationsContainer" id="communications">Communications
-                            <img src="communicationIcon01.jpeg">
-                        </a>
-                        <a href="#paymentsContainer" id="paymentProcessing">Payment Processing
-                            <img src="paymentIcon.jpeg">
-                        </a>
-                        <a href="#workflowContainer" id="workflow">Workflow
-                            <img src="workflowIcon01.jpeg">
-                        </a>
-                        <a href="#employeesContainer" id="teamManagement">Team Management
-                            <img src="teamManagementIcon.jpeg">
-                        </a>
-                        <a href="#reportsContainer" id="reporting">Reporting
-                            <img src="reportingIcon.jpeg">
-                        </a>
-                    </div>
-                </li>
-                <li><a href="/pricing">Pricing</a></li>
-                <li><a href="/company">Company</a></li>
-            </ul>
-            <section id="buttonContainer">
-                <a href="/login" id="loginLink" class="navButton">Sign In</a>
-                <a href="/login#signin" id="signupLink" class="navButton">Sign Up</a>
-            </section>
-
+            <a href="/" id="homeLink" class="publicPages"><section id="titleContainer">
+                <h1 id="title"><strong>GearHead</strong> <br>Shop Management System</h1> 
+           </section></a>
+           <section id="navDashContainer">
+                <ul id="navLinks">
+                    <li>
+                        <button onclick="dropDownFunction()" class="dropbtn">Application</button>
+                        <div id="appDropdown" class="dropdown-content">
+                            <a href="#estimatesContainer" id="estimates">Estimates
+                                <img src="estimatesIcon.jpeg">
+                            </a>
+                            <a href="#communicationsContainer" id="communications">Communications
+                                <img src="communicationIcon01.jpeg">
+                            </a>
+                            <a href="#paymentsContainer" id="paymentProcessing">Payment Processing
+                                <img src="paymentIcon.jpeg">
+                            </a>
+                            <a href="#workflowContainer" id="workflow">Workflow
+                                <img src="workflowIcon01.jpeg">
+                            </a>
+                            <a href="#employeesContainer" id="teamManagement">Team Management
+                                <img src="teamManagementIcon.jpeg">
+                            </a>
+                            <a href="#reportsContainer" id="reporting">Reporting
+                                <img src="reportingIcon.jpeg">
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/company">Company</a></li>
+                </ul>
+                <section id="buttonContainer">
+                    <a href="/login" id="loginLink" class="navButton">Sign In</a>
+                    <a href="/login#signin" id="signupLink" class="navButton">Sign Up</a>
+                </section>
+           </section>
         </nav>
         <section id="estimatesContainer" class="homepageSection">
             <section id="previewEstimatesTitle" class="homepageTextContainer">

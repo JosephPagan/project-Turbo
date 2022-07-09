@@ -44,6 +44,7 @@ function getMakes() {
             }
     })
 }
+// CAR MODELS API CALL
 function getModels(make) {
     let year = document.getElementById('date-dropdown').value
     //console.log(make)
@@ -75,11 +76,12 @@ function getModels(make) {
             }
         })
 }
+// CAR ENGINES API CALL
 function getEngines(model) {
     let year = document.getElementById('date-dropdown').value
     let make = document.getElementById('carmake').value
-    console.log(make)
-    console.log(model)
+    // console.log(make)
+    // console.log(model)
 
     const apiUrl = `http://api.carmd.com/v3.0/engine?year=${year}&make=${make}&model=${model}`;
     //console.log(apiUrl)
@@ -107,6 +109,68 @@ function getEngines(model) {
             }
         })
 }
+// CAR REPAIRS API CALL
+function getRepairs() {
+    let year = document.getElementById('date-dropdown').value
+    let make = document.getElementById('carmake').value
+    let model = document.getElementById('carmodel').value
+    let engine = document.getElementById('carengine').value
+
+    const apiUrl = `http://api.carmd.com/v3.0/repairlist?year=${year}&make=${make}&model=${model}&engine=${engine}`;
+    //console.log(apiUrl)
+    let repairDropdown = document.getElementById('repairDropdown');
+    let options = document.querySelectorAll('#repairDropdown option')
+    options.forEach(z => z.remove())
+    
+    fetch(apiUrl, {
+        headers: {
+            "content-type":"application/json",
+            "authorization":"Basic NDM0MDk2OWMtZWRmZi00ZWQ0LWJhMTEtZTcwMTM5ODFmZGY1",
+            "partner-token":"8ae602064b9442e48633624f162c3639"
+        }
+    })
+        .then( (data) => data.json())
+        .then( (results) => {
+            console.log(results)
+            let arrayOfRepairs = results.data
+            for(x = 0; x < arrayOfRepairs.length; x++) {
+                let repairOption = document.createElement('option')
+                let currentRepair = arrayOfRepairs[x].item
+                repairOption.text = currentRepair
+                repairOption.value = currentRepair
+                repairDropdown.add(repairOption)
+            }
+        })
+}
+// CAR IMAGE API CALL
+function getCarImage() {
+    let year = document.getElementById('date-dropdown').value
+    let make = document.getElementById('carmake').value
+    let model = document.getElementById('carmodel').value
+    let engine = document.getElementById('carengine').value
+
+    // console.log(year)
+    // console.log(make)
+    // console.log(model)
+    // console.log(engine)
+
+    const apiUrl = `http://api.carmd.com/v3.0/image?year=${year}&make=${make}&model=${model}&engine=${engine}`;
+    console.log(apiUrl)
+
+    fetch(apiUrl, {
+        headers: {
+            "content-type":"application/json",
+            "authorization":"Basic NDM0MDk2OWMtZWRmZi00ZWQ0LWJhMTEtZTcwMTM5ODFmZGY1",
+            "partner-token":"8ae602064b9442e48633624f162c3639"
+        }
+    })
+        .then( (data) => data.json())
+        .then( (results) => {
+            // console.log('Vehicle Image: ' + results.data.image);
+            let image = document.getElementById('formImageHidden')
+            image.value = results.data.image
+        })
+}
 
 var wageSlider = document.getElementById('wageMin');
 
@@ -115,6 +179,6 @@ var wageOutputMin = document.getElementById('wage-min-value');
 wageOutputMin.innerHTML = '$' + wageSlider.value;
 
 wageSlider.oninput = function() {
-wageOutputMin.innerHTML= '$' + Math.round(this.value * 100) / 100;    
+    ageOutputMin.innerHTML= '$' + Math.round(this.value * 100) / 100;    
 }
 

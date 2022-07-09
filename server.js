@@ -95,9 +95,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 make: req.body.carmake, 
                 model: req.body.carmodel,
                 engine: req.body.carengine,
-                job: req.body.jobDescription,
+                image: req.body.carimage,
+                repair: req.body.commonRepair,
+                job_type: req.body.jobtype,
+                job_description: req.body.jobDescription,
                 employee_assigned: req.body.employeeassign,
-                priority: 'low', 
+                priority: req.body.priority, 
                 status: 0,
                 date: new Date(),
                 parts_list: {},
@@ -109,6 +112,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                     year: req.body.caryear,
                     make: req.body.carmake,
                     model: req.body.carmodel,
+                    engine: req.body.carengine
                 },
                 dateCreated: new Date()
             })

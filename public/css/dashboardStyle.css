@@ -10,7 +10,7 @@ font-family: 'Antic Didone', serif;
     width: 80px;
 }
 #titleContainer{
-    width: 9%;
+    width: 98%;
     background-color: white;
 }
 #mainDash{
@@ -19,7 +19,7 @@ font-family: 'Antic Didone', serif;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
-    width: 68%;
+    width: 80%;
     padding: 0;
     margin: 0;
     align-items: center;
@@ -34,15 +34,18 @@ font-family: 'Antic Didone', serif;
     color: #3FA3C8;
 }
 .pageTitleContainer{
+    position: relative;
     height: 5%;
     text-align: right;
     margin-right: 3%;
+    padding-top: 5%;
     animation: 1.5s ease-out 0s 1 slideInFromRight;
 }
 .pageTitleContainer h1{
     font-family: 'Rajdhani', sans-serif;
     font-size: 2em;
     font-weight: bold;
+    margin-top: 0%;
 }
 #dashSquares{
     display: flex;
@@ -98,7 +101,7 @@ font-family: 'Antic Didone', serif;
     border: 2px solid lightgrey;
     border-radius: 8px;
     background-color: white;
-    height: 80%;
+    height: 85%;
     width: 96.5%;
     margin: 0% 1.5%;
     padding: 0;
@@ -106,7 +109,7 @@ font-family: 'Antic Didone', serif;
 }
 #dashButtonContainer{
     display: flex;
-    width: 15%;
+    width: 25%;
     margin: .5% 1.5%;
     text-align: center;
     justify-content: center;
@@ -174,12 +177,12 @@ font-family: 'Antic Didone', serif;
 #enterJobs{
     width: 25%;
 }
-#dropdownContainer{
+#dropdownContainer, #jobDataContainer{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
-    padding: 2%;
+    padding: 0% 2%;
 }
 #dropdownContainer label{
     width: 15%;
@@ -199,6 +202,7 @@ font-family: 'Antic Didone', serif;
 }
 #addJobForm{
     justify-content: start;
+    align-items: center;
 }
 #carmake{
     margin: 2% 0%;
@@ -208,6 +212,17 @@ font-family: 'Antic Didone', serif;
     font-size: 1.2em;
     height: 15%;
     margin: 2%;
+}
+#addJobForm label{
+    width: 8%;
+    margin-right: 1%;
+}
+#addJobForm select{
+    width: 18%;
+    height: 8%;
+}
+#formImageHidden{
+    display: none;
 }
 #addJobForm textarea{
     font-family: 'Sarpanch', sans-serif;
@@ -222,6 +237,23 @@ font-family: 'Antic Didone', serif;
     margin: 1% 25% 1% 25%;
     font-size: 1.1em;
     font-family: 'Sarpanch', sans-serif;
+}
+#jobDataContainer{
+    height: 30%;
+}
+#jobDataContainer {
+    margin-top: 2%;
+    width: 96%;
+    height: 18%;
+}
+#jobDataContainer label{
+    width: 24%;
+}
+#jobDataContainer select{
+    width: 23%;
+}
+#jobDataContainer #repairDropdown{
+    width: 75%;
 }
 #searchCustomerForm{
     justify-content: start;
@@ -353,6 +385,30 @@ font-family: 'Antic Didone', serif;
     height: 10%;
     margin: 0% 1% 0% 0%;
 }
+#ccInfo{
+    text-align: end;
+}
+#ccInfo label{
+    width: 24%;
+    margin: 2% 1%;
+}
+#ccInfo input{
+    width: 50%;
+    height: 8%;
+    margin: 2% 1%;
+    margin-left: 3%;
+}
+#ccInfo button{
+    width: 40%;
+    height: 20%;
+    margin: 2% 30%;
+}
+#cardExpirationYear + label{
+    margin-left: 21%;
+}
+#ccInfo .expDate, #ccInfo #cardVerification{
+    width: 15%;
+}
 #invoiceButton, #quoteButton, #editJobButton, #messageButton{
     width: 13%;
     margin: 1%;
@@ -381,7 +437,8 @@ font-family: 'Antic Didone', serif;
     width: 75%;
 }
 #jobSpecificDashSquares{
-    height: 700px;
+    display: flex;
+    height: 1200px;
     margin-top: 3%;
 }
 #updateCustomerForm{
@@ -401,13 +458,13 @@ font-family: 'Antic Didone', serif;
 }
 #updateCustomerForm input{
     width: 45%;
-    height: 5%;
+    height: 3%;
     margin: .5%;
     margin-left: 2%;
 }
-.jobTypeSelect{
-    width: 30%;
-    height: 5%;
+#updateCustomerForm textarea{
+    width: 45%;
+    height: 10%;
     margin: .5%;
     margin-left: 2%;
 }
@@ -416,6 +473,9 @@ font-family: 'Antic Didone', serif;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+#nameContainer{
+    width: 75%;
 }
 #jobSpecificCustomerInfo{
     display: flex;
@@ -431,14 +491,43 @@ font-family: 'Antic Didone', serif;
 #jobSpecificCarContainer{
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 70%;
     padding-top: .5%;
     margin-left: 3%;
 }
+#jobSpecificCarContainer label{
+    width: 20%;
+}
 #jobSpecificCarContainer select{
     margin: 0;
-    margin-left: 7%;
+    margin-left: 3%;
     margin-top: 2%;
+    width: 35%;
+}
+#jobSpecificDataContainer{
+    width: 100%;
+    height: 35%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#jobSpecificDataContainer #repairDropdown{
+    width: 75%;
+    height: 35%;
+    margin-left: 3%;
+    margin-bottom: 1%;
+}
+#specificRepairDropdownLabel{
+    width: 15%;
+}
+#jobSpecificDataContainer label{
+    text-align: end;
+}
+#jobSpecificDataContainer select{
+    width: 25%;
+    height: 35%;
+    margin-left: 0;
 }
 #partsListLabel{
     display: inline-block;
@@ -463,11 +552,24 @@ font-family: 'Antic Didone', serif;
 }
 #partsList input{
     margin: 0;
-    width: 65%;
+    width: 60%;
     height: 50%;
 }
 #partsList select{
     margin: 0;
-    width: 20%;
-    height: 50%;
+    width: 25%;
+    height: 65%;
+}
+#carImageContainer{
+    width: 30%;
+    margin-left: 2%;
+}
+#carImage{
+    width: 25%;
+    position: fixed;
+    border-radius: 8px;
+}
+strong{
+    position: fixed;
+    margin-left: 1%;
 }
