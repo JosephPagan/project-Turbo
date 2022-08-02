@@ -52,12 +52,13 @@
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < employeeDataArray.length; u++) {%>
                         <li><a href="/employee?_id=<%= employeeDataArray[u]._id %>">
-                            <div>
+                            <div class="employeePersonalData">
                                 <h3><%= employeeDataArray[u].name %></h3>
                                 <h4><%= employeeDataArray[u].email %></h4>
                                 <h5><%= employeeDataArray[u].phone %></h5>
+                                <h4><%= employeeDataArray[u].employee_specialty %></h4>
                             </div>
-                            <div>
+                            <div class="employeeJobData">
                                 <h5><%= employeeDataArray[u].position.toUpperCase() + ' - ' + employeeDataArray[u].employee_type.toUpperCase() %></h5>
                                 <h5>Active Jobs: <%= employeeDataArray[u].jobs.activeJobs %></h5>
                                 <h5>Jobs Completed: <%= employeeDataArray[u].jobs.completedJobs %></h5>
@@ -74,9 +75,19 @@
                     <input id="employeeEmail" type="email" name="employeeEmail" placeholder="Email" required>
                     <input id="employeePhone" type="tel" name="employeePhone" placeholder="Phone Number" required>
                     <select id="employeePosition" name="employeeposition" required>
+                        <option value="" disabled selected>Title</option>
                         <option value="tech">Technician</option>
                         <option value="lead-tech">Lead Technician</option>
                         <option value="manager">Manager</option>
+                    </select>
+                    <select id="employeeSpecialty" name="employeespecialty">
+                        <option value="" disabled selected>Specialty</option>
+                        <option value="engine-repair">Eninge Repair</option> 
+                        <option value="performance">Performance</option>
+                        <option value="transmission">Transmissions</option>
+                        <option value="brakes">Brakes</option>
+                        <option value="suspension-steering">Suspension & Steering</option>
+                        <option value="heating-air">Heating & Air Conditioning</option>
                     </select>
                     <section id="employeeRadioContainer">
                         <label for="fullTime">Full-Time</label>
@@ -87,14 +98,10 @@
                     <section id="rateOfPayContainer">
                         <div class="wageSlider">
                             <h3 id='wageHead'>Hourly Wage:</h3>
-    <!--                         <p>Move slider to set your budget range.</p>  -->
                             <div class="min-max">
                              <div class="min">
                                  <label></label><span id="wage-min-value" name='wageSet'>$25.00</span>
                              </div>
-    <!--                          <div class="max">
-                                 <label>Max</label><span id="max-value"></span>
-                             </div>      -->
                             </div>  
                             <div class="min-max-range">
                               <input type="range" min="0" max="80" value="25" step='any' class="range" id="wageMin" name='hourlyWage' form="addEmployeeForm" required>     

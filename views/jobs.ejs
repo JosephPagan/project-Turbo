@@ -85,14 +85,16 @@
                     </select>
                 </section>
                 <form id="addJobForm" action="/addjob" method="POST">
-                    <input id="customerName" type="text" name="customerName" placeholder="Customer Name" onclick="getCarImage()" required>
+                    <input id="customerName" class="addJobCustomerInput" type="text" name="customerName" placeholder="Customer Name" onclick="getCarImage()" required>
+                    <input id="customerPhone" class="addJobCustomerInput" type="tel" name="customerphone" placeholder="Customer Phone">
+                    <input id="customerEmail" class="addJobCustomerInput" type="email" name="customeremail" placeholder="Customer Email">
                     <label for="jobPriority">Priority: </label>
                     <select id="jobPriority" name="priority">
                         <option value="low">Low</option>
                         <option value="med">Med</option>
                         <option value="high">High</option>
                     </select>
-                    <textarea type="text" name="jobDescription" placeholder="Job Description" id="jobDescription" rows="5" cols="80"></textarea>
+                    <textarea type="text" name="jobDescription" placeholder="Job Description" id="jobDescription" rows="2" cols="80"></textarea>
                     <button type="submit" name="submitJob">Add</button>
                 </form>
                 <section>

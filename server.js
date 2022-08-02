@@ -108,6 +108,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             })
             customerData.insertOne({
                 customer: req.body.customerName,
+                customer_phone: req.body.customerphone,
+                customer_email: req.body.customeremail,
                 cars: {
                     year: req.body.caryear,
                     make: req.body.carmake,
@@ -117,7 +119,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 dateCreated: new Date()
             })
             .then(result => {
-                //console.log(result)
                 res.redirect('jobs')
             })
             .catch(error => console.log(error))
@@ -207,6 +208,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 phone: req.body.employeePhone, 
                 position: req.body.employeeposition, 
                 employee_type: req.body.employeeType,
+                employee_specialty: req.body.employeespecialty,
                 rate_of_pay: Math.round(Number(req.body.hourlyWage) * 100) / 100,
                 date: new Date(),
                 jobs: {

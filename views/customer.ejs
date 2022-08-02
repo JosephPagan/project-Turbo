@@ -46,39 +46,44 @@
             <h1><%= customerInfo[0].customer %></h1>
         </section>
         <section id="customerSpecificDashSquares">
+            <section id="quickButtonsContainerCust">
+                <a href="/messenger" id="messageButtonCustPage" class="dashButton">Message</a>
+            </section>
             <form id="updateCustomerForm">
-                <input type="text" id="customerNameUpdate" class="customerUpdate" name="customernameupdate" placeholder="<%= customerInfo[0].customer %>">
-                <input type="number" id="customerPhoneNumber" class="customerUpdate" name="customerPhoneNumber">
-                <input type="email" id="customerEmail" class="customerUpdate" name="customeremail">
+                <section id="customerDetailsUpdate">
+                    <label for="customerNameUpdate" class="customerUpdateLabel">Customer: </label>
+                    <input type="text" id="customerNameUpdate" class="customerUpdate" name="customernameupdate" placeholder="<%= customerInfo[0].customer %>">
+                    <label for="customerPhoneNumber" class="customerUpdateLabel">Phone Number: </label>
+                    <input type="tel" id="customerPhoneNumber" class="customerUpdate" name="customerPhoneNumber" placeholder="<%= customerInfo[0].customer_phone %>">
+                    <label for="customerEmail" class="customerUpdateLabel">Email: </label>
+                    <input type="email" id="customerEmail" class="customerUpdate" name="customeremail" placeholder="<%= customerInfo[0].customer_email %>">
+                </section>
                 <section id="customerCarUpdate">
                     <label for="date-dropdown">Year</label>
-                    <select id='date-dropdown' form="addJobForm" name="caryear" onclick="generateYears()" onchange="getMakes()">
+                    <select id='date-dropdown' class="updateCustomerSelect" form="addJobForm" name="caryear" onclick="generateYears()" onchange="getMakes()">
                         <option value="<%= customerInfo[0].cars.year %>" disabled selected><%= customerInfo[0].cars.year %></option>
                     </select>
                     <label for="carmake">Make</label>
-                    <select id="carmake" name="carmake" form="addJobForm" onchange="getModels(this.value)" required>
+                    <select id="carmake" class="updateCustomerSelect" name="carmake" form="addJobForm" onchange="getModels(this.value)" required>
                         <option value="<%= customerInfo[0].cars.make %>" disabled selected><%= customerInfo[0].cars.make %></option>
                     </select>
                     <label for="carmodel">Model</label>
-                    <select id="carmodel" form="addJobForm" name="carmodel" onchange="getEngines(this.value)" required>
+                    <select id="carmodel" class="updateCustomerSelect" form="addJobForm" name="carmodel" onchange="getEngines(this.value)" required>
                         <option value="<%= customerInfo[0].cars.model %>" disabled selected><%= customerInfo[0].cars.model %></option>
                     </select>
                     <label for="carengine">Engine</label>
-                    <select id="carengine" form="addJobForm" name="carengine" onchange="getRepairs(); getCarImage()" required>
+                    <select id="carengine" class="updateCustomerSelect" form="addJobForm" name="carengine" onchange="getRepairs(); getCarImage()" required>
                         <option value="<%= customerInfo[0].cars.engine %>" disabled selected><%= customerInfo[0].cars.engine %></option>
                     </select>
                         
                 </section>
                 <select id="preferredEmployee">
-                    <option value="" disabled selected>preferredEmployee</option>
+                    <option value="" disabled selected>Preferred Technician</option>
                 </select>
                 <button type="submit" id="updateCustomer" class="dashButton" name="updatecustomer">Update Customer</button>
             </form>
             
             <!-- <img src="<%= customerInfo[0].image %>" alt="car image" id="carImage"> -->
-            <section id="quickButtonsContainerCust">
-                <a href="/messenger" id="messageButtonJobPage" class="dashButton">Message</a>
-            </section>
         </section>
 
         <footer>
