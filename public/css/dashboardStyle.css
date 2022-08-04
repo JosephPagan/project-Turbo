@@ -527,6 +527,9 @@ font-family: 'Antic Didone', serif;
     margin: .5%;
     margin-left: 2%;
 }
+#updateJobForm #jobId{
+    display: none;
+}
 #jobSpecificContainer{
     height: 70%;
     display: flex;
@@ -538,6 +541,9 @@ font-family: 'Antic Didone', serif;
 }
 #customerNameContainer{
     width: 90%;
+}
+#customerNameContainer h2{
+    display: none;
 }
 #jobSpecificCustomerInfo{
     display: flex;
@@ -645,7 +651,10 @@ font-family: 'Antic Didone', serif;
 }
 strong{
     position: fixed;
-    margin-left: 1%;
+    margin-left: .5%;
+}
+#custNameTitle{
+    font-size: 1.25em;
 }
 #jobRightSideContainer{
     display: flex;
@@ -663,11 +672,22 @@ strong{
     height: 25%;
     margin-top: 15%;
     display: flex;
+    justify-content: center;
 }
 #messageButtonJobPage{
     width: 20%;
     height: 10%;
     padding-top: .3%;
+}
+#deleteJobButton, #deleteCustButton{
+    width: 30%;
+    height: 13%;
+    padding-top: .3%;
+    color: white;
+    background-color: black;
+}
+#deleteCustButton{
+    height: 8%;
 }
 /* REPORTS PAGE */
 .reportContainer{

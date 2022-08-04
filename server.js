@@ -254,6 +254,26 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             res.render('settings.ejs')
         })
 
+        app.delete('/deleteJob', (req, res) => {
+            jobCollection.deleteOne({_id: new ObjectId(req.body.ObjectId)})
+            .then(result => {
+                console.log(`Job ${req.body.ObjectId} deleted.`)
+                res.json('Job Deleted')
+            })
+            .catch(err => console.log(err))
+        })
+
+        app.delete('/deleteCust', (req, res) => {
+            customerData.deleteOne({_id: new ObjectId(req.body.ObjectId)})
+            jobCollection.deleteOne({name: req.body.CustName})
+            // console.log(req.body.ObjectId)
+            .then(result => {
+                console.log(`Customer ${req.body.ObjectId} deleted.`)
+                res.json('Customer Deleted')
+            })
+            .catch(err => console.log(err))
+        })
+
         app.listen(process.env.PORT || PORT, (req, res) => {
             console.log(`GearHead is running on port ${PORT}.`)
         })

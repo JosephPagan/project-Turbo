@@ -43,11 +43,13 @@
             </section>
         </nav>
         <section id="customerNameContainer" class="pageTitleContainer">
-            <h1><%= customerInfo[0].customer %></h1>
+            <h1 id="customerNameCustPage"><%= customerInfo[0].customer %></h1>
+            <h2 id="custID"><%= customerInfo[0]._id %></h2>
         </section>
         <section id="customerSpecificDashSquares">
             <section id="quickButtonsContainerCust">
                 <a href="/messenger" id="messageButtonCustPage" class="dashButton">Message</a>
+                <button id="deleteCustButton" class="dashButton">Delete Customer</button>
             </section>
             <form id="updateCustomerForm">
                 <section id="customerDetailsUpdate">
@@ -101,5 +103,6 @@
             </section>
         </footer>
         <script src='/js/dashboardScripts.js'></script>
+        <script src='/js/customerScripts.js'></script>
     </body>
 </html>

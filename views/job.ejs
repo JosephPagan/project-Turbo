@@ -43,10 +43,11 @@
             </section>
         </nav>
         <section id="nameContainer" class="pageTitleContainer">
-            <h1>Active Job for <strong><%= jobArray[0].name %></strong></h1>
+            <h1>Active Job for <strong id="custNameTitle"><%= jobArray[0].name %></strong></h1>
         </section>
         <section id="jobSpecificDashSquares">
             <form id="updateJobForm">
+                <h1 id="jobId" name="jobid"><%= jobArray[0]._id %></h1>
                 <label for="customerName">Customer Name: </label>
                 <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray[0].name %>">
  
@@ -214,12 +215,9 @@
                 <img src="<%= jobArray[0].image %>" alt="car image" id="carImage">
                 <section id="quickButtonsContainer">
                     <a href="/messenger" id="messageButtonJobPage" class="dashButton">Message</a>
-                    
+                    <button id="deleteJobButton" class="dashButton">Delete Job</button>
                 </section>
             </section>
-            <form id="deleteJobForm" action="/deletejob" method="POST">
-                <button type="submit" id="deleteJob" class="dashButton" name="deletejob">Delete Job</button>
-            </form>
             
         </section>
 

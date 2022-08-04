@@ -1,8 +1,10 @@
+const deleteButton = document.getElementById('deleteJobButton')
+
+deleteButton.addEventListener('click', deleteJob)
+
 // DATE DROPDOWN
 function generateYears() {
     let dateDropdown = document.getElementById('date-dropdown'); 
-
-        
     let currentYear = new Date().getFullYear();    
     let earliestYear = 1950;     
     while (currentYear >= earliestYear) {      
@@ -182,3 +184,21 @@ wageSlider.oninput = function() {
     ageOutputMin.innerHTML= '$' + Math.round(this.value * 100) / 100;    
 }
 
+async function deleteJob(){
+    const jobID = document.getElementById('jobId').innerText
+    console.log(jobID)
+    try{
+        const response = await fetch('deleteJob', {
+            method: 'delete',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                'ObjectId': `${jobID}`
+            })
+        })
+        const data = await response.text()
+        window.location.href = "/jobs";
+        
+    }catch(err){
+        console.log(err)
+    }
+}
