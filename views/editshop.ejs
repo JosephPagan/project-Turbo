@@ -48,18 +48,18 @@
         <section id="dashSquares">
             <section id="addShopContainer" class="dashSquare">
                 <form id="addShopForm" action="/addshop" method="POST">
-                    <input id="shopName" type="text" name="shopName" placeholder="Business Name">
-                    <input id="shopEmail" type="email" name="shopEmail" placeholder="Business Email">
-                    <input id="shopPhone" type="tel" name="shopPhone" placeholder="Phone Number">
-                    <input id="shopAddress" type="text" name="shopAddress" placeholder="Address">
-                    <input id="shopCity" type="text" name="shopCity" placeholder="City">
-                    <input id="shopState" type="text" name="shopState" placeholder="State">
-                    <input id="shopZip" type="text" name="shopZip" placeholder="Zip Code">
-                    <input id="shopWebsite" type="url" name="shopWebsite" placeholder="Website">
+                    <input id="shopName" type="text" name="shopName" placeholder="<%= shopDataArray[0].shopName %>">
+                    <input id="shopEmail" type="email" name="shopEmail" placeholder="<%= shopDataArray[0].shopEmail %>">
+                    <input id="shopPhone" type="tel" name="shopPhone" placeholder="<%= shopDataArray[0].shopPhone %>">
+                    <input id="shopAddress" type="text" name="shopAddress" placeholder="<%= shopDataArray[0].shopAddress %>">
+                    <input id="shopCity" type="text" name="shopCity" placeholder="<%= shopDataArray[0].shopCity %>">
+                    <input id="shopState" type="text" name="shopState" placeholder="<%= shopDataArray[0].shopState %>">
+                    <input id="shopZip" type="text" name="shopZip" placeholder="<%= shopDataArray[0].shopZip %>">
+                    <input id="shopWebsite" type="url" name="shopWebsite" placeholder="<%= shopDataArray[0].shopWebsite %>">
                     <section id="shopHours" name="shophours">
                         <h3>Shop Hours</h3>
                         <select id="openHour" name="openhour" form="addShopForm" type="time">
-                            <option value="" disabled selected>Opening</option>
+                            <option value="" disabled selected><%= shopDataArray[0].shopOpen %></option>
                             <option value="1:00am">1:00am</option>
                             <option value="2:00am">2:00am</option>
                             <option value="3:00am">3:00am</option>
@@ -86,7 +86,7 @@
                             <option value="12:00am">12:00am</option>
                         </select>
                         <select id="closeHour" name="closehour" form="addShopForm" type="time">
-                            <option value="" disabled selected>Closing</option>
+                            <option value="" disabled selected><%= shopDataArray[0].shopClose %></option>
                             <option value="1:00am">1:00am</option>
                             <option value="2:00am">2:00am</option>
                             <option value="3:00am">3:00am</option>
@@ -113,8 +113,7 @@
                             <option value="12:00am">12:00am</option>
                         </select>
                     </section>
-                    <select id="shopType" name="shoptype" form="addShopForm">
-                        <option value="" disabled selected>Shop Type</option>
+                    <select id="shopType" name="shoptype" form="addShopForm" placeholder="<%= shopDataArray[0].shopType %>">
                         <option value="independent">Independent Shop</option>
                         <option value="specialty">Specialty Shop</option>
                         <option value="dealership">Dealership Shop</option>
@@ -132,7 +131,7 @@
                              </div>      -->
                             </div>  
                             <div class="min-max-range">
-                              <input type="range" min="0" max="500" value="100" step='5' class="range" id="min" name='laborRate'>     
+                              <input type="range" min="0" max="500" value="<%= shopDataArray[0].laborRate %>" step='5' class="range" id="min" name='laborRate'>     
                             </div>  
                             <div style="clear: both;"></div>    
                         </div> 
@@ -149,7 +148,7 @@
                              </div>      -->
                             </div>  
                             <div class="min-max-range">
-                              <input type="range" min="0" max="100" value="35" step='1' class="range" id="markupMin" name='aveMarkup'>     
+                              <input type="range" min="0" max="100" value="<%= shopDataArray[0].average_markup %>" step='1' class="range" id="markupMin" name='aveMarkup'>     
                             </div>  
                             <div style="clear: both;"></div>    
                         </div>     

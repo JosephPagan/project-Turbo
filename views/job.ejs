@@ -214,6 +214,7 @@
             <section id="jobRightSideContainer">
                 <img src="<%= jobArray[0].image %>" alt="car image" id="carImage">
                 <section id="quickButtonsContainer">
+                    <a href="/customer?_id=<%= jobArray[0].name %>" id="messageButtonJobPage" class="dashButton">Customer</a>
                     <a href="/messenger" id="messageButtonJobPage" class="dashButton">Message</a>
                     <button id="deleteJobButton" class="dashButton">Delete Job</button>
                 </section>

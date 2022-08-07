@@ -44,6 +44,7 @@
         </nav>
         <section class="pageTitleContainer">
             <h1>Jobs Center</h1>
+            
         </section>
         <section id="dashSquares">
             <section id="enterJobs" class="dashSquare">
@@ -82,6 +83,9 @@
                     <label for="employeeassign">Employee for Job:</label>
                     <select id="employeeAssign" form="addJobForm" name="employeeassign">
                         <option value="" disabled selected>Assign to</option>
+                        <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
+                            <option value="<%= shopDataArray[0].employeeData[u].name %>"><%= shopDataArray[0].employeeData[u].name %></option>
+                        <% } %>
                     </select>
                 </section>
                 <form id="addJobForm" action="/addjob" method="POST">
@@ -103,6 +107,7 @@
             </section>
             <section id="activeJobs-jobs" class="dashSquare">
                 <h2 class="dashTitle">Active Jobs</h2>
+                <h3 class="activeJobCount"><%= jobCollectionArray.length %> Active Jobs</h3>
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < jobCollectionArray.length; u++) {%>

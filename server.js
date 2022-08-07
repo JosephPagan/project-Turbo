@@ -14,7 +14,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         const db = client.db('customer-jobs')
         const jobCollection = db.collection('customerJobs')
         const customerData = db.collection('customers')
-        const employeeData = db.collection('employees')
         const shopInfo = db.collection('shop-info')
 
         app.use(cors())
@@ -61,22 +60,36 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             res.sendFile(__dirname + '/views/preview.html')
         })
 
-        app.get('/dashboard', (req, res) => {
+        // app.get('/dashboard', (req, res) => {
+        //     jobCollection.find().toArray()
+        //     .then(results => {
+        //         res.render('dashboard.ejs', {jobCollectionArray: results})
+        //     })
+        //     .catch(error => console.log(error))
+        // })
+
+        app.get('/dashboard', (req,res) => {
             jobCollection.find().toArray()
-            .then(results => {
-                //console.log(`DashPage: ${results}`)
-                res.render('dashboard.ejs', {jobCollectionArray: results})
-            })
-            .catch(error => console.log(error))
+            .then(jobData => {
+                    shopInfo.find().toArray()
+                    .then(shopData => {
+                        // console.log(jobData, shopData)
+                        res.render('dashboard.ejs', {jobCollectionArray: jobData, shopDataArray: shopData})
+                    })
+                    .catch(err => console.log(err))
+            }).catch(err => console.log(err))
         })
 
         app.get('/jobs', (req, res) => {
             jobCollection.find().toArray()
-            .then(results => {
-                //console.log(`JobsPage: ${results}`)
-                res.render('jobs.ejs', {jobCollectionArray: results})
-            })
-            .catch(error => console.log(error))
+            .then(jobData => {
+                    shopInfo.find().toArray()
+                    .then(shopData => {
+                        // console.log(jobData, shopData)
+                        res.render('jobs.ejs', {jobCollectionArray: jobData, shopDataArray: shopData})
+                    })
+                    .catch(err => console.log(err))
+            }).catch(err => console.log(err))
         })
 
         app.get('/job', (req, res) => {
@@ -125,24 +138,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.get('/customers', (req, res) => {
-            // var customerDataObject = {};
-            // var jobCollectionObject = {};
-            // customerData.find({}, function (err, customerDataResult) {
-            //     if(err){
-            //         console.log(err)
-            //     } else {
-            //         customerDataObject = customerDataResult.toArray();
-            //     }
-            // });
-            // jobCollection.find({}, function (err, jobCollectionResult) {
-            //     if(err){
-            //         console.log(err)
-            //     } else {
-            //         jobCollectionObject = jobCollectionResult.toArray();
-            //         res.render('customers.ejs', {customerDataArray: customerDataObject, jobCollectionArray: jobCollectionObject})
-            //     }
-            // });
-
             customerData.find().toArray()
             .then(results => {
                 //console.log(`CustomersPage: ${results}`)
@@ -162,12 +157,15 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.get('/myshop', (req, res) => {
-            employeeData.find().toArray()
-            .then(results => {
-                //console.log(`CustomersPage: ${results}`)
-                res.render('myshop.ejs', {employeeDataArray: results})
-            })
-            .catch(error => console.log(error))
+            jobCollection.find().toArray()
+            .then(jobData => {
+                    shopInfo.find().toArray()
+                    .then(shopData => {
+                        // console.log(jobData, shopData)
+                        res.render('myshop.ejs', {jobCollectionArray: jobData, shopDataArray: shopData})
+                    })
+                    .catch(err => console.log(err))
+            }).catch(err => console.log(err))
         })
 
         app.get('/addshop', (req, res) => {
@@ -192,7 +190,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 shopClose: req.body.closehour,
                 shopType: req.body.shoptype,
                 laborRate: Number(req.body.laborRate),
-                average_markup: Number(req.body.aveMarkup)
+                average_markup: Number(req.body.aveMarkup),
+                employeeData: []
             })
             .then(result => {
                 console.log(result)
@@ -202,7 +201,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.post('/addemployee', (req, res) => {
-            employeeData.insertOne({
+            // console.log(req.body)
+            // console.log(typeof(req.body.shopId))
+            shopInfo.updateOne({_id: ObjectId(req.body.shopId)},{$push: {"employeeData": {
                 name: req.body.employeeName, 
                 email: req.body.employeeEmail, 
                 phone: req.body.employeePhone, 
@@ -215,7 +216,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                     activeJobs: 2,
                     completedJobs: 5,
                 }
-            })
+            }}})
             .then(result => {
                 console.log(result)
                 res.redirect('myshop')
@@ -224,10 +225,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.get('/employee', (req, res) => {
-            employeeData.find({"_id":ObjectId(req.query._id)}).toArray()
+            // console.log(`Index of Employee: ${req.query.index}`)
+            // const index = req.query.index
+            shopInfo.find().toArray()
             .then(results => {
-                //console.log(results)
-                res.render('employee.ejs', {employeeData: results})
+                res.locals.index = req.query.index
+                res.render('employee.ejs', {shopDataArray: results})
             })
             .catch(error => console.log(error))
         })

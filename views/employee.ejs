@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - <%= employeeData[0].name %></title>
+        <title>GearHead - Employee(<%= shopDataArray[0].employeeData[index].name %>)</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,13 +42,56 @@
                 </section>
             </section>
         </nav>
-        <section class="pageTitleContainer">
-            <h1><%= employeeData[0].name %></h1>
+        <section id="employeeTitleContainer" class="pageTitleContainer">
+            <h1><%= shopDataArray[0].employeeData[index].name %></h1>
             
         </section>
-        <section id="dashSquares">
-
-
+        <section id="employeeSpecificDashSquares">
+            <section id="quickButtonsContainerEmp">
+                <a href="/messenger" id="messageButtonEmpPage" class="dashButton">Message</a>
+                <button id="deleteEmpButton" class="dashButton">Delete Employee</button>
+            </section>
+            <form class="dashSquare" id="updateEmployeeForm" action="/updateemployee" method="POST">
+                <input id="employeeName" type="text" name="employeeName" placeholder="<%= shopDataArray[0].employeeData[index].name %>">
+                <input id="employeeEmail" type="email" name="employeeEmail" placeholder="<%= shopDataArray[0].employeeData[index].email %>">
+                <input id="employeePhone" type="tel" name="employeePhone" placeholder="<%= shopDataArray[0].employeeData[index].phone %>">
+                <select id="employeePositionUpd" name="employeeposition">
+                    <option value="" disabled selected><%= shopDataArray[0].employeeData[index].position %></option>
+                    <option value="tech">Technician</option>
+                    <option value="lead-tech">Lead Technician</option>
+                    <option value="manager">Manager</option>
+                </select>
+                <select id="employeeSpecialtyUpd" name="employeespecialty">
+                    <option value="" disabled selected><%= shopDataArray[0].employeeData[index].employee_specialty %></option>
+                    <option value="engine-repair">Eninge Repair</option> 
+                    <option value="performance">Performance</option>
+                    <option value="transmission">Transmissions</option>
+                    <option value="brakes">Brakes</option>
+                    <option value="suspension-steering">Suspension & Steering</option>
+                    <option value="heating-air">Heating & Air Conditioning</option>
+                </select>
+                <section id="employeeRadioContainerUpd">
+                    <label for="fullTime">Full-Time</label>
+                    <input id="fullTime" type="radio" name="employeeType" value="full-time" class="employeeRadios" form="addEmployeeForm">
+                    <label for="partTime">Part-Time</label>
+                    <input id="partTime" type="radio" name="employeeType" value="part-time" class="employeeRadios" form="addEmployeeForm">
+                </section>
+                <section id="rateOfPayContainerUpd">
+                    <div class="wageSlider">
+                        <h3 id='wageHead'>Hourly Wage:</h3>
+                        <div class="min-max">
+                         <div class="min">
+                             <label></label><span id="wage-min-value" name='wageSet'><%= shopDataArray[0].employeeData[index].rate_of_pay %></span>
+                         </div>
+                        </div>  
+                        <div class="min-max-range">
+                          <input type="range" min="0" max="80" value="<%= shopDataArray[0].employeeData[index].rate_of_pay %>" step='any' class="range" id="wageMin" name='hourlyWage' form="updateEmployeeForm" required>     
+                        </div>  
+                        <div style="clear: both;"></div>    
+                    </div>
+                </section>
+                <button type="submit" name="submitEmployee" id="updateEmployeeButton">Add</button>
+            </form>
         </section>
  
 
@@ -66,6 +109,6 @@
                 </ul>
             </section>
         </footer>
-        <script src='/js/dashboardScripts.js'></script>
+        <script src='/js/myShopScripts.js'></script>
     </body>
 </html>
