@@ -69,7 +69,7 @@ font-family: 'Antic Didone', serif;
 .dashSquare li{
     display: flex;
     flex-wrap: wrap;
-    height: 20%;
+    height: 18%;
     list-style: none;
     border: 2px solid #3FA3C8;
     border-radius: 8px;
@@ -171,7 +171,12 @@ font-family: 'Antic Didone', serif;
     width: 50%;
 }
 .jobStat{
-    width: 20%;
+    width: 25%;
+}
+.statusContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
 #jobCustomerInfo{
     width: 60%;
@@ -469,11 +474,13 @@ font-family: 'Antic Didone', serif;
 }
 #invoiceButton, #quoteButton, #editJobButton, #messageButton{
     width: 13%;
-    height: 25%;
+    height: 20%;
     margin: 0% 1%;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     text-align: center;
-    font-size: 1em;
+    align-items: center;
+    font-size: .8em;
 }
 #messageButton{
     margin-left: 68%;
@@ -497,7 +504,7 @@ font-family: 'Antic Didone', serif;
 }
 #jobSpecificDashSquares{
     display: flex;
-    height: 1200px;
+    height: 1300px;
     margin-top: 3%;
     flex-wrap: wrap;
 }
@@ -513,14 +520,15 @@ font-family: 'Antic Didone', serif;
     flex-wrap: nowrap;
     padding: 2% 3%;
     width: 55%;
-    height: 80%;
+    height: 100%;
     margin-left: 1%;
     border: 2px solid #3FA3C8;
     border-radius: 10px;
 }
 #updateJob{
-    height: 20%;
+    height: 5%;
     margin: 1%;
+    margin-top: 5%;
 }
 #deleteJob{
     height: 5%;
@@ -546,15 +554,19 @@ font-family: 'Antic Didone', serif;
 }
 #updateJobForm input{
     width: 45%;
-    height: 3%;
+    height: 2%;
     margin: .5%;
     margin-left: 2%;
 }
 #updateJobForm textarea{
     width: 45%;
-    height: 10%;
+    height: 5%;
     margin: .5%;
     margin-left: 2%;
+}
+#updateJobForm #jobHours{
+    width: 5%;
+    text-align: center;
 }
 #updateJobForm #jobId{
     display: none;
@@ -637,6 +649,9 @@ font-family: 'Antic Didone', serif;
     height: 35%;
     margin-left: 0;
 }
+#jobSpecificPartsContainer{
+    height: 40%;
+}
 #partsListLabel{
     display: inline-block;
     margin-top: 5%;
@@ -647,26 +662,43 @@ font-family: 'Antic Didone', serif;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 70%;
+    justify-content: space-evenly;
+    height: 95%;
 }
 #partsList li{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-items: center;
     list-style-type: none;
     width: 50%;
-    height: 20%;
+    height: 19%;
+    border-bottom: .5px solid black;
 }
 #partsList label{
     display: inline-block;
     width: 5%;
+    height: 20%;
+    margin: 0%;
+    margin-bottom: 1%;
+    text-align: right;
 }
 #partsList input{
-    margin: 0;
-    width: 60%;
-    height: 50%;
+    margin: .5%;
+    margin-left: 1.5%;
+    width: 65%;
+    height: 18%;
+}
+#partsList .partPrice{
+    width: 14%;
+    font-size: .8em;
+    text-align: end;
 }
 #partsList select{
-    margin: 0;
-    width: 25%;
-    height: 65%;
+    margin: .5%;
+    margin-left: 7%;
+    width: 30%;
+    height: 24%;
 }
 #carImageContainer{
     width: 30%;

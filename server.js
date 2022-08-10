@@ -116,6 +116,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 priority: req.body.priority, 
                 status: 0,
                 date: new Date(),
+                labor_hours: 0,
                 parts_list: {},
                 job_total: 0
             })
@@ -131,6 +132,37 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 },
                 dateCreated: new Date()
             })
+            .then(result => {
+                res.redirect('jobs')
+            })
+            .catch(error => console.log(error))
+        })
+
+        app.post('/updatejob', (req, res) => {
+            console.log(req.body.jobId)
+            jobCollection.updateOne(
+                {_id: ObjectId(req.body.jobId)},
+                {   $set: {   
+                        name: req.body.customerName, 
+                        year: req.body.caryear, 
+                        make: req.body.carmake, 
+                        model: req.body.carmodel,
+                        engine: req.body.carengine,
+                        image: req.body.carimage,
+                        repair: req.body.commonRepair,
+                        job_type: req.body.jobtype,
+                        job_description: req.body.jobDescription,
+                        employee_assigned: req.body.employeeassign,
+                        priority: req.body.priority, 
+                        status: 0,
+                        date: new Date(),
+                        labor_hours: 0,
+                        parts_list: {
+                            
+                        },
+                        job_total: 0
+                    }
+                })
             .then(result => {
                 res.redirect('jobs')
             })
