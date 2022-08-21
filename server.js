@@ -37,7 +37,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             jobCollection.find().toArray()
             .then(results => {
                 console.log(`New Login Detected! User: ${userName} PW: ${passWord}`)
-                res.render('dashboard.ejs', {jobCollectionArray: results})
+                res.redirect('/dashboard')
             })
             .catch(error => console.log(error))
         })
