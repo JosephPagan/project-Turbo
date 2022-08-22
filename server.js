@@ -60,14 +60,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             res.sendFile(__dirname + '/views/preview.html')
         })
 
-        // app.get('/dashboard', (req, res) => {
-        //     jobCollection.find().toArray()
-        //     .then(results => {
-        //         res.render('dashboard.ejs', {jobCollectionArray: results})
-        //     })
-        //     .catch(error => console.log(error))
-        // })
-
         app.get('/dashboard', (req,res) => {
             jobCollection.find().toArray()
             .then(jobData => {
