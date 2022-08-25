@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - <%= customerInfo[0].customer %> Customer Page</title>
+        <title>GearHead - <%= customerInfo.customer_name %> Customer Page</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/homepageStyle.css">
-        <link rel="stylesheet" href="css/dashboardStyle.css">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/homepageStyle.css">
+        <link rel="stylesheet" href="/css/dashboardStyle.css">
     </head>    
     <body>
         <nav>
@@ -28,12 +28,12 @@
            <section id="navDashContainer">
                 <ul id="mainDash">
                     <li><a href="/dashboard" title="Dashboard"><i class="icon-dashboard"></i></a></li>
-                    <li><a href="/pointofsale" title="Point of Sale"><i class="icon-money"></i></a></li>
-                    <li><a href="/jobs" title="Jobs & Appointments"><i class="icon-tasks"></i></a></li>
-                    <li><a href="/myshop" title="My Shop"><i class="icon-building"></i></a></li>
-                    <li><a href="/customers" title="Customers"><i class="icon-group"></i></a></li>
-                    <li><a href="/reports" title="Reports"><i class="icon-bar-chart"></i></a></li>
-                    <li><a href="/appsettings" title="Settings"><i class="icon-cogs"></i></a></li>
+                    <li><a href="/dashboard/pointofsale" title="Point of Sale"><i class="icon-money"></i></a></li>
+                    <li><a href="/dashboard/jobs" title="Jobs & Appointments"><i class="icon-tasks"></i></a></li>
+                    <li><a href="/dashboard/myshop" title="My Shop"><i class="icon-building"></i></a></li>
+                    <li><a href="/dashboard/customers" title="Customers"><i class="icon-group"></i></a></li>
+                    <li><a href="/dashboard/reports" title="Reports"><i class="icon-bar-chart"></i></a></li>
+                    <li><a href="/dashboard/appsettings" title="Settings"><i class="icon-cogs"></i></a></li>
                 </ul>
             
                 <section id="buttonContainer">
@@ -43,8 +43,8 @@
             </section>
         </nav>
         <section id="customerNameContainer" class="pageTitleContainer">
-            <h1 id="customerNameCustPage">Customer Profile: <%= customerInfo[0].customer %></h1>
-            <h2 id="custID"><%= customerInfo[0]._id %></h2>
+            <h1 id="customerNameCustPage">Customer Profile: <%= customerInfo.customer_name %></h1>
+            <h2 id="custID"><%= customerInfo._id %></h2>
         </section>
         <section id="customerSpecificDashSquares">
             <section id="quickButtonsContainerCust">
@@ -54,28 +54,28 @@
             <form id="updateCustomerForm">
                 <section id="customerDetailsUpdate">
                     <label for="customerNameUpdate" class="customerUpdateLabel">Customer: </label>
-                    <input type="text" id="customerNameUpdate" class="customerUpdate" name="customernameupdate" placeholder="<%= customerInfo[0].customer %>">
+                    <input type="text" id="customerNameUpdate" class="customerUpdate" name="customernameupdate" placeholder="<%= customerInfo.customer_name %>">
                     <label for="customerPhoneNumber" class="customerUpdateLabel">Phone Number: </label>
-                    <input type="tel" id="customerPhoneNumber" class="customerUpdate" name="customerPhoneNumber" placeholder="<%= customerInfo[0].customer_phone %>">
+                    <input type="tel" id="customerPhoneNumber" class="customerUpdate" name="customerPhoneNumber" placeholder="<%= customerInfo.customer_phone %>">
                     <label for="customerEmail" class="customerUpdateLabel">Email: </label>
-                    <input type="email" id="customerEmail" class="customerUpdate" name="customeremail" placeholder="<%= customerInfo[0].customer_email %>">
+                    <input type="email" id="customerEmail" class="customerUpdate" name="customeremail" placeholder="<%= customerInfo.customer_email %>">
                 </section>
                 <section id="customerCarUpdate">
                     <label for="date-dropdown">Year</label>
                     <select id='date-dropdown' class="updateCustomerSelect" form="addJobForm" name="caryear" onclick="generateYears()" onchange="getMakes()">
-                        <option value="<%= customerInfo[0].cars.year %>" disabled selected><%= customerInfo[0].cars.year %></option>
+                        <option value="<%= customerInfo.cars.year %>" disabled selected><%= customerInfo.cars.year %></option>
                     </select>
                     <label for="carmake">Make</label>
                     <select id="carmake" class="updateCustomerSelect" name="carmake" form="addJobForm" onchange="getModels(this.value)" required>
-                        <option value="<%= customerInfo[0].cars.make %>" disabled selected><%= customerInfo[0].cars.make %></option>
+                        <option value="<%= customerInfo.cars.make %>" disabled selected><%= customerInfo.cars.make %></option>
                     </select>
                     <label for="carmodel">Model</label>
                     <select id="carmodel" class="updateCustomerSelect" form="addJobForm" name="carmodel" onchange="getEngines(this.value)" required>
-                        <option value="<%= customerInfo[0].cars.model %>" disabled selected><%= customerInfo[0].cars.model %></option>
+                        <option value="<%= customerInfo.cars.model %>" disabled selected><%= customerInfo.cars.model %></option>
                     </select>
                     <label for="carengine">Engine</label>
                     <select id="carengine" class="updateCustomerSelect" form="addJobForm" name="carengine" onchange="getRepairs(); getCarImage()" required>
-                        <option value="<%= customerInfo[0].cars.engine %>" disabled selected><%= customerInfo[0].cars.engine %></option>
+                        <option value="<%= customerInfo.cars.engine %>" disabled selected><%= customerInfo.cars.engine %></option>
                     </select>
                         
                 </section>
@@ -84,8 +84,7 @@
                 </select>
                 <button type="submit" id="updateCustomer" class="dashButton" name="updatecustomer">Update Customer</button>
             </form>
-            
-            <!-- <img src="<%= customerInfo[0].image %>" alt="car image" id="carImage"> -->
+
         </section>
 
         <footer>

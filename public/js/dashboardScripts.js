@@ -186,7 +186,7 @@ async function deleteJob(){
             })
         })
         const data = await response.text()
-        window.location.href = "/jobs";
+        window.location.href = "/dashboard/jobs";
         
     }catch(err){
         console.log(err)

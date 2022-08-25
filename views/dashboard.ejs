@@ -31,12 +31,12 @@
            <section id="navDashContainer">
                 <ul id="mainDash">
                     <li><a href="/dashboard" title="Dashboard"><i class="icon-dashboard"></i></a></li>
-                    <li><a href="/pointofsale" title="Point of Sale"><i class="icon-money"></i></a></li>
-                    <li><a href="/jobs" title="Jobs & Appointments"><i class="icon-tasks"></i></a></li>
-                    <li><a href="/myshop" title="My Shop"><i class="icon-building"></i></a></li>
-                    <li><a href="/customers" title="Customers"><i class="icon-group"></i></a></li>
-                    <li><a href="/reports" title="Reports"><i class="icon-bar-chart"></i></a></li>
-                    <li><a href="/appsettings" title="Settings"><i class="icon-cogs"></i></a></li>
+                    <li><a href="/dashboard/pointofsale" title="Point of Sale"><i class="icon-money"></i></a></li>
+                    <li><a href="/dashboard/jobs" title="Jobs & Appointments"><i class="icon-tasks"></i></a></li>
+                    <li><a href="/dashboard/myshop" title="My Shop"><i class="icon-building"></i></a></li>
+                    <li><a href="/dashboard/customers" title="Customers"><i class="icon-group"></i></a></li>
+                    <li><a href="/dashboard/reports" title="Reports"><i class="icon-bar-chart"></i></a></li>
+                    <li><a href="/dashboard/appsettings" title="Settings"><i class="icon-cogs"></i></a></li>
                 </ul>
             
                 <section id="buttonContainer">
@@ -54,7 +54,7 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < jobCollectionArray.length; u++) {%>
-                        <li><a href="/job?_id=<%= jobCollectionArray[u]._id %>">
+                        <li><a href="/dashboard/job?_id=<%= jobCollectionArray[u]._id %>">
                             <div id="jobCustomerInfo">
                                 <h4><%= jobCollectionArray[u].name %></h4>
                                 <span><%= jobCollectionArray[u].job_description.toUpperCase() %></span>
@@ -73,7 +73,7 @@
                     <% } %>
                 </ul>
                 <section id="dashButtonContainer">
-                    <a href="/jobs" class="dashButton">Add Job</a>
+                    <a href="/dashboard/jobs" class="dashButton">Add Job</a>
                 </section>
             </section>
             <section id="upcomingJobs" class="dashSquare">
@@ -98,7 +98,6 @@
                     <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
                         <li class="employeeListItem"><a href="/employee?index=<%= u %>">
                             <div class="employeeIndInfo">
-                                <!-- <h2><%= u %></h2> -->
                                 <h4><%= shopDataArray[0].employeeData[u].name %></h4>
                                 <span><%= shopDataArray[0].employeeData[u].position.toUpperCase() %></span>
                                 <h5><%= shopDataArray[0].employeeData[u].employee_type %></h5>
@@ -114,7 +113,7 @@
                     <% } %>
                 </ul>
                 <section id="dashButtonContainer">
-                    <a href="/myshop" class="dashButton">Manage Employees</a>
+                    <a href="/dashboard/myshop" class="dashButton">Manage Employees</a>
                 </section>
             </section>
             <section id="quickReports" class="dashSquare">
