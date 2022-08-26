@@ -25,7 +25,7 @@ router.get('/addshop', dashController.getAddShop)
 
 router.post('/addshop', dashController.postShop)
 
-router.get('/addemployee', dashController.addEmployee)
+router.post('/addemployee', dashController.addEmployee)
 
 router.get('/employee', dashController.getEmployee)
 

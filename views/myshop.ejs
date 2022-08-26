@@ -51,7 +51,7 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
-                        <li class="employeeListItem"><a href="/employee?index=<%= u %>">
+                        <li class="employeeListItem"><a href="/dashboard/employee?index=<%= u %>">
                             <div class="employeeIndInfo">
                                 <!-- <h2><%= u %></h2> -->
                                 <h4><%= shopDataArray[0].employeeData[u].name %></h4>
@@ -71,7 +71,7 @@
             </section>
             <section id="addEmployee" class="dashSquare">
                 <h2 class="dashTitle">Add Employee</h2>
-                <form id="addEmployeeForm" action="/addemployee" method="POST">
+                <form id="addEmployeeForm" action="/dashboard/addemployee" method="POST">
                     <input id="shopID" name="shopId" value="<%= shopDataArray[0]._id %>">
                     <input id="employeeName" type="text" name="employeeName" placeholder="Name" required>
                     <input id="employeeEmail" type="email" name="employeeEmail" placeholder="Email" required>
