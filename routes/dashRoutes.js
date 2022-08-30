@@ -13,7 +13,7 @@ router.delete('/deletejob', dashController.deleteJob)
 
 router.get('/job', dashController.getJob)
 
-router.post('/updatejob', dashController.updateJob)
+router.put('/updatejob', dashController.updateJob)
 
 router.get('/customers', dashController.getCustomers)
 

@@ -723,6 +723,7 @@ strong{
     flex-wrap: nowrap;
     width: 35%;
     text-align: center;
+    margin-top: 10%;
 }
 #carImageContainer{
     height: 50%;
@@ -749,6 +750,9 @@ strong{
 }
 #deleteCustButton{
     height: 8%;
+}
+#custNameTitle h2{
+    margin: 0;
 }
 /* REPORTS PAGE */
 .reportContainer{

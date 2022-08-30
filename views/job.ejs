@@ -43,10 +43,11 @@
             </section>
         </nav>
         <section id="nameContainer" class="pageTitleContainer">
-            <h1>Active Job for <strong id="custNameTitle"><%= jobArray[0].name %></strong></h1>
+            <h1>Active Job for <strong id="custNameTitle"><%= jobArray[0].name %><h2 id="totalPrice">$0.00</h2></strong></h1>
+            <!-- <h2 id="totalPrice">$0.00</h2> -->
         </section>
         <section id="jobSpecificDashSquares">
-            <form id="updateJobForm" action="/dashboard/updatejob" method="POST">
+            <form id="updateJobForm" action="/dashboard/updatejob">
                 <h1 id="jobId" name="jobid"><%= jobArray[0]._id %></h1>
                 <label for="customerName">Customer Name: </label>
                 <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray[0].name %>">
@@ -92,7 +93,10 @@
                         </select>
                         <label for="employeeassign">Employee for Job</label>
                         <select id="employeeAssign" form="addJobForm" name="employeeassign">
-                            <option value="" disabled selected>Assign to</option>
+                            <option value="" disabled selected><%= jobArray[0].employee_assigned %></option>
+                            <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
+                                <option value="<%= shopDataArray[0].employeeData[u].name %>"><%= shopDataArray[0].employeeData[u].name %></option>
+                            <% } %>
                         </select>
                     </section>
                     <!-- <button onclick="getCarImage()">Get Car Image</button> -->
@@ -102,10 +106,10 @@
                     <ul id="partsList">
                         <li>
                             <label for="part_1">1.</label>
-                            <input id="part_1">
+                            <input id="part_1" name="part1_name">
                             <label for="part_1Price">$</label>
-                            <input id="part_1Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_1Price" name="part1_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part1_status" id="part_1Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -115,10 +119,10 @@
                         </li>
                         <li>
                             <label for="part_2">2.</label>
-                            <input id="part_2" type="text">
+                            <input id="part_2" name="part2_name" type="text">
                             <label for="part_2Price">$</label>
-                            <input id="part_2Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_2Price" name="part2_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part2_status" id="part_2Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -128,10 +132,10 @@
                         </li>
                         <li>
                             <label for="part_3">3.</label>
-                            <input id="part_3">
+                            <input id="part_3" name="part3_name">
                             <label for="part_3Price">$</label>
-                            <input id="part_3Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_3Price" name="part3_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part3_status" id="part_3Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -141,10 +145,10 @@
                         </li>
                         <li>
                             <label for="part_4">4.</label>
-                            <input id="part_4">
+                            <input id="part_4" name="part4_name">
                             <label for="part_4Price">$</label>
-                            <input id="part_4Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_4Price" name="part4_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part4_status" id="part_4Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -154,10 +158,10 @@
                         </li>
                         <li>
                             <label for="part_5">5.</label>
-                            <input id="part_5">
+                            <input id="part_5" name="part5_name">
                             <label for="part_5Price">$</label>
-                            <input id="part_5Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_5Price" name="part5_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part5_status" id="part_5Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -167,10 +171,10 @@
                         </li>
                         <li>
                             <label for="part_6">6.</label>
-                            <input id="part_6">
+                            <input id="part_6" name="part6_name">
                             <label for="part_6Price">$</label>
-                            <input id="part_6Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_6Price" name="part6_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part6_status" id="part_6Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -180,10 +184,10 @@
                         </li>
                         <li>
                             <label for="part_7">7.</label>
-                            <input id="part_7">
+                            <input id="part_7" name="part7_name">
                             <label for="part_7Price">$</label>
-                            <input id="part_7Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_7Price" name="part7_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part7_status" id="part_7Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -193,10 +197,10 @@
                         </li>
                         <li>
                             <label for="part_8">8.</label>
-                            <input id="part_8">
+                            <input id="part_8" name="part8_name">
                             <label for="part_8Price">$</label>
-                            <input id="part_8Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_8Price" name="part8_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part8_status" id="part_8Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -206,10 +210,10 @@
                         </li>
                         <li>
                             <label for="part_9">9.</label>
-                            <input id="part_9">
+                            <input id="part_9" name="part9_name">
                             <label for="part_9Price">$</label>
-                            <input id="part_9Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_9Price" name="part9_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part9_status" id="part_9Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -219,10 +223,10 @@
                         </li>
                         <li>
                             <label for="part_10">10.</label>
-                            <input id="part_10">
+                            <input id="part_10" name="part10_name">
                             <label for="part_10Price">$</label>
-                            <input id="part_10Price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
-                            <select class="partStatus">
+                            <input id="part_10Price" name="part10_price" class="partPrice" type="number" min="0.01" max="2500" step="0.01" placeholder="0.00">
+                            <select class="partStatus" name="part10_status" id="part_10Status">
                                 <option value="" disabled selected>Part Status</option>
                                 <option value="pending_approval">Pending Approval</option>
                                 <option value="ordered">Ordered</option>
@@ -232,7 +236,7 @@
                         </li>
                     </ul>
                 </section>
-                <button type="submit" id="updateJob" class="dashButton" name="updatejob">Update Job</button>
+                <button id="updateJob" class="dashButton" name="updatejob">Update Job</button>
             </form>
             <section id="jobRightSideContainer">
                 <img src="<%= jobArray[0].image %>" alt="car image" id="carImage">
@@ -241,9 +245,6 @@
                     <a href="/messenger" id="messageButtonJobPage" class="dashButton">Message</a>
                     <button id="deleteJobButton" class="dashButton">Delete Job</button>
                 </section>
-            </section>
-            <section class="jobSummaryContainer">
-                <h2 id="totalPrice">$0.00</h2>
             </section>
             
         </section>
@@ -263,5 +264,6 @@
             </section>
         </footer>
         <script src='/js/dashboardScripts.js'></script>
+        <script src='/js/jobScripts.js'></script>
     </body>
 </html>

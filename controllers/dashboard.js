@@ -27,7 +27,8 @@ module.exports = {
     getJob: async (req, res) => {
         try{
             const jobData = await Jobs.find()
-            res.render('job.ejs', {jobArray: jobData})
+            const shopData = await Shop.find()
+            res.render('job.ejs', {jobArray: jobData, shopDataArray: shopData})
         } catch (err) {
             console.log(err)
         }
@@ -75,20 +76,71 @@ module.exports = {
                 {_id: ObjectId(req.body.jobId)},
                 {   $set: {   
                         name: req.body.customerName, 
-                        year: req.body.caryear, 
-                        make: req.body.carmake, 
-                        model: req.body.carmodel,
-                        engine: req.body.carengine,
-                        image: req.body.carimage,
-                        repair: req.body.commonRepair,
-                        job_type: req.body.jobtype,
+                        year: req.body.carYear, 
+                        make: req.body.carMake, 
+                        model: req.body.carModel,
+                        engine: req.body.carEngine,
+                        image: req.body.carImage,
+                        repair: req.body.repairName,
+                        job_type: req.body.jobType,
                         job_description: req.body.jobDescription,
-                        employee_assigned: req.body.employeeassign,
+                        employee_assigned: req.body.employeeAssigned,
                         priority: req.body.priority, 
                         status: 0,
                         date: new Date(),
-                        labor_hours: 0,
-                        parts_list: {},
+                        labor_hours: req.body.laborHour,
+                        parts_list: {
+                            one: {
+                                part_name: req.body.part1_name,
+                                part_price: req.body.part1_price,
+                                part_status: req.body.part1_status
+                            },
+                            two: {
+                                part_name: req.body.part2_name,
+                                part_price: req.body.part2_price,
+                                part_status: req.body.part2_status
+                            },
+                            three: {
+                                part_name: req.body.part3_name,
+                                part_price: req.body.part3_price,
+                                part_status: req.body.part3_status
+                            },
+                            four: {
+                                part_name: req.body.part4_name,
+                                part_price: req.body.part4_price,
+                                part_status: req.body.part4_status
+                            },
+                            five: {
+                                part_name: req.body.part5_name,
+                                part_price: req.body.part5_price,
+                                part_status: req.body.part5_status
+                            },
+                            six: {
+                                part_name: req.body.part6_name,
+                                part_price: req.body.part6_price,
+                                part_status: req.body.part6_status
+                            },
+                            seven: {
+                                part_name: req.body.part7_name,
+                                part_price: req.body.part7_price,
+                                part_status: req.body.part7_status
+                            },
+                            eight: {
+                                part_name: req.body.part8_name,
+                                part_price: req.body.part8_price,
+                                part_status: req.body.part8_status
+                            },
+                            nine: {
+                                part_name: req.body.part9_name,
+                                part_price: req.body.part9_price,
+                                part_status: req.body.part9_status
+                            },
+                            ten: {
+                                part_name: req.body.part10_name,
+                                part_price: req.body.part10_price,
+                                part_status: req.body.part10_status
+                            }
+                        },
                         job_total: 0
                 }
             })
