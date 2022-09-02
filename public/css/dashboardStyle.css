@@ -548,21 +548,28 @@ font-family: 'Antic Didone', serif;
 #updateCustomerForm section{
     margin: 0% 1%;
 }
+#updateJobCustContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
 #updateJobForm label{
-    width: 15%;
-    margin-top: 2%;
+    width: 20%;
+    text-align: end;
 }
 #updateJobForm input{
     width: 45%;
     height: 2%;
     margin: .5%;
     margin-left: 2%;
+    margin-right: 30%;
 }
 #updateJobForm textarea{
     width: 45%;
     height: 5%;
     margin: .5%;
     margin-left: 2%;
+    margin-right: 30%;
 }
 #updateJobForm #jobHours{
     width: 5%;
@@ -599,7 +606,7 @@ font-family: 'Antic Didone', serif;
 }
 #jobSpecificCarContainer, #customerCarUpdate{
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     width: 70%;
     padding-top: .5%;
     margin-left: 3%;
@@ -622,6 +629,7 @@ font-family: 'Antic Didone', serif;
     margin: 0;
     margin-left: 3%;
     margin-top: 2%;
+    margin-right: 30%;
     width: 35%;
 }
 #jobSpecificDataContainer{
@@ -629,7 +637,6 @@ font-family: 'Antic Didone', serif;
     height: 35%;
     margin-top: 2%;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
 }
 #jobSpecificDataContainer #repairDropdown{

@@ -47,17 +47,19 @@
             <!-- <h2 id="totalPrice">$0.00</h2> -->
         </section>
         <section id="jobSpecificDashSquares">
-            <form id="updateJobForm" action="/dashboard/updatejob">
-                <h1 id="jobId" name="jobid"><%= jobArray[0]._id %></h1>
-                <label for="customerName">Customer Name: </label>
-                <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray[0].name %>">
- 
-                <label for="jobSpecificDescription">Job Description: </label>
-                <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray[0].job_description %>" id="jobSpecificDescription" rows="8" cols="80"></textarea>
+            <section id="updateJobForm" action="/dashboard/updatejob">
+                <section id="updateJobCustContainer">
+                    <h1 id="jobId" name="jobid"><%= jobArray[0]._id %></h1>
+                    <label for="customerName">Customer Name: </label>
+                    <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray[0].name %>">
+    
+                    <label for="jobSpecificDescription">Job Description: </label>
+                    <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray[0].job_description %>" id="jobSpecificDescription" rows="8" cols="80"></textarea>
 
-                <label for="jobHours">Labor Hours: </label>
-                <input id="jobHours" class="hoursInput" type="number" min="0.0" max="200" step="0.5" placeholder="0">
-                            
+                    <label for="jobHours">Labor Hours: </label>
+                    <input id="jobHours" class="hoursInput" type="number" min="0.0" max="200" step="0.5" placeholder="0">
+                </section>
+                   
                 <label for="jobSpecificCarContainer">Car Details: </label>
                 <section id="jobSpecificCarContainer">
                     <label for="date-dropdown">Year</label>
@@ -237,7 +239,7 @@
                     </ul>
                 </section>
                 <button id="updateJob" class="dashButton" name="updatejob">Update Job</button>
-            </form>
+            </section>
             <section id="jobRightSideContainer">
                 <img src="<%= jobArray[0].image %>" alt="car image" id="carImage">
                 <section id="quickButtonsContainer">

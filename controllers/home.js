@@ -8,9 +8,6 @@ module.exports = {
     getCompany: (req, res) => {
         res.render('company.ejs')
     },
-    getLogin: (req, res) => {
-        res.render('login.ejs')
-    },
     getPreview: (req, res) => {
         res.sendFile(__dirname + '/views/preview.html')
     }

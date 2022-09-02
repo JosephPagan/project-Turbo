@@ -9,7 +9,7 @@ module.exports = {
         try{
             const jobsData = await Jobs.find()
             const shopData = await Shop.find()
-            console.log(shopData)
+            // console.log(shopData)
             res.render('dashboard.ejs', {jobCollectionArray: jobsData, shopDataArray: shopData})
         } catch (err) {
             console.log(err)

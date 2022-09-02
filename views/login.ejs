@@ -57,17 +57,38 @@
         </nav>
         <section id="login" class="homepageSection">
             <h2>SIGN IN TO YOUR GEARHEAD ACCOUNT BELOW</h2>
-            <form action='/signin' method="POST" id="loginForm">
-                <input type="text" placeholder="Email" name="username">
-                <input type="text" placeholder="Password" name="password">
+
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+                <% messages.info.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+
+            <form action='/login' method="POST" id="loginForm">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
                 <button class="button-85" id='loginButton' type="submit">Login</button>
             </form>
         </section>
         <section id="signin" class="homepageSection">
             <h2>CREATE A GEARHEAD ACCOUNT</h2>
+
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+
             <form action='/signup' method="POST" id="signUpForm" name="signin">
-                <input type="text" placeholder="Email" name="newusername">
-                <input type="text" placeholder="Password" name="newpassword">
+                <input type="text" placeholder="User Name" name="userName">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Confirm Password" name="confirmPassword">
                 <button class="button-85" id='signUpButton' type="submit">Create an Account</button>
             </form>
         </section>

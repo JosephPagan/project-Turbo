@@ -306,9 +306,15 @@ button:hover{
     margin: 0% 10%;
 }
 #login, #signin{
-    padding-top: 10%;
+    padding-top: 5%;
     margin-bottom: 5%;
     height: 14em;
+}
+#login{
+    padding-top: 10%;
+}
+#signin{
+    height: 45em;
 }
 #reelContainer, #loginContainer{
     display: flex;
@@ -358,7 +364,7 @@ form{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 50%;
+    height: 70%;
 }
 #login > h2, #signin > h2{
     margin-top: 1%;
@@ -377,6 +383,15 @@ form button{
     height: 45%;
     margin: 3%;
     border: 2px solid lightgrey; 
+}
+#signUpForm > input{
+    height: 8%;
+    width: 50%;
+    margin: .5%;
+}
+#signUpButton{
+    height: 15%;
+    width: 70%;
 }
 
 /* =============== Styles =============== */
