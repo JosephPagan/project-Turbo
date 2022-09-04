@@ -426,6 +426,9 @@ font-family: 'Antic Didone', serif;
     width: 20%;
     height: 5%;
 }
+#editShopID{
+    display: none;
+}
 #shopType{
     margin: 1%;
     margin-left: 40% !important;

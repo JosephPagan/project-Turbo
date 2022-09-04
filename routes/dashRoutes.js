@@ -21,6 +21,10 @@ router.get('/customer', dashController.getCustomer)
 
 router.get('/myshop', dashController.getShop)
 
+router.get('/editshop', dashController.getShopEdit)
+
+router.put('/editshop', dashController.editShop)
+
 router.get('/addshop', dashController.getAddShop)
 
 router.post('/addshop', dashController.postShop)

@@ -18,30 +18,45 @@ markupSlider.oninput = function() {
   markupOutputMin.innerHTML= this.value + '%';    
 }
 
+async function submitEdit() {
+  const shopID = document.querySelector('#editShopID').innerHTML
+  const shopEdit = document.querySelector('#shopName').value
+  const emailEdit = document.querySelector('#shopEmail').value
+  const phoneEdit = document.querySelector('#shopPhone').value
+  const addressEdit = document.querySelector('#shopAddress').value
+  const cityEdit = document.querySelector('#shopCity').value
+  const stateEdit = document.querySelector('#shopState').value
+  const zipEdit = document.querySelector('#shopZip').value
+  const websiteEdit = document.querySelector('#shopWebsite').value
+  const openEdit = document.querySelector('#openHour').value
+  const closeEdit = document.querySelector('#closeHour').value
+  const typeEdit = document.querySelector('#shopType').value
+  const rateEdit = document.querySelector('#min').value
+  const markupEdit = document.querySelector('#markupMin').value
 
+  try{
+    const response = await fetch('/dashboard/editshop', {
+        method: 'put',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            'shopId': shopID,
+            'newShop': shopEdit,
+            'newEmail': emailEdit,
+            'newPhone': phoneEdit,
+            'newAddress': addressEdit,
+            'newCity': cityEdit,
+            'newState': stateEdit,
+            'newZip': zipEdit,
+            'newWebsite': websiteEdit,
+            'newOpen': openEdit,
+            'newClose': closeEdit,
+            'newType': typeEdit,
+            'newRate': rateEdit,
+            'newMarkup': markupEdit
+            })
+        })
+    } catch (err) {
+        console.log(err)
+    }
 
-
-
-// const closeHour = document.getElementById('closeHour')
-
-// function populate(selector) {
-//     var select = selector;
-//     var hours, minutes, ampm;
-//     for(var i = 420; i <= 1320; i += 15){
-//         hours = Math.floor(i / 60);
-//         minutes = i % 60;
-//         if (minutes < 10){
-//             minutes = '0' + minutes; // adding leading zero
-//         }
-//         ampm = hours % 24 < 12 ? 'AM' : 'PM';
-//         hours = hours % 12;
-//         if (hours === 0){
-//             hours = 12;
-//         }
-//         let eachHourOption = document.createElement('option')
-//         eachHourOption.value = i
-//         eachHourOption.text = hours + ':' + minutes + ' ' + ampm
-//     }
-// }
-
-// populate(closeHour); // use selector for your select
+}

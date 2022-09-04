@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/homepageStyle.css">
-        <link rel="stylesheet" href="css/dashboardStyle.css">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/homepageStyle.css">
+        <link rel="stylesheet" href="/css/dashboardStyle.css">
     </head>    
     <body>
         <nav>
@@ -43,19 +43,20 @@
             </section>
         </nav>
         <section class="pageTitleContainer">
-            <h1>Add Shop</h1>
+            <h1>Edit Shop</h1>
+            <h2 id="editShopID"><%= shopDataArray[0]._id %></h2>
         </section>
         <section id="dashSquares">
             <section id="addShopContainer" class="dashSquare">
-                <form id="addShopForm" action="/addshop" method="POST">
-                    <input id="shopName" type="text" name="shopName" placeholder="<%= shopDataArray[0].shopName %>">
-                    <input id="shopEmail" type="email" name="shopEmail" placeholder="<%= shopDataArray[0].shopEmail %>">
-                    <input id="shopPhone" type="tel" name="shopPhone" placeholder="<%= shopDataArray[0].shopPhone %>">
-                    <input id="shopAddress" type="text" name="shopAddress" placeholder="<%= shopDataArray[0].shopAddress %>">
-                    <input id="shopCity" type="text" name="shopCity" placeholder="<%= shopDataArray[0].shopCity %>">
-                    <input id="shopState" type="text" name="shopState" placeholder="<%= shopDataArray[0].shopState %>">
-                    <input id="shopZip" type="text" name="shopZip" placeholder="<%= shopDataArray[0].shopZip %>">
-                    <input id="shopWebsite" type="url" name="shopWebsite" placeholder="<%= shopDataArray[0].shopWebsite %>">
+                <form id="addShopForm">
+                    <input id="shopName" type="text" name="shopName" placeholder="<%= shopDataArray[0].shopName %>" value="<%= shopDataArray[0].shopName %>">
+                    <input id="shopEmail" type="email" name="shopEmail" placeholder="<%= shopDataArray[0].shopEmail %>" value="<%= shopDataArray[0].shopEmail %>">
+                    <input id="shopPhone" type="tel" name="shopPhone" placeholder="<%= shopDataArray[0].shopPhone %>" value="<%= shopDataArray[0].shopPhone %>">
+                    <input id="shopAddress" type="text" name="shopAddress" placeholder="<%= shopDataArray[0].shopAddress %>" value="<%= shopDataArray[0].shopAddress %>">
+                    <input id="shopCity" type="text" name="shopCity" placeholder="<%= shopDataArray[0].shopCity %>" value="<%= shopDataArray[0].shopCity %>">
+                    <input id="shopState" type="text" name="shopState" placeholder="<%= shopDataArray[0].shopState %>" value="<%= shopDataArray[0].shopState %>">
+                    <input id="shopZip" type="text" name="shopZip" placeholder="<%= shopDataArray[0].shopZip %>" value="<%= shopDataArray[0].shopZip %>">
+                    <input id="shopWebsite" type="url" name="shopWebsite" placeholder="<%= shopDataArray[0].shopWebsite %>" value="<%= shopDataArray[0].shopWebsite %>">
                     <section id="shopHours" name="shophours">
                         <h3>Shop Hours</h3>
                         <select id="openHour" name="openhour" form="addShopForm" type="time">
@@ -113,7 +114,8 @@
                             <option value="12:00am">12:00am</option>
                         </select>
                     </section>
-                    <select id="shopType" name="shoptype" form="addShopForm" placeholder="<%= shopDataArray[0].shopType %>">
+                    <select id="shopType" name="shoptype" form="addShopForm">
+                        <option value="<%= shopDataArray[0].shopType %>" disabled selected><%= shopDataArray[0].shopType %></option>
                         <option value="independent">Independent Shop</option>
                         <option value="specialty">Specialty Shop</option>
                         <option value="dealership">Dealership Shop</option>
@@ -154,8 +156,8 @@
                         </div>     
                     </section>
                     
-                    <button type="submit" name="submitshop" id="addshopButton">Add</button>
                 </form>
+                <button id="addshopButton" onclick="submitEdit()">Add</button>
                 <section>
                     <h2 id="formStatus"></h2>
                 </section>
@@ -176,5 +178,6 @@
             </section>
         </footer>
         <script src='/js/addshopscript.js'></script>
+        
     </body>
 </html>

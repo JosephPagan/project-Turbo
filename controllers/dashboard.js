@@ -193,6 +193,14 @@ module.exports = {
             console.log(err)
         }
     },
+    getShopEdit: async (req, res) => {
+        try{
+            const shopData = await Shop.find()
+            res.render('editshop.ejs', {shopDataArray: shopData})
+        } catch (err) {
+            console.log(err)
+        }
+    },
     getAddShop: async (req, res) => {
         try{
             const shopData = await Shop.find()
@@ -204,6 +212,7 @@ module.exports = {
     postShop: async (req, res) => {
         try{
             await Shop.create({
+                userId: req.user.id,
                 shopName: req.body.shopName,
                 shopEmail: req.body.shopEmail,
                 shopPhone: req.body.shopPhone,
@@ -219,6 +228,31 @@ module.exports = {
                 average_markup: Number(req.body.aveMarkup),
                 employeeData: []
             })
+            res.redirect('myshop')
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    editShop: async (req, res) => {
+        console.log(req.body)
+        try{
+            await Shop.findOneAndUpdate(
+                {_id: ObjectId(req.body.shopId)},{
+                shopName: req.body.newShop,
+                shopEmail: req.body.newEmail,
+                shopPhone: req.body.newPhone,
+                shopAddress: req.body.newAddress,
+                shopCity: req.body.newCity,
+                shopState: req.body.newState,
+                shopZip: req.body.newZip,
+                shopWebsite: req.body.newWebsite,
+                shopOpen: req.body.newOpen,
+                shopClose: req.body.newClose,
+                shopType: req.body.newtype,
+                laborRate: Number(req.body.newRate),
+                average_markup: Number(req.body.newMarkup),
+            })
+            console.log('success')
             res.redirect('myshop')
         } catch (err) {
             console.log(err)
