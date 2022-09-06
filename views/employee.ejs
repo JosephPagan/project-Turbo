@@ -43,8 +43,9 @@
             </section>
         </nav>
         <section id="employeeTitleContainer" class="pageTitleContainer">
-            <h1><%= shopDataArray[0].employeeData[index].name %></h1>
+            <h1 id="employee_name"><%= shopDataArray[0].employeeData[index].name %></h1>
             <h2 id="employeeIndex"><%= index %></h2>
+            <h2 id="shopID"><%= shopDataArray[0]._id %></h2>
         </section>
         <section id="employeeSpecificDashSquares">
             <section id="quickButtonsContainerEmp">
@@ -109,6 +110,7 @@
                 </ul>
             </section>
         </footer>
-        <script src='/js/myShopScripts.js'></script>
+        <!-- <script src='/js/myShopScripts.js'></script> -->
+        <script src='/js/employeeScript.js'></script>
     </body>
 </html>

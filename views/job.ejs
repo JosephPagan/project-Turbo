@@ -81,10 +81,11 @@
                     <section id="jobSpecificDataContainer">
                         <label for="repairDropdown" id="specificRepairDropdownLabel">Repairs: </label>
                         <select id="repairDropdown" class="repairSelect" form="addJobForm">
-                            <option value="<%= jobArray.engine %>" disabled selected><%= jobArray.repair %></option>
+                            <option value="<%= jobArray.repair %>" disabled selected><%= jobArray.repair %></option>
                         </select>
                         <label for="jobSpecificType">Job Type: </label>
                         <select id="jobSpecificType" class="jobTypeSelect" form="addJobForm">
+                            <option value="<%= jobArray.job_type %>" disabled selected><%= jobArray.job_type %></option>
                             <option value="inspection">Inspection</option>
                             <option value="oil-change">Oil Change</option>
                             <option value="tune-up">Tune Up</option>
@@ -95,7 +96,7 @@
                         </select>
                         <label for="employeeassign">Employee for Job</label>
                         <select id="employeeAssign" form="addJobForm" name="employeeassign">
-                            <option value="" disabled selected><%= jobArray.employee_assigned %></option>
+                            <option value="<%= jobArray.employee_assigned %>" disabled selected><%= jobArray.employee_assigned %></option>
                             <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
                                 <option value="<%= shopDataArray[0].employeeData[u].name %>"><%= shopDataArray[0].employeeData[u].name %></option>
                             <% } %>

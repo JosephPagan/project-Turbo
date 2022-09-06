@@ -35,6 +35,8 @@ router.delete('/deleteEmployee', dashController.deleteEmployee)
 
 router.get('/employee', dashController.getEmployee)
 
+router.put('/updateEmployee', dashController.updateEmployee)
+
 router.get('/pointofsale', dashController.getPointOfSale)
 
 router.get('/reports', dashController.getReports)

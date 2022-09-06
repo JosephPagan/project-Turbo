@@ -3,8 +3,23 @@ const updateButton = document.querySelector('#updateJob')
 updateButton.addEventListener('click', updateJob)
 
 async function updateJob() {
-    const customerName = document.querySelector('#customerName').value
-    const jobDescription = document.querySelector('#jobSpecificDescription').value
+    const jobId = document.querySelector('#jobId').innerText
+
+    let customerName;
+    let jobDescription; 
+
+    if (document.querySelector('#customerName').value) {
+        customerName = document.querySelector('#customerName').value
+    } else {
+        customerName = document.querySelector('#customerName').getAttribute('placeholder')
+    }
+
+    if (document.querySelector('#jobSpecificDescription').value) {
+        jobDescription = document.querySelector('#jobSpecificDescription').value
+    } else {
+        jobDescription = document.querySelector('#jobSpecificDescription').getAttribute('placeholder')
+    }
+    
     const laborHour = document.querySelector('#jobHours').value
     const carYear = document.querySelector('#date-dropdown').value
     const carMake = document.querySelector('#carmake').value
@@ -50,6 +65,7 @@ async function updateJob() {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
+                'jobID': jobId,
                 'customerName': customerName,
                 'jobDescription': jobDescription,
                 'laborHour': laborHour,
@@ -92,6 +108,9 @@ async function updateJob() {
                 'part10_status': part10_status
             })
         })
+        const data = await response.text
+        console.log(data)
+        window.location.href = "/dashboard/jobs";
     } catch (err) {
         console.log(err)
     }

@@ -76,9 +76,10 @@ module.exports = {
         }
     },
     updateJob: async (req, res) => {
+        console.log(req.body)
         try{
             await Jobs.findOneAndUpdate(
-                {_id: ObjectId(req.body.jobId)},
+                {_id: ObjectId(req.body.jobID)},
                 {   $set: {   
                         name: req.body.customerName, 
                         year: req.body.carYear, 
@@ -149,6 +150,7 @@ module.exports = {
                         job_total: 0
                 }
             })
+            res.json('Completed Task')
         } catch (err) {
             console.log(err)
         }
@@ -312,8 +314,11 @@ module.exports = {
     deleteEmployee: async (req, res) => {
         console.log(req.body)
         try{
-            await Shop.findOneAndUpdate({_id: new ObjectId(req.body.ObjectId)})
-            console.log(`Employee ${req.body.ObjectId} deleted.`)
+            await Shop.findOneAndUpdate({_id: ObjectId(req.body.ShopID)},
+            {   $pull:  {
+                'employeeData': { name: req.body.EmployeeName}
+            }})
+            console.log(`Employee ${req.body.EmployeeName} deleted.`)
             res.json('Employee Deleted')
         } catch (err) {
             console.log(err)
