@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>GearHead - <%= jobArray[0].name %> Jobs</title>
+        <title>GearHead - <%= jobArray.name %> Jobs</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,18 +43,18 @@
             </section>
         </nav>
         <section id="nameContainer" class="pageTitleContainer">
-            <h1>Active Job for <strong id="custNameTitle"><%= jobArray[0].name %><h2 id="totalPrice">$0.00</h2></strong></h1>
+            <h1>Active Job for <strong id="custNameTitle"><%= jobArray.name %><h2 id="totalPrice">$0.00</h2></strong></h1>
             <!-- <h2 id="totalPrice">$0.00</h2> -->
         </section>
         <section id="jobSpecificDashSquares">
             <section id="updateJobForm" action="/dashboard/updatejob">
                 <section id="updateJobCustContainer">
-                    <h1 id="jobId" name="jobid"><%= jobArray[0]._id %></h1>
+                    <h1 id="jobId" name="jobid"><%= jobArray._id %></h1>
                     <label for="customerName">Customer Name: </label>
-                    <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray[0].name %>">
+                    <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray.name %>">
     
                     <label for="jobSpecificDescription">Job Description: </label>
-                    <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray[0].job_description %>" id="jobSpecificDescription" rows="8" cols="80"></textarea>
+                    <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray.job_description %>" id="jobSpecificDescription" rows="8" cols="80"></textarea>
 
                     <label for="jobHours">Labor Hours: </label>
                     <input id="jobHours" class="hoursInput" type="number" min="0.0" max="200" step="0.5" placeholder="0">
@@ -64,24 +64,24 @@
                 <section id="jobSpecificCarContainer">
                     <label for="date-dropdown">Year</label>
                     <select id='date-dropdown' form="addJobForm" name="caryear" onclick="generateYears()" onchange="getMakes()">
-                        <option value="<%= jobArray[0].year %>" disabled selected><%= jobArray[0].year %></option>
+                        <option value="<%= jobArray.year %>" disabled selected><%= jobArray.year %></option>
                     </select>
                     <label for="carmake">Make</label>
                     <select id="carmake" name="carmake" form="addJobForm" onchange="getModels(this.value)" required>
-                        <option value="<%= jobArray[0].make %>" disabled selected><%= jobArray[0].make %></option>
+                        <option value="<%= jobArray.make %>" disabled selected><%= jobArray.make %></option>
                     </select>
                     <label for="carmodel">Model</label>
                     <select id="carmodel" form="addJobForm" name="carmodel" onchange="getEngines(this.value)" required>
-                        <option value="<%= jobArray[0].model %>" disabled selected><%= jobArray[0].model %></option>
+                        <option value="<%= jobArray.model %>" disabled selected><%= jobArray.model %></option>
                     </select>
                     <label for="carengine">Engine</label>
                     <select id="carengine" form="addJobForm" name="carengine" onchange="getRepairs(); getCarImage()" required>
-                        <option value="<%= jobArray[0].engine %>" disabled selected><%= jobArray[0].engine %></option>
+                        <option value="<%= jobArray.engine %>" disabled selected><%= jobArray.engine %></option>
                     </select>
                     <section id="jobSpecificDataContainer">
                         <label for="repairDropdown" id="specificRepairDropdownLabel">Repairs: </label>
                         <select id="repairDropdown" class="repairSelect" form="addJobForm">
-                            <option value="<%= jobArray[0].engine %>" disabled selected><%= jobArray[0].repair %></option>
+                            <option value="<%= jobArray.engine %>" disabled selected><%= jobArray.repair %></option>
                         </select>
                         <label for="jobSpecificType">Job Type: </label>
                         <select id="jobSpecificType" class="jobTypeSelect" form="addJobForm">
@@ -95,7 +95,7 @@
                         </select>
                         <label for="employeeassign">Employee for Job</label>
                         <select id="employeeAssign" form="addJobForm" name="employeeassign">
-                            <option value="" disabled selected><%= jobArray[0].employee_assigned %></option>
+                            <option value="" disabled selected><%= jobArray.employee_assigned %></option>
                             <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
                                 <option value="<%= shopDataArray[0].employeeData[u].name %>"><%= shopDataArray[0].employeeData[u].name %></option>
                             <% } %>
@@ -241,9 +241,9 @@
                 <button id="updateJob" class="dashButton" name="updatejob">Update Job</button>
             </section>
             <section id="jobRightSideContainer">
-                <img src="<%= jobArray[0].image %>" alt="car image" id="carImage">
+                <img src="<%= jobArray.image %>" alt="car image" id="carImage">
                 <section id="quickButtonsContainer">
-                    <a href="/dashboard/customer?_id=<%= jobArray[0].name %>" id="messageButtonJobPage" class="dashButton">Customer</a>
+                    <a href="/dashboard/customer?_id=<%= jobArray.name %>" id="messageButtonJobPage" class="dashButton">Customer</a>
                     <a href="/messenger" id="messageButtonJobPage" class="dashButton">Message</a>
                     <button id="deleteJobButton" class="dashButton">Delete Job</button>
                 </section>

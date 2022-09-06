@@ -67,7 +67,7 @@
                 <ul class="dashDataContainer">
                     <!-- display the jobs already within database -->
                     <% for(var u = 0; u < jobCollectionArray.length; u++) {%>
-                        <li><a href="/job?_id=<%= jobCollectionArray[u]._id %>">
+                        <li><a href="/dashboard/job?_id=<%= jobCollectionArray[u]._id %>">
                             <div id="jobCustomerInfo">
                                 <h4><%= jobCollectionArray[u].name %></h4>
                                 <span><%= jobCollectionArray[u].job_description.toUpperCase() %></span>

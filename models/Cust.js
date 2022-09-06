@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const CustSchema = new mongoose.Schema({
+    userId: {
+        type: String,
+        required: true
+    },
     customer_name: {
         type: String,
         required: true
@@ -13,10 +17,10 @@ const CustSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    cars: {
+    cars: [{
         type: Object,
         required: true
-    },
+    }],
     createdAt: {
         type: Date,
         default: Date.now

@@ -54,8 +54,8 @@
                         <li><a href="/dashboard/customer?_id=<%= customerDataArray[u]._id %>">
                             <div>
                                 <h3>Customer ID: <%= customerDataArray[u]._id %></h3>
-                                <h4><%= customerDataArray[u].customer %></h4>
-                                <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
+                                <h4><%= customerDataArray[u].customer_name %></h4>
+                                <h5><%= customerDataArray[u].cars[0].year + ' ' + customerDataArray[u].cars[0].make.toUpperCase() + ' ' + customerDataArray[u].cars[0].model %></h5>
                             </div>
                         </a></li> 
                     <% } %>
@@ -73,8 +73,8 @@
                         <li><a href="#">
                             <div>
                                 <h3>Customer ID: <%= customerDataArray[u]._id %></h3>
-                                <h4><%= customerDataArray[u].customer %></h4>
-                                <h5><%= customerDataArray[u].cars.year + ' ' + customerDataArray[u].cars.make.toUpperCase() + ' ' + customerDataArray[u].cars.model %></h5>
+                                <h4><%= customerDataArray[u].customer_name %></h4>
+                                <h5><%= customerDataArray[u].cars[0].year + ' ' + customerDataArray[u].cars[0].make.toUpperCase() + ' ' + customerDataArray[u].cars[0].model %></h5>
                             </div>
                         </a></li>
                     <% } %>

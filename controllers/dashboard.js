@@ -1,33 +1,36 @@
 const Jobs = require('../models/Jobs')
 const Cust = require('../models/Cust')
 const Shop = require('../models/Shop')
+const { ObjectID } = require('bson')
 
 var ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     getDash: async (req, res) => {
         try{
-            const jobsData = await Jobs.find()
-            const shopData = await Shop.find()
+            const jobsData = await Jobs.find({userId: req.user.id})
+            const shopData = await Shop.find({userId: req.user.id})
             // console.log(shopData)
-            res.render('dashboard.ejs', {jobCollectionArray: jobsData, shopDataArray: shopData})
+            res.render('dashboard.ejs', {jobCollectionArray: jobsData, shopDataArray: shopData, user: req.user})
         } catch (err) {
             console.log(err)
         }
     },
     getJobs: async (req, res) => {
         try{
-            const jobsData = await Jobs.find()
-            const shopData = await Shop.find()
+            const jobsData = await Jobs.find({userId: req.user.id})
+            const shopData = await Shop.find({userId: req.user.id})
             res.render('jobs.ejs', {jobCollectionArray: jobsData, shopDataArray: shopData})
         } catch (err) {
             console.log(err)
         }
     },
     getJob: async (req, res) => {
+        console.log(req.query)
         try{
-            const jobData = await Jobs.find()
-            const shopData = await Shop.find()
+            const jobData = await Jobs.findOne({_id: req.query._id})
+            const shopData = await Shop.find({userId: req.user.id})
+            console.log(jobData)
             res.render('job.ejs', {jobArray: jobData, shopDataArray: shopData})
         } catch (err) {
             console.log(err)
@@ -36,6 +39,7 @@ module.exports = {
     postJob: async (req, res) => {
         try{
             await Jobs.create({
+                userId: req.user.id,
                 name: req.body.customerName, 
                 year: req.body.caryear, 
                 make: req.body.carmake, 
@@ -55,15 +59,16 @@ module.exports = {
                 completed: false
             })
             await Cust.create({
+                userId: req.user.id,
                 customer_name: req.body.customerName,
                 customer_phone: req.body.customerphone,
                 customer_email: req.body.customeremail,
-                cars: {
+                cars: [{
                     year: req.body.caryear,
                     make: req.body.carmake,
                     model: req.body.carmodel,
                     engine: req.body.carengine
-                }
+                }]
             })
             res.redirect('jobs')
         } catch (err) {
@@ -159,7 +164,8 @@ module.exports = {
     },
     getCustomers: async (req, res) => {
         try{
-            const custData = await Cust.find()
+            const custData = await Cust.find({userId: req.user.id})
+            // console.log(custData)
             res.render('customers.ejs', {customerDataArray: custData})
         } catch (err) {
             console.log(err)
@@ -186,8 +192,8 @@ module.exports = {
     },
     getShop: async (req, res) => {
         try{
-            const jobData = await Jobs.find()
-            const shopData = await Shop.find()
+            const jobData = await Jobs.find({userId: req.user.id})
+            const shopData = await Shop.find({userId: req.user.id})
             res.render('myshop.ejs', {jobCollectionArray: jobData, shopDataArray: shopData})
         } catch (err) {
             console.log(err)
@@ -195,7 +201,7 @@ module.exports = {
     },
     getShopEdit: async (req, res) => {
         try{
-            const shopData = await Shop.find()
+            const shopData = await Shop.find({userId: req.user.id})
             res.render('editshop.ejs', {shopDataArray: shopData})
         } catch (err) {
             console.log(err)
@@ -203,7 +209,7 @@ module.exports = {
     },
     getAddShop: async (req, res) => {
         try{
-            const shopData = await Shop.find()
+            const shopData = await Shop.find({userId: req.user.id})
             res.render('addshop.ejs', {shopDataArray: shopData})
         } catch (err) {
             console.log(err)
@@ -284,16 +290,38 @@ module.exports = {
     },
     getEmployee: async (req, res) => {
         try{
-            const shopData = await Shop.find()
+            const shopData = await Shop.find({userId: req.user.id})
             res.locals.index = req.query.index
             res.render('employee.ejs', {shopDataArray: shopData})
         } catch (err) {
             console.log(err)
         }
     },
+    updateEmployee: async (req, res) => {
+        try{
+            await Shop.findOneAndUpdate(
+                {_id: ObjectId(req.body.jobId)},
+                {   $set: {   
+                        
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    deleteEmployee: async (req, res) => {
+        console.log(req.body)
+        try{
+            await Shop.findOneAndUpdate({_id: new ObjectId(req.body.ObjectId)})
+            console.log(`Employee ${req.body.ObjectId} deleted.`)
+            res.json('Employee Deleted')
+        } catch (err) {
+            console.log(err)
+        }
+    },
     getPointOfSale: async (req, res) => {
         try{
-            const jobData = await Jobs.find()
+            const jobData = await Jobs.find({userId: req.user.id})
             res.render('pointofsale.ejs', {jobCollectionArray: jobData})
         } catch (err) {
             console.log(err)
@@ -301,7 +329,7 @@ module.exports = {
     },
     getReports: async (req, res) => {
         try{
-            const jobData = await Jobs.find()
+            const jobData = await Jobs.find({userId: req.user.id})
             res.render('reports.ejs', {jobCollectionArray: jobData})
         } catch (err) {
             console.log(err)

@@ -31,6 +31,8 @@ router.post('/addshop', dashController.postShop)
 
 router.post('/addemployee', dashController.addEmployee)
 
+router.delete('/deleteEmployee', dashController.deleteEmployee)
+
 router.get('/employee', dashController.getEmployee)
 
 router.get('/pointofsale', dashController.getPointOfSale)

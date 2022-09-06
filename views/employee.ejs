@@ -16,9 +16,9 @@
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/homepageStyle.css">
-        <link rel="stylesheet" href="css/dashboardStyle.css">
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/homepageStyle.css">
+        <link rel="stylesheet" href="/css/dashboardStyle.css">
     </head>    
     <body>
         <nav>
@@ -44,14 +44,14 @@
         </nav>
         <section id="employeeTitleContainer" class="pageTitleContainer">
             <h1><%= shopDataArray[0].employeeData[index].name %></h1>
-            
+            <h2 id="employeeIndex"><%= index %></h2>
         </section>
         <section id="employeeSpecificDashSquares">
             <section id="quickButtonsContainerEmp">
                 <a href="/messenger" id="messageButtonEmpPage" class="dashButton">Message</a>
                 <button id="deleteEmpButton" class="dashButton">Delete Employee</button>
             </section>
-            <form class="dashSquare" id="updateEmployeeForm" action="/updateemployee" method="POST">
+            <form class="dashSquare" id="updateEmployeeForm">
                 <input id="employeeName" type="text" name="employeeName" placeholder="<%= shopDataArray[0].employeeData[index].name %>">
                 <input id="employeeEmail" type="email" name="employeeEmail" placeholder="<%= shopDataArray[0].employeeData[index].email %>">
                 <input id="employeePhone" type="tel" name="employeePhone" placeholder="<%= shopDataArray[0].employeeData[index].phone %>">
