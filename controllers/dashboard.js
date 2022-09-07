@@ -280,8 +280,8 @@ module.exports = {
                     rate_of_pay: Math.round(Number(req.body.hourlyWage) * 100) / 100,
                     date: new Date(),
                     jobs: {
-                        activeJobs: 2,
-                        completedJobs: 5,
+                        activeJobs: 0,
+                        completedJobs: 0,
                     }
                 }
             }})
@@ -300,13 +300,22 @@ module.exports = {
         }
     },
     updateEmployee: async (req, res) => {
+        console.log(req.body)
         try{
             await Shop.findOneAndUpdate(
-                {_id: ObjectId(req.body.jobId)},
+                {userId: req.user.id, 'employeeData.name': req.body.EmployeeName},
                 {   $set: {   
-                        
+                    'employeeData.$.name': req.body.empNameUpdate, 
+                    'employeeData.$.email': req.body.empEmailUpdate, 
+                    'employeeData.$.phone': req.body.empPhoneUpdate, 
+                    'employeeData.$.position': req.body.empPosUpdate, 
+                    'employeeData.$.employee_type': req.body.empTypeUpdate,
+                    'employeeData.$.employee_specialty': req.body.empSpecUpdate,
+                    'employeeData.$.rate_of_pay': Math.round(Number(req.body.empRateUpdate) * 100) / 100, 
                 }
             })
+            console.log('Success')
+            res.json('Completed Task')
         } catch (err) {
             console.log(err)
         }

@@ -52,7 +52,7 @@
                 <a href="/messenger" id="messageButtonEmpPage" class="dashButton">Message</a>
                 <button id="deleteEmpButton" class="dashButton">Delete Employee</button>
             </section>
-            <form class="dashSquare" id="updateEmployeeForm">
+            <section class="dashSquare" id="updateEmployeeForm">
                 <input id="employeeName" type="text" name="employeeName" placeholder="<%= shopDataArray[0].employeeData[index].name %>">
                 <input id="employeeEmail" type="email" name="employeeEmail" placeholder="<%= shopDataArray[0].employeeData[index].email %>">
                 <input id="employeePhone" type="tel" name="employeePhone" placeholder="<%= shopDataArray[0].employeeData[index].phone %>">
@@ -63,7 +63,7 @@
                     <option value="manager">Manager</option>
                 </select>
                 <select id="employeeSpecialtyUpd" name="employeespecialty">
-                    <option value="" disabled selected><%= shopDataArray[0].employeeData[index].employee_specialty %></option>
+                    <option value="<%= shopDataArray[0].employeeData[index].employee_specialty %>" disabled selected><%= shopDataArray[0].employeeData[index].employee_specialty %></option>
                     <option value="engine-repair">Eninge Repair</option> 
                     <option value="performance">Performance</option>
                     <option value="transmission">Transmissions</option>
@@ -91,8 +91,8 @@
                         <div style="clear: both;"></div>    
                     </div>
                 </section>
-                <button type="submit" name="submitEmployee" id="updateEmployeeButton">Add</button>
-            </form>
+                <button id="updateEmployeeButton">Update</button>
+            </section>
         </section>
  
 
@@ -110,7 +110,7 @@
                 </ul>
             </section>
         </footer>
-        <!-- <script src='/js/myShopScripts.js'></script> -->
+        <script src='/js/myShopScripts.js'></script>
         <script src='/js/employeeScript.js'></script>
     </body>
 </html>

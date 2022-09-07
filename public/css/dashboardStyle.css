@@ -837,6 +837,9 @@ strong{
     width: 35%;
 }
 #updateEmployeeForm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 90%;
     height: 700px;
     margin: 0 5%;
