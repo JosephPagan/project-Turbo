@@ -59,7 +59,7 @@ async function updateEmployee() {
 
     const empPosUpd = document.getElementById('employeePositionUpd').value
     const empSpecialtyUpd = document.getElementById('employeeSpecialtyUpd').value
-    const empRateUpd = document.getElementsByName('hourlyWage').value
+    const empRateUpd = document.getElementById('wageMin').value
 
     try{
         const response = await fetch('/dashboard/updateEmployee', {

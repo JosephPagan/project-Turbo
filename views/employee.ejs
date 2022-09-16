@@ -57,7 +57,7 @@
                 <input id="employeeEmail" type="email" name="employeeEmail" placeholder="<%= shopDataArray[0].employeeData[index].email %>">
                 <input id="employeePhone" type="tel" name="employeePhone" placeholder="<%= shopDataArray[0].employeeData[index].phone %>">
                 <select id="employeePositionUpd" name="employeeposition">
-                    <option value="" disabled selected><%= shopDataArray[0].employeeData[index].position %></option>
+                    <option value="<%= shopDataArray[0].employeeData[index].position %>" disabled selected><%= shopDataArray[0].employeeData[index].position %></option>
                     <option value="tech">Technician</option>
                     <option value="lead-tech">Lead Technician</option>
                     <option value="manager">Manager</option>

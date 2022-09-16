@@ -50,10 +50,10 @@
             <section id="updateJobForm" action="/dashboard/updatejob">
                 <section id="updateJobCustContainer">
                     <h1 id="jobId" name="jobid"><%= jobArray._id %></h1>
-                    <label for="customerName">Customer Name: </label>
+                    <label for="customerName">Customer: </label>
                     <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray.name %>">
     
-                    <label for="jobSpecificDescription">Job Description: </label>
+                    <label for="jobSpecificDescription">Description: </label>
                     <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray.job_description %>" id="jobSpecificDescription" rows="8" cols="80"></textarea>
 
                     <label for="jobHours">Labor Hours: </label>
@@ -94,7 +94,7 @@
                             <option value="interior-repair">Interior Repair</option>
                             <option value="body-repair">Body Repair</option>
                         </select>
-                        <label for="employeeassign">Employee for Job</label>
+                        <label for="employeeassign">Employee:</label>
                         <select id="employeeAssign" form="addJobForm" name="employeeassign">
                             <option value="<%= jobArray.employee_assigned %>" disabled selected><%= jobArray.employee_assigned %></option>
                             <% for(var u = 0; u < shopDataArray[0].employeeData.length; u++) {%>
