@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const JobsSchema = new mongoose.Schema({
+    shopId: {
+        type: String,
+        required: true
+      },
     userId: {
         type: String,
         required: true

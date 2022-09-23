@@ -43,6 +43,8 @@ router.get('/reports', dashController.getReports)
 
 router.get('/appsettings', dashController.getSettings)
 
+router.post('/createComment/:id', dashController.postComment)
+
 
 module.exports = router
 

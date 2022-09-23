@@ -181,6 +181,9 @@ font-family: 'Antic Didone', serif;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
+.blindData{
+    display: none !important;
+}
 #jobCustomerInfo{
     width: 60%;
     height: 80%;
@@ -572,7 +575,7 @@ font-family: 'Antic Didone', serif;
     margin-left: 2%;
     margin-right: 30%;
 }
-#updateJobForm textarea{
+#updateJobForm #jobSpecificDescription{
     width: 45%;
     height: 3%;
     margin: .5%;
@@ -618,6 +621,7 @@ font-family: 'Antic Didone', serif;
     width: 40%;
     padding-top: .5%;
     margin-left: 1%;
+    height: 30%;
 }
 #customerCarUpdate{
     width: 50%;
@@ -637,6 +641,7 @@ font-family: 'Antic Didone', serif;
 #jobSpecificCarContainer select{
     margin: 2%;
     width: 60%;
+    height: 6%;
 }
 #jobSpecificDataContainer{
     width: 100%;
@@ -653,8 +658,32 @@ font-family: 'Antic Didone', serif;
 }
 #jobSpecificDataContainer select{
     width: 60%;
-    height: 35%;
+    height: 18%;
     margin-left: 0;
+}
+#commentsContainer{
+    display: flex;
+    float: right;
+    flex-direction: column;
+    width: 50%;
+    height: 45%;
+}
+#commentsList{
+    width: 90%;
+    height: 70%;
+    border: 2px solid lightgray;
+    border-radius: 8px;
+    overflow: auto;
+}
+.comment h4 {
+    margin: 0;
+}
+#jobCommentForm{
+    height: 25%;
+    display: flex;
+}
+#submitComment{
+    height: 30%;
 }
 #jobSpecificPartsContainer{
     height: 40%;

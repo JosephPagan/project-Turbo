@@ -23,6 +23,7 @@
     "heroku": "^7.60.2",
     "jquery": "^3.6.0",
     "jsdom": "^20.0.0",
+    "method-override": "^3.0.0",
     "mongodb": "^4.7.0",
     "mongoose": "^6.5.2",
     "nodemon": "^2.0.16",

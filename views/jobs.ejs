@@ -89,6 +89,7 @@
                     </select>
                 </section>
                 <form id="addJobForm" action="/dashboard/addjob" method="POST">
+                    <input class="blindData" name="shopID" form="addJobForm" value="<%= shopDataArray[0]._id %>"></input>
                     <input id="customerName" class="addJobCustomerInput" type="text" name="customerName" placeholder="Customer Name" onclick="getCarImage()" required>
                     <input id="customerPhone" class="addJobCustomerInput" type="tel" name="customerphone" placeholder="Customer Phone">
                     <input id="customerEmail" class="addJobCustomerInput" type="email" name="customeremail" placeholder="Customer Email">
@@ -99,7 +100,7 @@
                         <option value="high">High</option>
                     </select>
                     <textarea type="text" name="jobDescription" placeholder="Job Description" id="jobDescription" rows="2" cols="80"></textarea>
-                    <button type="submit" name="submitJob">Add</button>
+                    <button type="submit">Add</button>
                 </form>
                 <section>
                     <h2 id="formStatus"></h2>

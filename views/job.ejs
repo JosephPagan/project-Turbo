@@ -48,13 +48,29 @@
         </section>
         <section id="jobSpecificDashSquares">
             <section id="updateJobForm" action="/dashboard/updatejob">
+                <section id="commentsContainer">
+                    <ul id="commentsList">
+                        <% for(var i=0; i < comments.length; i++) {%>
+                            <li class="comment">
+                              <h4><%= comments[i].comment %></h4>
+                            </li>
+                          <% } %>
+                    </ul>
+                
+                    <form id="jobCommentForm" action="/dashboard/createComment/<%=jobArray._id %>" method="POST">
+                        <label for="comment">Comment: </label>
+                        <textarea for="jobCommentForm" id="comment" name="comment" type="text" rows="5" cols="30"></textarea>
+                        <button type="submit" name="submitComment" id="submitComment" class="dashButton">Add Comment</button>
+                    </form>
+                </section>
+
                 <section id="updateJobCustContainer">
                     <h1 id="jobId" name="jobid"><%= jobArray._id %></h1>
                     <label for="customerName">Customer: </label>
                     <input id="customerName" type="text" name="shopName" placeholder="<%= jobArray.name %>">
     
                     <label for="jobSpecificDescription">Description: </label>
-                    <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray.job_description %>" id="jobSpecificDescription" rows="8" cols="80"></textarea>
+                    <textarea type="text" name="jobSpecificDescription" placeholder="<%= jobArray.job_description %>" id="jobSpecificDescription" rows="5" cols="80"></textarea>
 
                     <label for="jobHours">Labor Hours: </label>
                     <input id="jobHours" class="hoursInput" type="number" min="0.0" max="200" step="0.5" placeholder="0">

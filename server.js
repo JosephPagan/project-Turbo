@@ -13,6 +13,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const MongoStore = require('connect-mongo')
+const methodOverride = require('method-override')
 const path = require('path')
 const PORT = process.env.PORT || 3000
 
@@ -27,6 +28,8 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(methodOverride("_method"));
 
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: false,  store: MongoStore.create({mongoUrl: process.env.MONGO_URI}) }))
 app.use(passport.initialize())
