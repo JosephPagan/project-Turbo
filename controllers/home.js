@@ -1,6 +1,6 @@
 module.exports = {
     getHome: (req,res)=>{
-        res.render('homepage.ejs')
+        res.render('homePage.ejs')
     },
     getPricing: (req, res) => {
         res.render('pricing.ejs')

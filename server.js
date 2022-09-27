@@ -41,6 +41,6 @@ app.use('/', homeRoutes)
 app.use('/dashboard', dashRoutes)
 
 
-app.listen(process.env.PORT || PORT, (req, res) => {
+app.listen(PORT, (req, res) => {
     console.log(`GearHead is running on port ${PORT}.`)
 })
