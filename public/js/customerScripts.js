@@ -17,7 +17,8 @@ async function deleteCust(){
             })
         })
         const data = await response.text()
-        window.location.href = "/customers";
+        console.log(data)
+        window.location.href = "/dashboard/customers";
         
     }catch(err){
         console.log(err)

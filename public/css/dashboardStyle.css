@@ -747,11 +747,15 @@ font-family: 'Antic Didone', serif;
     border-radius: 8px;
 }
 strong{
+    display: flex;
     position: fixed;
-    margin-left: .5%;
+    margin-left: 75%;
 }
 #custNameTitle{
     font-size: 1.25em;
+}
+#custNameTitle label{
+    margin-left: 8%;
 }
 #jobRightSideContainer{
     display: flex;

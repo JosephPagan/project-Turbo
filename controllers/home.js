@@ -9,6 +9,6 @@ module.exports = {
         res.render('company.ejs')
     },
     getPreview: (req, res) => {
-        res.sendFile(__dirname + '/views/preview.html')
+        res.sendFile('preview.html', {root: '/Users/silkysmooth/Documents/Projects/Auto-Engine-Here/views/'})
     }
 }

@@ -19,6 +19,8 @@ router.get('/customers', dashController.getCustomers)
 
 router.get('/customer', dashController.getCustomer)
 
+router.delete('/deleteCust', dashController.deleteCust)
+
 router.get('/myshop', dashController.getShop)
 
 router.get('/editshop', dashController.getShopEdit)

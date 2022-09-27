@@ -28,6 +28,7 @@ async function updateJob() {
     const repairName = document.querySelector('#repairDropdown').value
     const jobType = document.querySelector('#jobSpecificType').value
     const employeeAssigned = document.querySelector('#employeeAssign').value
+    const jobTotal = document.querySelector('#totalPrice').innerText
 
     const part1_name = document.querySelector('#part_1').value
     const part1_price = document.querySelector('#part_1Price').value
@@ -75,6 +76,7 @@ async function updateJob() {
                 'carEngine': carEngine,
                 'repairName': repairName,
                 'jobType': jobType,
+                'jobTotal': Number(jobTotal),
                 'employeeAssigned': employeeAssigned,
                 'part1_name': part1_name,
                 'part1_price': part1_price,
@@ -116,3 +118,27 @@ async function updateJob() {
     }
 }
 
+function runningTotal() {
+    const display = document.getElementById('totalPrice')
+    
+    const hours = document.getElementById('jobHours').value
+    const rate = document.querySelector('.blindData').value
+
+    const part1 = document.querySelector('#part_1Price').value
+    const part2 = document.querySelector('#part_2Price').value
+    const part3 = document.querySelector('#part_3Price').value
+    const part4 = document.querySelector('#part_4Price').value
+    const part5 = document.querySelector('#part_5Price').value
+    const part6 = document.querySelector('#part_6Price').value
+    const part7 = document.querySelector('#part_7Price').value
+    const part8 = document.querySelector('#part_8Price').value
+    const part9 = document.querySelector('#part_9Price').value
+    const part10 = document.querySelector('#part_10Price').value
+
+    let laborTotal = hours * rate;
+
+    total = laborTotal + Number(part1) + Number(part2) + Number(part3) + Number(part4) + Number(part5) + Number(part6) + Number(part7) + Number(part8) + Number(part9) + Number(part10);
+
+    console.log(total)
+    display.innerHTML = total
+}

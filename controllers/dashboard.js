@@ -34,6 +34,7 @@ module.exports = {
             const shopData = await Shop.find({userId: req.user.id})
             const commentData = await Comment.find({jobId: req.query._id})
             // console.log(jobData)
+            // console.log(shopData)
             // console.log(commentData)
             res.render('job.ejs', {jobArray: jobData, shopDataArray: shopData, comments: commentData})
         } catch (err) {
@@ -82,7 +83,7 @@ module.exports = {
         }
     },
     updateJob: async (req, res) => {
-        console.log(req.body)
+        // console.log("Job Total: " + req.body.jobTotal)
         try{
             await Jobs.findOneAndUpdate(
                 {_id: ObjectId(req.body.jobID)},
@@ -153,7 +154,7 @@ module.exports = {
                                 part_status: req.body.part10_status
                             }
                         },
-                        job_total: 0
+                        job_total: req.body.jobTotal
                 }
             })
             res.json('Completed Task')
@@ -182,13 +183,14 @@ module.exports = {
     getCustomer: async (req, res) => {
         try{
             const custData = await Cust.findOne({"_id":ObjectId(req.query._id)})
-            console.log(custData)
+            // console.log(custData)
             res.render('customer.ejs', {customerInfo: custData})
         } catch (err) {
             console.log(err)
         }
     },
     deleteCust: async (req, res) => {
+        // console.log(req.body)
         try{
             await Cust.deleteOne({_id: new ObjectId(req.body.ObjectId)})
             await Jobs.deleteOne({name: req.body.CustName})
