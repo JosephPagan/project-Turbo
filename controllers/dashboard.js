@@ -61,7 +61,58 @@ module.exports = {
                 status: 0,
                 date: new Date(),
                 labor_hours: 0,
-                parts_list: {},
+                parts_list: {
+                    one: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    two: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    three: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    four: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    five: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    six: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    seven: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    eight: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    nine: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    },
+                    ten: {
+                        part_name: "",
+                        part_price: "",
+                        part_status: ""
+                    }
+                },
                 job_total: 0,
                 completed: false
             })

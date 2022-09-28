@@ -67,7 +67,7 @@ function getModels(make) {
     })
         .then( (data) => data.json())
         .then( (results) => {
-            console.log(results)
+            // console.log(results)
             let arrayOfCars = results.data
             for(x = 0; x < arrayOfCars.length; x++) {
                 let modelOption = document.createElement('option')
@@ -100,7 +100,7 @@ function getEngines(model) {
     })
         .then( (data) => data.json())
         .then( (results) => {
-            console.log(results)
+            // console.log(results)
             let arrayOfEngines = results.data
             for(x = 0; x < arrayOfEngines.length; x++) {
                 let engineOption = document.createElement('option')
@@ -133,7 +133,7 @@ function getRepairs() {
     })
         .then( (data) => data.json())
         .then( (results) => {
-            console.log(results)
+            // console.log(results)
             let arrayOfRepairs = results.data
             for(x = 0; x < arrayOfRepairs.length; x++) {
                 let repairOption = document.createElement('option')
