@@ -19,7 +19,7 @@ function generateYears() {
 function getMakes() {
     let year = document.getElementById('date-dropdown').value
 
-    const apiUrl = `http://api.carmd.com/v3.0/make?year=${year}`;
+    const apiUrl = `https://api.carmd.com/v3.0/make?year=${year}`;
     // console.log(apiUrl)
 
     let makeDropdown = document.getElementById('carmake');
@@ -52,7 +52,7 @@ function getModels(make) {
     //console.log(make)
     // let make = document.getElementById('#carmake').value
 
-    const apiUrl = `http://api.carmd.com/v3.0/model?year=${year}&make=${make}`;
+    const apiUrl = `https://api.carmd.com/v3.0/model?year=${year}&make=${make}`;
     //console.log(apiUrl)
     let modelDropdown = document.getElementById('carmodel');
     let options = document.querySelectorAll('#carmodel option')
@@ -85,7 +85,7 @@ function getEngines(model) {
     // console.log(make)
     // console.log(model)
 
-    const apiUrl = `http://api.carmd.com/v3.0/engine?year=${year}&make=${make}&model=${model}`;
+    const apiUrl = `https://api.carmd.com/v3.0/engine?year=${year}&make=${make}&model=${model}`;
     //console.log(apiUrl)
     let engineDropdown = document.getElementById('carengine');
     let options = document.querySelectorAll('#carengine option')
@@ -118,7 +118,7 @@ function getRepairs() {
     let model = document.getElementById('carmodel').value
     let engine = document.getElementById('carengine').value
 
-    const apiUrl = `http://api.carmd.com/v3.0/repairlist?year=${year}&make=${make}&model=${model}&engine=${engine}`;
+    const apiUrl = `https://api.carmd.com/v3.0/repairlist?year=${year}&make=${make}&model=${model}&engine=${engine}`;
     //console.log(apiUrl)
     let repairDropdown = document.getElementById('repairDropdown');
     let options = document.querySelectorAll('#repairDropdown option')
@@ -156,7 +156,7 @@ function getCarImage() {
     // console.log(model)
     // console.log(engine)
 
-    const apiUrl = `http://api.carmd.com/v3.0/image?year=${year}&make=${make}&model=${model}&engine=${engine}`;
+    const apiUrl = `https://api.carmd.com/v3.0/image?year=${year}&make=${make}&model=${model}&engine=${engine}`;
     console.log(apiUrl)
 
     fetch(apiUrl, {
