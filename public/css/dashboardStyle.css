@@ -6,6 +6,18 @@ font-family: 'Antic Didone', serif;
  */
 
 /* Nav Style */
+.hamburger{
+    display: none;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    /* -webkit-transition: all 0.3s ease-in-out; */
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
 #dashboardLogo{
     width: 80px;
 }
@@ -466,7 +478,7 @@ font-family: 'Antic Didone', serif;
     margin: 2% 1%;
 }
 #ccInfo input{
-    width: 50%;
+    flex-grow: 1;
     height: 8%;
     margin: 2% 1%;
     margin-left: 3%;
@@ -911,4 +923,76 @@ strong{
 }
 #employeeIndex{
     display: none;
+}
+@media only screen and (max-width: 768px) {
+    #mainDash{
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+    #mainDash.active {
+        left: 0;
+    }
+
+    .icon {
+        margin: 2.5rem 0;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    #navDashContainer{
+        justify-content: center;
+        height: 100%;
+        width: 80%;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+@media screen and (max-width: 540px) {
+    li{
+        font-size: 0.8em;
+    }
+    .dashSquare a {
+        justify-content: flex-start
+    }
+    #jobCustomerInfo{
+        width: 70%;
+    }
+    .jobStat{
+        width: 30%;
+    }
+    #messageButton{
+        margin-left: 40%;
+        width: 25%;
+    }
+    #quoteButton{
+        width: 25%;
+    }
+    #invoiceButton{
+        width: 25%;
+    }
+    #enterJobs{
+        width: 100%;
+    }
+    #activeJobs-jobs{
+        width: 100%;
+    }
 }

@@ -548,3 +548,14 @@ footer a{
         opacity: 1;
     }
 }
+@media screen and (max-width: 540px) {
+    nav a{
+        font-size: 0.5em;
+    }
+    .dashButton{
+        font-size: 0.8em;
+    }
+    #buttonContainer{
+        width: 35%;
+    }
+}
