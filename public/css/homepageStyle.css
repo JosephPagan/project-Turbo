@@ -70,6 +70,9 @@ nav{
 #titleContainer:hover{
     box-shadow: 0 5px 10px #3FA3C8;
 }
+#dashboardLogo{
+    display: none;
+}
 #buttonContainer{
     width: 20%;
     display: flex;
@@ -443,7 +446,7 @@ p, span, li{
     line-height: 1.5em;
 }
 #demo1List li{
-    list-style-type: disc;
+    list-style-type: none;
 }
 footer a{
     text-decoration: none;
@@ -549,13 +552,90 @@ footer a{
     }
 }
 @media screen and (max-width: 540px) {
-    nav a{
-        font-size: 0.5em;
+    nav a, nav button, #reelContainer a, .dashButton{
+        font-size: 0.8em;
+        font-family: 'Sarpanch', sans-serif;
+        text-decoration: none;
+        color: black;
+    }
+    .navButton{
+        font-size: .5em;
     }
     .dashButton{
         font-size: 0.8em;
     }
+    #navLinks{
+        width: 45%;
+    }
     #buttonContainer{
-        width: 35%;
+        width: 30%;
+    }
+    #navDashContainer{
+        width: 98%;
+    }
+    .dropbtn{
+        padding: 0;
+        width: 95%;
+        padding-bottom: 6%;
+    }
+    .dropdown-content{
+        padding: .75%;
+        width: 65%;
+        height: 1000%;
+
+    }
+    .dropdown-content a{
+        height: 33%;
+        width: 50%;
+    }
+    .dropdown-content a > img{
+        width: 70px;
+        height: 70px;
+    }
+    .homepageSection{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .homepageSection img{
+        width: 80%;
+    }
+    .homepageTextContainer{
+        width: 90%;
+    }
+    #hook{
+        padding-top: 15%;
+    }
+    ul{
+        padding-left: 1.5%;
+    }
+    li{
+        font-size: .8em;
+    }
+    h2{
+        font-size: 1.7em;
+    }
+    #reel h2{
+        font-size: 1em;
+    }
+    .blind540{
+        display: none;
+    }
+    #dashboardLogo{
+        display: inline-block;
+        width: 60px;
+    }
+    #titlePlan{
+        padding-top: 18%;
+    }
+    #plan1{
+        margin-bottom: 102%;
+    }
+    #companyBox{
+        width: 90%;
+        margin: 0 4.5%;
+        margin-bottom: 109%;
     }
 }
