@@ -590,7 +590,7 @@ footer a{
     }
     .dropdown-content a > img{
         width: 70px;
-        height: 70px;
+        height: 65px;
     }
     .homepageSection{
         display: flex;
@@ -630,6 +630,9 @@ footer a{
     #titlePlan{
         padding-top: 18%;
     }
+    #login{
+        padding-top: 22%;
+    }
     #plan1{
         margin-bottom: 102%;
     }
@@ -637,5 +640,29 @@ footer a{
         width: 90%;
         margin: 0 4.5%;
         margin-bottom: 109%;
+    }
+    #login, #signin{
+        width: 90%;
+        height: 18em;
+        margin: 0 4.5% 5% 4.5%;
+    }
+    #loginButton{
+        height: 18%;
+        width: 50%;
+    }
+    form > input{
+        height: 15%;
+    }
+    #signin{
+        height: 25em;
+    }
+    #signupForm > input{
+        height: 22%;
+    }
+    #estimatesContainer{
+        height: 15em;
+    }
+    #arrowImage {
+        display: none;
     }
 }

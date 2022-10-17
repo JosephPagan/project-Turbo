@@ -19,6 +19,7 @@ font-family: 'Antic Didone', serif;
     background-color: #101010;
 }
 #dashboardLogo{
+    display: inline-block;
     width: 80px;
 }
 #titleContainer{
@@ -946,13 +947,21 @@ strong{
         margin: 2.5rem 0;
     }
     .hamburger {
-        display: block;
+        display: inline-block;
+        margin-right: 1%;
         cursor: pointer;
+        height: 90%;
+        z-index: 1;
+        border: 2px solid #3FA3C8;
+        border-radius: 5px;
     }
     #navDashContainer{
         justify-content: center;
         height: 100%;
-        width: 80%;
+        width: 88%;
+    }
+    #buttonContainer{
+        width: 30%;
     }
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
@@ -965,8 +974,24 @@ strong{
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+    #homeLink{
+        width: 23%;
+        margin-right: 75%;
+    }
+    .dashSquare{
+        width: 90%;
+    }
+    .pageTitleContainer{
+        padding-top: 10%;
+    }
 }
 @media screen and (max-width: 540px) {
+    nav{
+        height: 3.5%;
+    }
+    #dashboardLogo{
+        width: 30%;
+    }
     li{
         font-size: 0.8em;
     }
